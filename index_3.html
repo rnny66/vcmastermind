@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The VC Coach — Emerging Manager Mastermind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-cream: #F7F5F0;
+            --color-charcoal: #2D3A38;
+            --color-primary: #1c4e46;
+            --color-primary-light: #2a6b60;
+            --color-primary-soft: rgba(28, 78, 70, 0.08);
+            --color-accent: #ff8a00;
+            --color-accent-light: #ffaa40;
+            --color-taupe: #6B7A77;
+            --color-stone: #E8E4DC;
+            --color-sage: #E9EFED;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Outfit', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-cream);
+            color: var(--color-charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            background: rgba(247, 245, 240, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(26, 26, 26, 0.05);
+            animation: fadeDown 0.8s ease-out;
+        }
+
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--color-charcoal);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--color-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-taupe);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-charcoal);
+        }
+
+        .nav-cta {
+            padding: 0.75rem 1.5rem;
+            background: var(--color-primary);
+            color: var(--color-cream) !important;
+            border-radius: 2px;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--color-accent) !important;
+            color: var(--color-charcoal) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 6rem;
+            background: 
+                radial-gradient(ellipse at 70% 20%, rgba(28, 78, 70, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 80%, rgba(28, 78, 70, 0.04) 0%, transparent 40%),
+                var(--color-cream);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--color-accent);
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            color: var(--color-charcoal);
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: var(--color-taupe);
+            max-width: 540px;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem 2.5rem;
+            background: var(--color-primary);
+            color: var(--color-cream);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--color-accent);
+            transition: left 0.4s ease;
+            z-index: 0;
+        }
+
+        .hero-cta:hover::before {
+            left: 0;
+        }
+
+        .hero-cta span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-cta:hover {
+            color: var(--color-charcoal);
+        }
+
+        .hero-cta svg {
+            width: 20px;
+            height: 20px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(5px);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeUp 1s ease-out 0.4s both;
+        }
+
+        .hero-details {
+            background: var(--color-stone);
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .hero-details::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--color-primary);
+            z-index: -1;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--color-primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .detail-text {
+            font-size: 0.95rem;
+            color: var(--color-charcoal);
+            line-height: 1.6;
+        }
+
+        .detail-text strong {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        /* What It Is Section */
+        .what-it-is {
+            padding: 8rem 0;
+            background: var(--color-sage);
+            color: var(--color-charcoal);
+            position: relative;
+        }
+
+        .what-it-is::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+        }
+
+        .what-it-is-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 6rem;
+            align-items: start;
+            position: relative;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .what-it-is-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.2;
+            position: sticky;
+            top: 8rem;
+        }
+
+        .what-it-is-text p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 2;
+            color: var(--color-taupe);
+            margin-bottom: 2rem;
+        }
+
+        .what-it-is-text p:first-of-type::first-letter {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            float: left;
+            line-height: 1;
+            padding-right: 1rem;
+            color: var(--color-primary);
+        }
+
+        .not-list {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(28, 78, 70, 0.15);
+        }
+
+        .not-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--color-taupe);
+        }
+
+        .not-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--color-primary);
+        }
+
+        /* Who It's For Section */
+        .who-for {
+            padding: 8rem 0;
+            background: var(--color-cream);
+        }
+
+        .who-for-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+
+        .who-for-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .who-for-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--color-taupe);
+            line-height: 1.8;
+        }
+
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .criteria-card {
+            padding: 2.5rem 2rem;
+            background: var(--color-stone);
+            position: relative;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+            text-align: center;
+        }
+
+        .criteria-card:hover {
+            background: var(--color-cream);
+            border-color: var(--color-primary);
+            transform: translateY(-5px);
+        }
+
+        .criteria-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1.5rem;
+            color: var(--color-primary);
+        }
+
+        .criteria-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: var(--color-charcoal);
+        }
+
+        .criteria-card p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--color-taupe);
+            line-height: 1.6;
+        }
+
+        /* What You Get Section */
+        .what-you-get {
+            padding: 8rem 0;
+            background: var(--color-stone);
+        }
+
+        .what-you-get-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+
+        .what-you-get-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .offerings-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .offering-card {
+            padding: 3rem;
+            background: var(--color-cream);
+            border: 1px solid rgba(26, 26, 26, 0.08);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .offering-card:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .offering-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--color-accent);
+            opacity: 0.6;
+            margin-bottom: 1rem;
+        }
+
+        .offering-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--color-charcoal);
+        }
+
+        .offering-card > p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--color-taupe);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .offering-topics {
+            list-style: none;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(26, 26, 26, 0.08);
+        }
+
+        .offering-topics li {
+            font-size: 0.9rem;
+            color: var(--color-charcoal);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .offering-topics li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--color-primary);
+            border-radius: 50%;
+        }
+
+        .offering-card.featured {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            background: var(--color-primary);
+            color: var(--color-cream);
+            border: none;
+        }
+
+        .offering-card.featured .offering-number {
+            color: var(--color-accent-light);
+            opacity: 0.8;
+        }
+
+        .offering-card.featured h3 {
+            color: var(--color-cream);
+        }
+
+        .offering-card.featured > p {
+            color: rgba(247, 245, 240, 0.7);
+        }
+
+        .offering-card.featured .offering-topics {
+            border-top-color: rgba(247, 245, 240, 0.15);
+        }
+
+        .offering-card.featured .offering-topics li {
+            color: rgba(247, 245, 240, 0.85);
+        }
+
+        .offering-card.featured .offering-topics li::before {
+            background: rgba(247, 245, 240, 0.5);
+        }
+
+        .featured-quote {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: rgba(247, 245, 240, 0.9);
+            padding-left: 2rem;
+            border-left: 2px solid var(--color-accent-light);
+        }
+
+        /* Why It Works Section */
+        .why-works {
+            padding: 8rem 0;
+            background: var(--color-cream);
+        }
+
+        .why-works-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .why-works-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .why-works-list {
+            list-style: none;
+        }
+
+        .why-works-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem 0;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--color-charcoal);
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+        }
+
+        .why-works-list li svg {
+            width: 24px;
+            height: 24px;
+            color: var(--color-primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Selection Section */
+        .selection {
+            padding: 8rem 0;
+            background: var(--color-sage);
+        }
+
+        .selection-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .selection-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .selection-intro {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--color-taupe);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .selection-criteria {
+            list-style: none;
+        }
+
+        .selection-criteria li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            font-size: 1rem;
+            color: var(--color-charcoal);
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+        }
+
+        .selection-criteria li svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .timeline {
+            background: var(--color-cream);
+            padding: 2.5rem;
+        }
+
+        .timeline h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: var(--color-charcoal);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--color-accent);
+            min-width: 120px;
+        }
+
+        .timeline-event {
+            font-size: 0.95rem;
+            color: var(--color-charcoal);
+        }
+
+        /* Facilitators Section */
+        .facilitators {
+            padding: 8rem 0;
+            background: var(--color-cream);
+            color: var(--color-charcoal);
+            position: relative;
+        }
+
+        .facilitators::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 30% 50%, rgba(28, 78, 70, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 50%, rgba(28, 78, 70, 0.03) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .facilitators-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .facilitators-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+        }
+
+        .facilitators-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+            position: relative;
+        }
+
+        .facilitator-card {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .facilitator-image {
+            width: 140px;
+            height: 180px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .facilitator-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--color-primary);
+            z-index: -1;
+        }
+
+        .facilitator-image-placeholder {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--color-cream);
+        }
+
+        .facilitator-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--color-charcoal);
+        }
+
+        .facilitator-info p {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            color: var(--color-taupe);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 8rem 0;
+            background: var(--color-sage);
+            position: relative;
+        }
+
+        .pricing-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .pricing-text .section-label {
+            color: var(--color-primary);
+        }
+
+        .pricing-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-description {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--color-taupe);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--color-charcoal);
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+        }
+
+        .pricing-features li svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-primary);
+            flex-shrink: 0;
+        }
+
+        .pricing-card {
+            background: var(--color-primary);
+            color: var(--color-cream);
+            padding: 4rem 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--color-primary-light);
+            z-index: -1;
+        }
+
+        .price-label {
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(247, 245, 240, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        .price-amount {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-weight: 400;
+            color: var(--color-cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-period {
+            font-size: 0.95rem;
+            color: rgba(247, 245, 240, 0.5);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-comparison {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: rgba(247, 245, 240, 0.6);
+            margin-bottom: 2.5rem;
+        }
+
+        .price-cta {
+            display: block;
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: var(--color-cream);
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-cream);
+        }
+
+        .price-cta:hover {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-charcoal);
+        }
+
+        .price-note {
+            font-size: 0.85rem;
+            color: rgba(247, 245, 240, 0.5);
+            margin-top: 1.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 10rem 0;
+            background: var(--color-cream);
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(28, 78, 70, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-title em {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+
+        .cta-description {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: var(--color-taupe);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 3rem;
+            background: var(--color-primary);
+            color: var(--color-cream);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--color-accent);
+            color: var(--color-charcoal);
+        }
+
+        .cta-button svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover svg {
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0;
+            background: var(--color-primary);
+            color: rgba(247, 245, 240, 0.6);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--color-cream);
+        }
+
+        .footer-logo span {
+            color: rgba(247, 245, 240, 0.7);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: rgba(247, 245, 240, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-cream);
+        }
+
+        .footer-copyright {
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-visual {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .what-it-is-content,
+            .why-works-content,
+            .selection-content,
+            .pricing-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .what-it-is-title {
+                position: static;
+            }
+
+            .criteria-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .offerings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .offering-card.featured {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+            }
+
+            .facilitators-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .facilitator-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .facilitator-image {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 8rem;
+            }
+
+            .not-list {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">The <span>VC</span> Coach</a>
+            <ul class="nav-links">
+                <li><a href="#what-it-is">About</a></li>
+                <li><a href="#what-you-get">Program</a></li>
+                <li><a href="#facilitators">Facilitators</a></li>
+                <li><a href="#pricing">Investment</a></li>
+                <li><a href="#pricing" class="nav-cta">Apply Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">Limited to 8 Members</span>
+                    <h1>Emerging Manager <em>Mastermind</em></h1>
+                    <p class="hero-description">A 3-month, curated confidential peer group for first- and second-time fund builders. Get sharper, calmer, and more effective as a GP — without the noise, posturing, or competitiveness of public VC communities.</p>
+                    <a href="#pricing" class="hero-cta">
+                        <span>Apply for Cohort</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-details">
+                        <div class="detail-item">
+                            <svg class="detail-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div class="detail-text">
+                                <strong>3 Months Intensive</strong>
+                                Bi-weekly 90-minute sessions
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <svg class="detail-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            <div class="detail-text">
+                                <strong>8 Members Maximum</strong>
+                                Curated for trust & chemistry
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <svg class="detail-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                            </svg>
+                            <div class="detail-text">
+                                <strong>Fully Remote</strong>
+                                Join from anywhere
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <svg class="detail-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <div class="detail-text">
+                                <strong>Next Cohort: Feb 2026</strong>
+                                Applications open Jan 2
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What It Is Section -->
+    <section class="what-it-is" id="what-it-is">
+        <div class="container">
+            <div class="what-it-is-content">
+                <div class="what-it-is-left">
+                    <span class="section-label">What It Is</span>
+                    <h2 class="what-it-is-title">A trusted board of peers + a skilled facilitator holding the space.</h2>
+                </div>
+                <div class="what-it-is-text">
+                    <p>A small, hand-picked circle of emerging managers who meet bi-weekly to get sharper, calmer, and more effective as GPs — without the noise, posturing, or competitiveness of public VC communities.</p>
+                    <p>This is not a transactional networking group. The value lies in clear thinking, better decisions, and not feeling like you're building your fund alone. A reference group where shared realities replace pitching and decision-making quality compounds.</p>
+                    <div class="not-list">
+                        <div class="not-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            Not a course
+                        </div>
+                        <div class="not-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            Not an accelerator
+                        </div>
+                        <div class="not-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            Not another Slack channel
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who It's For Section -->
+    <section class="who-for" id="who-for">
+        <div class="container">
+            <div class="who-for-header fade-in">
+                <span class="section-label">Who It's For</span>
+                <h2 class="who-for-title">For First & Second-Time Fund Builders</h2>
+                <p class="who-for-subtitle">Solo GPs and emerging managers raising Fund I–II who are ready to sharpen their edge.</p>
+            </div>
+            <div class="criteria-grid">
+                <div class="criteria-card fade-in">
+                    <svg class="criteria-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <h3>Hungry for Clarity</h3>
+                    <p>Seeking strategic focus, emotional grounding, and tactical support for your fund journey.</p>
+                </div>
+                <div class="criteria-card fade-in">
+                    <svg class="criteria-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                    <h3>Open & Coachable</h3>
+                    <p>Ready to contribute, willing to be challenged, and committed to candor and transparency.</p>
+                </div>
+                <div class="criteria-card fade-in">
+                    <svg class="criteria-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <h3>Looking for "Your People"</h3>
+                    <p>Seeking genuine connection with peers who understand the EM struggle — not another networking event.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get Section -->
+    <section class="what-you-get" id="what-you-get">
+        <div class="container">
+            <div class="what-you-get-header fade-in">
+                <span class="section-label">What You Get</span>
+                <h2 class="what-you-get-title">Everything You Need to Build with Confidence</h2>
+            </div>
+            <div class="offerings-grid">
+                <div class="offering-card featured fade-in">
+                    <div>
+                        <div class="offering-number">01</div>
+                        <h3>Bi-Weekly Mastermind Sessions</h3>
+                        <p>Structured, facilitated 90-minute conversations designed to break through your biggest challenges.</p><br>
+                        <ul class="offering-topics">
+                            <li>LP strategy + narrative</li>
+                            <li>Team + partner dynamics</li>
+                            <li>Dealflow focus</li>
+                            <li>Decision frameworks (IC structure)</li>
+                            <li>Confidence, identity, and resilience</li>
+                            <li>Hard conversations inside the fund</li>
+                            <li>Alignment of interests with LPs</li>
+                            <li>Portfolio construction for small funds</li>
+                        </ul>
+                    </div>
+                    <div class="featured-quote">
+                        "Insights on what LPs worry about but don't say."
+                    </div>
+                </div>
+                <div class="offering-card fade-in">
+                    <div class="offering-number">02</div>
+                    <h3>Hot Seat Coaching</h3>
+                    <p>Every member gets dedicated sessions focused on their specific challenges. Think of it as a confidential personal IC or Advisory Board — without hierarchy or politics — to sharpen judgment and reveal blind spots.</p>
+                    <ul class="offering-topics">
+                        <li>Investor relations or fundraising bottlenecks</li>
+                        <li>Narrative sharpening</li>
+                        <li>Relationship challenges</li>
+                        <li>High-stakes decisions</li>
+                    </ul>
+                </div>
+                <div class="offering-card fade-in">
+                    <div class="offering-number">03</div>
+                    <h3>Private Peer Circle</h3>
+                    <p>A small, closed group (8 max) curated for trust, chemistry, and shared ambition. A reference group where shared realities replace pitching and decision-making quality compounds.</p>
+                </div>
+                <div class="offering-card fade-in">
+                    <div class="offering-number">04</div>
+                    <h3>On-Call Support</h3>
+                    <p>Light async support between sessions for moments where you need a fast sounding board. Because timing matters when decisions are on the line.</p>
+                </div>
+                <div class="offering-card fade-in">
+                    <div class="offering-number">05</div>
+                    <h3>Zero-BS Environment</h3>
+                    <p>No pitching. No status games. No "looking good." Real VC operators pushing each other forward in a space safe enough to be honest.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why It Works Section -->
+    <section class="why-works">
+        <div class="container">
+            <div class="why-works-content fade-in">
+                <div>
+                    <span class="section-label">Why It Works</span>
+                    <h2 class="why-works-title">Stop Building Your Fund Alone</h2>
+                </div>
+                <ul class="why-works-list">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        You get peers who actually understand the emerging manager struggle.
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        You get a space safe enough to be completely honest.
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        You get sharper, faster — with less stress.
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        You stop building your fund alone — without losing control.
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        You get a confidential personal Advisory Board without politics or hierarchy.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selection Section -->
+    <section class="selection" id="selection">
+        <div class="container">
+            <div class="selection-content fade-in">
+                <div>
+                    <span class="section-label">Selection Process</span>
+                    <h2 class="selection-title">Why Not Everyone Gets In</h2>
+                    <p class="selection-intro">This only works if people can speak freely, and that requires confidentiality and zero competitive overlap.</p>
+                    <ul class="selection-criteria">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                            Confidentiality is non-negotiable
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                            </svg>
+                            No direct fund competition (geo, strategy)
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            A shared commitment to candor, transparency and contribution
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            Willingness to be challenged
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            We do not include people looking to pitch, recruit or build a brand
+                        </li>
+                    </ul>
+                </div>
+                <div class="timeline">
+                    <h3>Application Timeline</h3>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jan 2, 2026</div>
+                        <div class="timeline-event">Applications open</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jan 20, 2026</div>
+                        <div class="timeline-event">Application deadline</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jan 21–31, 2026</div>
+                        <div class="timeline-event">Interviews / selection</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb 1, 2026</div>
+                        <div class="timeline-event">Confirm participants</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb 5–7, 2026</div>
+                        <div class="timeline-event">Program starts</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb–Apr 2026</div>
+                        <div class="timeline-event">Weekly sessions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilitators Section -->
+    <section class="facilitators" id="facilitators">
+        <div class="container">
+            <div class="facilitators-header fade-in">
+                <span class="section-label">Your Facilitators</span>
+                <h2 class="facilitators-title">Led by Practitioners, Not Theorists</h2>
+            </div>
+            <div class="facilitators-grid">
+                <div class="facilitator-card fade-in">
+                    <div class="facilitator-image">
+                        <span class="facilitator-image-placeholder">AL</span>
+                    </div>
+                    <div class="facilitator-info">
+                        <h3>Anieke Lamers</h3>
+                        <p>A VC with 15+ years of venture capital experience and the founder of The VC Coach. She has facilitated multiple peer mastermind groups, both online and offline, and has seen firsthand how structured peer coaching can accelerate growth, clarity, and confidence for emerging managers. Anieke combines deep VC expertise with a human-centered coaching approach, creating a space where GPs can tackle strategic, operational, and personal challenges openly — and leave with practical insights, accountability, and a trusted network of peers.</p>
+                    </div>
+                </div>
+                <div class="facilitator-card fade-in">
+                    <div class="facilitator-image">
+                        <span class="facilitator-image-placeholder">LN</span>
+                    </div>
+                    <div class="facilitator-info">
+                        <h3>Liliana Negrila</h3>
+                        <p>A former investor in European VC funds at the European Investment Fund, where she evaluated managers, governance structures, and fund strategies across the European VC ecosystem. She later became an entrepreneur, experiencing firsthand the realities of building and owning a business. Today, she works as a coach supporting leadership and inner evolution. Her work blends LP-grade judgment, a constructive "how can we make this happen?" attitude, and a genuine enthusiasm for unlocking human potential.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="pricing-content">
+                <div class="pricing-text">
+                    <span class="section-label">Your Investment</span>
+                    <h2 class="pricing-title">Everything Included</h2>
+                    <p class="pricing-description">A complete program designed for meaningful transformation — no hidden fees, no upsells.</p>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Bi-weekly peer mastermind sessions
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Inspiration sessions & workshops
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            1:1 executive coaching
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            On-call async support
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Private peer circle access
+                        </li>
+                    </ul>
+                </div>
+                <div class="pricing-card fade-in">
+                    <div class="price-label">3-Month Program</div>
+                    <div class="price-amount">€1,600</div>
+                    <div class="price-period">One-time investment</div>
+                    <div class="price-comparison">Cheaper than one LP dinner, and far more useful.</div>
+                    <a href="#" class="price-cta">Apply Now</a>
+                    <p class="price-note">Application required • Limited to 8 members per cohort</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <span class="section-label">Next Steps</span>
+                <h2 class="cta-title">Ready to Find <em>Your People?</em></h2>
+                <p class="cta-description">Spots are limited. Apply now to save your place in the next cohort. Acceptance depends on application interview.</p>
+                <a href="#" class="cta-button">
+                    Begin Your Application
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">The <span>VC</span> Coach</div>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <p class="footer-copyright">© 2025 The VC Coach. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
