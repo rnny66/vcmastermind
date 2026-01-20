@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The VC Coach — Executive Coaching for Venture Capitalists</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/logo-black.png" alt="The VC Coach">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#coaching">1:1 Coaching</a></li>
+                <li><a href="mastermind.html">Mastermind</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#coaching" class="nav-cta">Get Started</a></li>
+            </ul>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#coaching" onclick="closeMobileMenu()">1:1 Coaching</a>
+        <a href="mastermind.html">Mastermind</a>
+        <a href="#about" onclick="closeMobileMenu()">About</a>
+        <a href="#process" onclick="closeMobileMenu()">Process</a>
+        <a href="#coaching" onclick="closeMobileMenu()"
+            style="padding: 1rem 2rem; background: var(--color-primary); color: var(--color-cream);">Get Started</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>You're backing founders, managing LPs, and leading a team, but who's got <em>your</em> back?
+                    </h1>
+                    <p class="hero-description">Executive coaching for venture capitalists who want to be more impactful
+                        as sustainable leaders.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="#coaching" class="hero-cta">
+                            <span>Explore 1:1 Coaching</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                        <a href="mastermind.html" class="hero-cta" style="background: var(--color-accent);">
+                            <span>Join the Mastermind</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <img src="img/anieke-2.jpg" alt="Anieke Lamers - Executive Coach for Venture Capitalists"
+                        loading="eager" width="800" height="960">
+                    <div class="hero-image-overlay">
+                        <div class="detail-text">
+                            <strong>Certified Executive Coach</strong>
+                            <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem;">Over a decade in venture capital, now
+                                dedicated to making VC leadership more sustainable and impactful.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="who-for">
+        <div class="container">
+            <div class="who-for-header fade-in">
+                <span class="section-label">Services</span>
+                <h2 class="who-for-title">Choose Your Path</h2>
+                <p class="who-for-subtitle">Whether you need individual coaching or a trusted peer group, I've got you
+                    covered.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    <h3>1:1 Executive Coaching</h3>
+                    <p>Personalized coaching sessions to sharpen your goals, navigate challenges, and optimize your
+                        decision-making. A confidential space for reflection without judgment or conflicting interests.
+                    </p>
+                    <a href="#coaching" class="service-link">
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="service-card fade-in">
+                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <h3>Emerging Manager Mastermind</h3>
+                    <p>A 3-month curated peer group for first and second-time fund builders. Bi-weekly facilitated
+                        sessions, hot seat coaching, and a trusted circle of peers who understand the EM struggle.</p>
+                    <a href="mastermind.html" class="service-link">
+                        View Program Details
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="facilitators" id="about">
+        <div class="container">
+            <div class="facilitators-header fade-in">
+                <span class="section-label">About</span>
+                <h2 class="facilitators-title">Led by a Practitioner, Not a Theorist</h2>
+            </div>
+            <div class="facilitators-grid">
+                <div class="facilitator-card fade-in" style="grid-column: 1 / -1; max-width: 900px; margin: 0 auto;">
+                    <div class="facilitator-image about-image">
+                        <img src="img/anieke-1.jpg" alt="Anieke Lamers - Executive Coach and Former VC" loading="lazy"
+                            width="500" height="600">
+                    </div>
+                    <div class="facilitator-info">
+                        <h3>Anieke Lamers</h3>
+                        <p><strong>Founder of The VC Coach</strong> • Based in Portugal (originally Netherlands) •
+                            Certified Executive Coach</p>
+                        <p style="margin-top: 1rem;">With over a decade in venture capital — spanning Private Equity,
+                            Corporate VC, Impact VC fund management, informal investor roles, VC Scout positions, and
+                            startup operations — Anieke brings deep insider knowledge to her coaching practice.</p>
+                        <p style="margin-top: 1rem;"><strong>Mission:</strong> "Make the future of venture capital more
+                            human."</p>
+                        <p style="margin-top: 1rem;">Anieke believes VCs should be more human, impact and
+                            purpose-driven, collaborative, and entrepreneurial — and less hierarchical, political,
+                            biased, and exclusive. Her experience inside the VC sector revealed systemic gaps: the
+                            absence of clear learning and development programs and support structures for venture
+                            capitalists themselves.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1:1 Coaching Deep Dive -->
+    <section class="what-it-is" id="coaching">
+        <div class="container">
+            <div class="what-it-is-content">
+                <div class="what-it-is-left">
+                    <span class="section-label">1:1 Coaching</span>
+                    <h2 class="what-it-is-title">Executive Coaching for Venture Capitalists</h2>
+                </div>
+                <div class="what-it-is-text">
+                    <p>Coaching provides the space and structure for reflection necessary for efficient learning,
+                        growth, and optimized decision-making. Because who's coaching you?</p>
+
+                    <h3
+                        style="font-family: var(--font-display); font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--color-charcoal);">
+                        What You Get</h3>
+
+                    <p><strong>Goal Sharpening:</strong> I help you identify your objectives and concrete action steps
+                        to move from your current state to your desired outcomes.</p>
+
+                    <p><strong>Active Listening:</strong> A confidential, fully present space to discuss topics of your
+                        choosing without judgment.</p>
+
+                    <p><strong>Powerful Questioning:</strong> Strategic questions designed to help you find your own
+                        solutions — not directives telling you what to do.</p>
+
+                    <h3
+                        style="font-family: var(--font-display); font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--color-charcoal);">
+                        What This Is NOT</h3>
+
+                    <div class="not-list">
+                        <div class="not-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            Not directive consulting (hire an advisor for that)
+                        </div>
+                        <div class="not-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            Not therapy (I'll refer you to licensed professionals)
+                        </div>
+                        <div class="not-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            No conflicting interests (no stake in your outcomes)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coaching Process Section -->
+    <section class="who-for" id="process">
+        <div class="container">
+            <div class="who-for-header fade-in">
+                <span class="section-label">How It Works</span>
+                <h2 class="who-for-title">The Coaching Process</h2>
+                <p class="who-for-subtitle">A simple, transparent three-step process to get started.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="process-number">01</div>
+                    <h3>Discovery</h3>
+                    <p>Initial call via Calendly to discuss your background, challenges, and objectives. We'll assess
+                        mutual fit and explore how coaching can support your goals.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-number">02</div>
+                    <h3>Proposal</h3>
+                    <p>If we both want to proceed, you'll receive a detailed Coach Agreement Proposal outlining scope,
+                        confidentiality, pricing, frequency, and invoicing details.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-number">03</div>
+                    <h3>Contract</h3>
+                    <p>Upon agreement with the proposal, we sign a formal Coaching Agreement confirming confidentiality
+                        protections and officially launching our partnership.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#coaching" class="hero-cta">
+                    <span>Schedule Discovery Call</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="what-you-get">
+        <div class="container">
+            <div class="what-you-get-header fade-in">
+                <span class="section-label">Testimonials</span>
+                <h2 class="what-you-get-title">What Clients Say</h2>
+            </div>
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-quote">"Working with Anieke has been transformative. Not only did we exceed the
+                    goals I set out at the beginning, but I genuinely felt cared for and supported throughout the
+                    process."</p>
+                <p class="testimonial-author">Jessica Burley</p>
+                <p class="testimonial-role">Investor, Planet A Ventures</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <span class="section-label">Next Steps</span>
+                <h2 class="cta-title">Ready to Find <em>Your Edge?</em></h2>
+                <p class="cta-description">Whether you're seeking 1:1 coaching or a trusted peer group, start with a
+                    conversation.</p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#coaching" class="cta-button">
+                        Schedule Discovery Call
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                    <a href="mastermind.html" class="cta-button" style="background: var(--color-accent);">
+                        Apply for Mastermind
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a href="index.html" class="logo" style="display: block; margin-bottom: 1rem;">
+                        <img src="img/logo.png" alt="The VC Coach">
+                    </a>
+                    <p style="font-size: 0.9rem; color: rgba(247, 245, 240, 0.6); max-width: 300px;">Make the future of
+                        venture capital more human.</p>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#coaching">1:1 Coaching</a></li>
+                    <li><a href="mastermind.html">Mastermind</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#process">Process</a></li>
+                </ul>
+                <div>
+                    <p style="font-size: 0.85rem; color: rgba(247, 245, 240, 0.6); margin-bottom: 0.5rem;">Connect</p>
+                    <ul class="footer-links" style="flex-direction: column; gap: 0.5rem;">
+                        <li><a href="https://www.linkedin.com/company/the-vc-coach/">LinkedIn</a></li>
+                        <li><a href="newsletter.html">Newsletter</a></li>
+                        <li><a href="#coaching">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(247, 245, 240, 0.1);">
+                <p class="footer-copyright">© 2025 The VC Coach. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            mobileNav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            mobileNav.classList.remove('active');
+            menuToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Intersection Observer for scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

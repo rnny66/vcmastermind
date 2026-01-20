@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The VC Coach — Executive Coaching for Venture Capitalists</title>
+    <title>The VC Coach — Emerging Manager Mastermind</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -18,69 +18,82 @@
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="img/logo-black.png" alt="The VC Coach">
+                <img src="img/logo.png" alt="The VC Coach">
             </a>
             <ul class="nav-links">
-                <li><a href="#coaching">1:1 Coaching</a></li>
-                <li><a href="mastermind.html">Mastermind</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#coaching" class="nav-cta">Get Started</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#what-it-is">About</a></li>
+                <li><a href="#what-you-get">Program</a></li>
+                <li><a href="#facilitators">Facilitators</a></li>
+                <li><a href="#pricing">Investment</a></li>
+                <li><a href="#pricing" class="nav-cta">Apply Now</a></li>
             </ul>
-            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
 
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobileNav">
-        <a href="#coaching" onclick="closeMobileMenu()">1:1 Coaching</a>
-        <a href="mastermind.html">Mastermind</a>
-        <a href="#about" onclick="closeMobileMenu()">About</a>
-        <a href="#process" onclick="closeMobileMenu()">Process</a>
-        <a href="#coaching" onclick="closeMobileMenu()"
-            style="padding: 1rem 2rem; background: var(--color-primary); color: var(--color-cream);">Get Started</a>
-    </div>
-
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>You're backing founders, managing LPs, and leading a team, but who's got <em>your</em> back?
-                    </h1>
-                    <p class="hero-description">Executive coaching for venture capitalists who want to be more impactful
-                        as sustainable leaders.</p>
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="#coaching" class="hero-cta">
-                            <span>Explore 1:1 Coaching</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
-                        <a href="mastermind.html" class="hero-cta" style="background: var(--color-accent);">
-                            <span>Join the Mastermind</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
-                    </div>
+                    <span class="hero-badge">Limited to 8 Members</span>
+                    <h1>Emerging Manager <em>Mastermind</em></h1>
+                    <p class="hero-description">A 3-month, curated confidential peer group for first- and second-time
+                        fund builders. Get sharper, calmer, and more effective as a GP — without the noise, posturing,
+                        or competitiveness of public VC communities.</p>
+                    <a href="#pricing" class="hero-cta">
+                        <span>Apply for Cohort</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
                 </div>
-                <div class="hero-image-container">
-                    <img src="img/anieke-2.jpg" alt="Anieke Lamers - Executive Coach for Venture Capitalists"
-                        loading="eager" width="800" height="960">
-                    <div class="hero-image-overlay">
-                        <div class="detail-text">
-                            <strong>Certified Executive Coach</strong>
-                            <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem;">Over a decade in venture capital, now
-                                dedicated to making VC leadership more sustainable and impactful.</p>
+                <div class="hero-visual">
+                    <div class="hero-details">
+                        <div class="detail-item">
+                            <svg class="detail-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div class="detail-text">
+                                <strong>3 Months Intensive</strong>
+                                Bi-weekly 90-minute sessions
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <svg class="detail-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            <div class="detail-text">
+                                <strong>8 Members Maximum</strong>
+                                Curated for trust & chemistry
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <svg class="detail-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                            </svg>
+                            <div class="detail-text">
+                                <strong>Fully Remote</strong>
+                                Join from anywhere
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <svg class="detail-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <div class="detail-text">
+                                <strong>Next Cohort: Feb 2026</strong>
+                                Applications open Jan 2
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -88,117 +101,22 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="who-for">
-        <div class="container">
-            <div class="who-for-header fade-in">
-                <span class="section-label">Services</span>
-                <h2 class="who-for-title">Choose Your Path</h2>
-                <p class="who-for-subtitle">Whether you need individual coaching or a trusted peer group, I've got you
-                    covered.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                    <h3>1:1 Executive Coaching</h3>
-                    <p>Personalized coaching sessions to sharpen your goals, navigate challenges, and optimize your
-                        decision-making. A confidential space for reflection without judgment or conflicting interests.
-                    </p>
-                    <a href="#coaching" class="service-link">
-                        Learn More
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </a>
-                </div>
-                <div class="service-card fade-in">
-                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                    <h3>Emerging Manager Mastermind</h3>
-                    <p>A 3-month curated peer group for first and second-time fund builders. Bi-weekly facilitated
-                        sessions, hot seat coaching, and a trusted circle of peers who understand the EM struggle.</p>
-                    <a href="mastermind.html" class="service-link">
-                        View Program Details
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="facilitators" id="about">
-        <div class="container">
-            <div class="facilitators-header fade-in">
-                <span class="section-label">About</span>
-                <h2 class="facilitators-title">Led by a Practitioner, Not a Theorist</h2>
-            </div>
-            <div class="facilitators-grid">
-                <div class="facilitator-card fade-in" style="grid-column: 1 / -1; max-width: 900px; margin: 0 auto;">
-                    <div class="facilitator-image about-image">
-                        <img src="img/anieke-1.jpg" alt="Anieke Lamers - Executive Coach and Former VC" loading="lazy"
-                            width="500" height="600">
-                    </div>
-                    <div class="facilitator-info">
-                        <h3>Anieke Lamers</h3>
-                        <p><strong>Founder of The VC Coach</strong> • Based in Portugal (originally Netherlands) •
-                            Certified Executive Coach</p>
-                        <p style="margin-top: 1rem;">With over a decade in venture capital — spanning Private Equity,
-                            Corporate VC, Impact VC fund management, informal investor roles, VC Scout positions, and
-                            startup operations — Anieke brings deep insider knowledge to her coaching practice.</p>
-                        <p style="margin-top: 1rem;"><strong>Mission:</strong> "Make the future of venture capital more
-                            human."</p>
-                        <p style="margin-top: 1rem;">Anieke believes VCs should be more human, impact and
-                            purpose-driven, collaborative, and entrepreneurial — and less hierarchical, political,
-                            biased, and exclusive. Her experience inside the VC sector revealed systemic gaps: the
-                            absence of clear learning and development programs and support structures for venture
-                            capitalists themselves.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 1:1 Coaching Deep Dive -->
-    <section class="what-it-is" id="coaching">
+    <!-- What It Is Section -->
+    <section class="what-it-is" id="what-it-is">
         <div class="container">
             <div class="what-it-is-content">
                 <div class="what-it-is-left">
-                    <span class="section-label">1:1 Coaching</span>
-                    <h2 class="what-it-is-title">Executive Coaching for Venture Capitalists</h2>
+                    <span class="section-label">What It Is</span>
+                    <h2 class="what-it-is-title">A trusted board of peers + a skilled facilitator holding the space.
+                    </h2>
                 </div>
                 <div class="what-it-is-text">
-                    <p>Coaching provides the space and structure for reflection necessary for efficient learning,
-                        growth, and optimized decision-making. Because who's coaching you?</p>
-
-                    <h3
-                        style="font-family: var(--font-display); font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--color-charcoal);">
-                        What You Get</h3>
-
-                    <p><strong>Goal Sharpening:</strong> I help you identify your objectives and concrete action steps
-                        to move from your current state to your desired outcomes.</p>
-
-                    <p><strong>Active Listening:</strong> A confidential, fully present space to discuss topics of your
-                        choosing without judgment.</p>
-
-                    <p><strong>Powerful Questioning:</strong> Strategic questions designed to help you find your own
-                        solutions — not directives telling you what to do.</p>
-
-                    <h3
-                        style="font-family: var(--font-display); font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--color-charcoal);">
-                        What This Is NOT</h3>
-
+                    <p>A small, hand-picked circle of emerging managers who meet bi-weekly to get sharper, calmer, and
+                        more effective as GPs — without the noise, posturing, or competitiveness of public VC
+                        communities.</p>
+                    <p>This is not a transactional networking group. The value lies in clear thinking, better decisions,
+                        and not feeling like you're building your fund alone. A reference group where shared realities
+                        replace pitching and decision-making quality compounds.</p>
                     <div class="not-list">
                         <div class="not-item">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -206,7 +124,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M6 18L18 6M6 6l12 12" />
                             </svg>
-                            Not directive consulting (hire an advisor for that)
+                            Not a course
                         </div>
                         <div class="not-item">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -214,7 +132,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M6 18L18 6M6 6l12 12" />
                             </svg>
-                            Not therapy (I'll refer you to licensed professionals)
+                            Not an accelerator
                         </div>
                         <div class="not-item">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -222,7 +140,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M6 18L18 6M6 6l12 12" />
                             </svg>
-                            No conflicting interests (no stake in your outcomes)
+                            Not another Slack channel
                         </div>
                     </div>
                 </div>
@@ -230,59 +148,331 @@
         </div>
     </section>
 
-    <!-- Coaching Process Section -->
-    <section class="who-for" id="process">
+    <!-- Who It's For Section -->
+    <section class="who-for" id="who-for">
         <div class="container">
             <div class="who-for-header fade-in">
-                <span class="section-label">How It Works</span>
-                <h2 class="who-for-title">The Coaching Process</h2>
-                <p class="who-for-subtitle">A simple, transparent three-step process to get started.</p>
+                <span class="section-label">Who It's For</span>
+                <h2 class="who-for-title">For First & Second-Time Fund Builders</h2>
+                <p class="who-for-subtitle">Solo GPs and emerging managers raising Fund I–II who are ready to sharpen
+                    their edge.</p>
             </div>
-            <div class="process-steps">
-                <div class="process-step fade-in">
-                    <div class="process-number">01</div>
-                    <h3>Discovery</h3>
-                    <p>Initial call via Calendly to discuss your background, challenges, and objectives. We'll assess
-                        mutual fit and explore how coaching can support your goals.</p>
-                </div>
-                <div class="process-step fade-in">
-                    <div class="process-number">02</div>
-                    <h3>Proposal</h3>
-                    <p>If we both want to proceed, you'll receive a detailed Coach Agreement Proposal outlining scope,
-                        confidentiality, pricing, frequency, and invoicing details.</p>
-                </div>
-                <div class="process-step fade-in">
-                    <div class="process-number">03</div>
-                    <h3>Contract</h3>
-                    <p>Upon agreement with the proposal, we sign a formal Coaching Agreement confirming confidentiality
-                        protections and officially launching our partnership.</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="#coaching" class="hero-cta">
-                    <span>Schedule Discovery Call</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <div class="criteria-grid">
+                <div class="criteria-card fade-in">
+                    <svg class="criteria-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
-                </a>
+                    <h3>Hungry for Clarity</h3>
+                    <p>Seeking strategic focus, emotional grounding, and tactical support for your fund journey.</p>
+                </div>
+                <div class="criteria-card fade-in">
+                    <svg class="criteria-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                    <h3>Open & Coachable</h3>
+                    <p>Ready to contribute, willing to be challenged, and committed to candor and transparency.</p>
+                </div>
+                <div class="criteria-card fade-in">
+                    <svg class="criteria-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <h3>Looking for "Your People"</h3>
+                    <p>Seeking genuine connection with peers who understand the EM struggle — not another networking
+                        event.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="what-you-get">
+    <!-- What You Get Section -->
+    <section class="what-you-get" id="what-you-get">
         <div class="container">
             <div class="what-you-get-header fade-in">
-                <span class="section-label">Testimonials</span>
-                <h2 class="what-you-get-title">What Clients Say</h2>
+                <span class="section-label">What You Get</span>
+                <h2 class="what-you-get-title">Everything You Need to Build with Confidence</h2>
             </div>
-            <div class="testimonial-card fade-in">
-                <p class="testimonial-quote">"Working with Anieke has been transformative. Not only did we exceed the
-                    goals I set out at the beginning, but I genuinely felt cared for and supported throughout the
-                    process."</p>
-                <p class="testimonial-author">Jessica Burley</p>
-                <p class="testimonial-role">Investor, Planet A Ventures</p>
+            <div class="offerings-grid">
+                <div class="offering-card featured fade-in">
+                    <div>
+                        <div class="offering-number">01</div>
+                        <h3>Bi-Weekly Mastermind Sessions</h3>
+                        <p>Structured, facilitated 90-minute conversations designed to break through your biggest
+                            challenges.</p><br>
+                        <ul class="offering-topics">
+                            <li>LP strategy + narrative</li>
+                            <li>Team + partner dynamics</li>
+                            <li>Dealflow focus</li>
+                            <li>Decision frameworks (IC structure)</li>
+                            <li>Confidence, identity, and resilience</li>
+                            <li>Hard conversations inside the fund</li>
+                            <li>Alignment of interests with LPs</li>
+                            <li>Portfolio construction for small funds</li>
+                        </ul>
+                    </div>
+                    <div class="featured-quote">
+                        "Insights on what LPs worry about but don't say."
+                    </div>
+                </div>
+                <div class="offering-card fade-in">
+                    <div class="offering-number">02</div>
+                    <h3>Hot Seat Coaching</h3>
+                    <p>Every member gets dedicated sessions focused on their specific challenges. Think of it as a
+                        confidential personal IC or Advisory Board — without hierarchy or politics — to sharpen judgment
+                        and reveal blind spots.</p>
+                    <ul class="offering-topics">
+                        <li>Investor relations or fundraising bottlenecks</li>
+                        <li>Narrative sharpening</li>
+                        <li>Relationship challenges</li>
+                        <li>High-stakes decisions</li>
+                    </ul>
+                </div>
+                <div class="offering-card fade-in">
+                    <div class="offering-number">03</div>
+                    <h3>Private Peer Circle</h3>
+                    <p>A small, closed group (8 max) curated for trust, chemistry, and shared ambition. A reference
+                        group where shared realities replace pitching and decision-making quality compounds.</p>
+                </div>
+                <div class="offering-card fade-in">
+                    <div class="offering-number">04</div>
+                    <h3>On-Call Support</h3>
+                    <p>Light async support between sessions for moments where you need a fast sounding board. Because
+                        timing matters when decisions are on the line.</p>
+                </div>
+                <div class="offering-card fade-in">
+                    <div class="offering-number">05</div>
+                    <h3>Zero-BS Environment</h3>
+                    <p>No pitching. No status games. No "looking good." Real VC operators pushing each other forward in
+                        a space safe enough to be honest.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why It Works Section -->
+    <section class="why-works">
+        <div class="container">
+            <div class="why-works-content fade-in">
+                <div>
+                    <span class="section-label">Why It Works</span>
+                    <h2 class="why-works-title">Stop Building Your Fund Alone</h2>
+                </div>
+                <ul class="why-works-list">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        You get peers who actually understand the emerging manager struggle.
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        You get a space safe enough to be completely honest.
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        You get sharper, faster — with less stress.
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        You stop building your fund alone — without losing control.
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        You get a confidential personal Advisory Board without politics or hierarchy.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selection Section -->
+    <section class="selection" id="selection">
+        <div class="container">
+            <div class="selection-content fade-in">
+                <div>
+                    <span class="section-label">Selection Process</span>
+                    <h2 class="selection-title">Why Not Everyone Gets In</h2>
+                    <p class="selection-intro">This only works if people can speak freely, and that requires
+                        confidentiality and zero competitive overlap.</p>
+                    <ul class="selection-criteria">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                            Confidentiality is non-negotiable
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                            </svg>
+                            No direct fund competition (geo, strategy)
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            A shared commitment to candor, transparency and contribution
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            Willingness to be challenged
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            We do not include people looking to pitch, recruit or build a brand
+                        </li>
+                    </ul>
+                </div>
+                <div class="timeline">
+                    <h3>Application Timeline</h3>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jan 20, 2026</div>
+                        <div class="timeline-event">Application deadline</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jan 21–31, 2026</div>
+                        <div class="timeline-event">Interviews / selection</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb 1, 2026</div>
+                        <div class="timeline-event">Confirm participants</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb 5–7, 2026</div>
+                        <div class="timeline-event">Program starts</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb–Apr 2026</div>
+                        <div class="timeline-event">Weekly sessions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilitators Section -->
+    <section class="facilitators" id="facilitators">
+        <div class="container">
+            <div class="facilitators-header fade-in">
+                <span class="section-label">Your Facilitators</span>
+                <h2 class="facilitators-title">Led by Practitioners, Not Theorists</h2>
+            </div>
+            <div class="facilitators-grid">
+                <div class="facilitator-card fade-in">
+                    <div class="facilitator-image">
+                        <img src="img/al.png" alt="Anieke Lamers">
+                    </div>
+                    <div class="facilitator-info">
+                        <h3>Anieke Lamers</h3>
+                        <p>A VC with 15+ years of venture capital experience and the founder of The VC Coach. She has
+                            facilitated multiple peer mastermind groups, both online and offline, and has seen firsthand
+                            how structured peer coaching can accelerate growth, clarity, and confidence for emerging
+                            managers. Anieke combines deep VC expertise with a human-centered coaching approach,
+                            creating a space where GPs can tackle strategic, operational, and personal challenges openly
+                            — and leave with practical insights, accountability, and a trusted network of peers.</p>
+                    </div>
+                </div>
+                <div class="facilitator-card fade-in">
+                    <div class="facilitator-image">
+                    </div>
+                    <div class="facilitator-info">
+                        <h3>Additional guest facilitators</h3>
+                        <p>Select former and active LPs and ecosystem leaders will join specific sessions. Guest
+                            facilitators have worked with or at leading European institutions, including organizations
+                            such as the EIF. Speakers will be announced closer to the program start.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="pricing-content">
+                <div class="pricing-text">
+                    <span class="section-label">Your Investment</span>
+                    <h2 class="pricing-title">Everything Included</h2>
+                    <p class="pricing-description">A complete program designed for meaningful transformation — no hidden
+                        fees, no upsells.</p>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            Bi-weekly peer mastermind sessions
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            Inspiration sessions & workshops
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            1:1 executive coaching
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            On-call async support
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            Private peer circle access
+                        </li>
+                    </ul>
+                </div>
+                <div class="pricing-card fade-in">
+                    <div class="price-label">3-Month Program</div>
+                    <div class="price-amount">€1,600</div>
+                    <div class="price-period">One-time investment</div>
+                    <div class="price-comparison">Cheaper than one LP dinner, and far more useful.</div>
+                    <a href="https://forms.fillout.com/t/sGyS5wC399us" class="price-cta">Apply Now</a>
+                    <p class="price-note">Application required • Limited to 8 members per cohort</p>
+                </div>
             </div>
         </div>
     </section>
@@ -292,25 +482,16 @@
         <div class="container">
             <div class="cta-content fade-in">
                 <span class="section-label">Next Steps</span>
-                <h2 class="cta-title">Ready to Find <em>Your Edge?</em></h2>
-                <p class="cta-description">Whether you're seeking 1:1 coaching or a trusted peer group, start with a
-                    conversation.</p>
-                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="#coaching" class="cta-button">
-                        Schedule Discovery Call
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </a>
-                    <a href="mastermind.html" class="cta-button" style="background: var(--color-accent);">
-                        Apply for Mastermind
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </a>
-                </div>
+                <h2 class="cta-title">Ready to Find <em>Your People?</em></h2>
+                <p class="cta-description">Spots are limited. Apply now to save your place in the next cohort.
+                    Acceptance depends on application interview.</p>
+                <a href="https://forms.fillout.com/t/sGyS5wC399us" class="cta-button">
+                    Begin Your Application
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
@@ -319,25 +500,23 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div>
-                    <a href="index.html" class="logo" style="display: block; margin-bottom: 1rem;">
-                        <img src="img/logo.png" alt="The VC Coach">
-                    </a>
-                    <p style="font-size: 0.9rem; color: rgba(247, 245, 240, 0.6); max-width: 300px;">Make the future of
-                        venture capital more human.</p>
-                </div>
+                <a href="index.html" class="logo">
+                    <img src="img/logo.png" alt="The VC Coach">
+                </a>
                 <ul class="footer-links">
-                    <li><a href="#coaching">1:1 Coaching</a></li>
+                    <li><a href="index.html#coaching">1:1 Coaching</a></li>
                     <li><a href="mastermind.html">Mastermind</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#process">Process</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#process">Process</a></li>
                 </ul>
                 <div>
-                    <p style="font-size: 0.85rem; color: rgba(247, 245, 240, 0.6); margin-bottom: 0.5rem;">Connect</p>
+                    <p
+                        style="font-size: 0.85rem; color: rgba(247, 245, 240, 0.6); margin-bottom: 0.5rem; color: var(--color-cream); opacity: 0.6;">
+                        Connect</p>
                     <ul class="footer-links" style="flex-direction: column; gap: 0.5rem;">
                         <li><a href="https://www.linkedin.com/company/the-vc-coach/">LinkedIn</a></li>
                         <li><a href="newsletter.html">Newsletter</a></li>
-                        <li><a href="#coaching">Contact</a></li>
+                        <li><a href="index.html#coaching">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -349,23 +528,6 @@
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            mobileNav.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
-        }
-
-        function closeMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            mobileNav.classList.remove('active');
-            menuToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
         // Intersection Observer for scroll animations
         const fadeElements = document.querySelectorAll('.fade-in');
 
