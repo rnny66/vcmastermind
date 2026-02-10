@@ -216,7 +216,9 @@ nav .container {
 }
 
 .hero-badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.15em;
@@ -225,6 +227,20 @@ nav .container {
     margin-bottom: 1.5rem;
     padding: 0.5rem 1rem;
     border: 1px solid var(--color-accent);
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2ecc40;
+    box-shadow: 0 0 0 3px rgba(46, 204, 64, 0.25);
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(46, 204, 64, 0.25); }
+    50% { box-shadow: 0 0 0 8px rgba(46, 204, 64, 0.1); }
 }
 
 .hero h1 {
