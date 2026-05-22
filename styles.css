@@ -1516,3 +1516,172 @@ footer {
         width: 100%;
     }
 }
+
+/* CVC Mastermind — Hero collaboration strip */
+.hero-collab {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.hero-collab-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-taupe);
+    white-space: nowrap;
+}
+
+.hero-collab-logo {
+    height: 26px;
+    width: auto;
+    opacity: 0.8;
+}
+
+.hero-collab-sep {
+    color: var(--color-taupe);
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* CVC Mastermind — Facilitators 3-column grid */
+.facilitators-grid--three {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1024px) {
+    .facilitators-grid--three {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .facilitators-grid--three {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* CVC Mastermind — Facilitator role subtitle */
+.facilitator-role {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+/* CVC Mastermind — Facilitator LinkedIn link */
+.facilitator-linkedin {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s ease;
+}
+
+.facilitator-linkedin:hover {
+    color: var(--color-primary-light);
+}
+
+/* CVC Mastermind — Programme month structure */
+.program-months {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-stone);
+}
+
+.program-months-title {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.program-months-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.month-block {
+    background: var(--color-sage);
+    border-radius: 6px;
+    padding: 1.5rem;
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.month-block:hover {
+    border-color: var(--color-primary);
+}
+
+.month-block--highlight {
+    background: var(--color-primary-soft);
+    border: 1px solid rgba(28, 78, 70, 0.2);
+}
+
+.month-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+}
+
+.month-block p {
+    font-size: 0.95rem;
+    color: var(--color-taupe);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .program-months-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* CVC Mastermind — Pressure list (lili version) */
+.pressure-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.pressure-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--color-charcoal);
+    line-height: 1.6;
+}
+
+.pressure-item svg {
+    width: 18px;
+    height: 18px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.pressure-item strong {
+    color: var(--color-charcoal);
+}
+
+/* CVC Mastermind — Pull section (lili version) */
+.pull-item-title {
+    display: block;
+    font-weight: 600;
+    color: var(--color-charcoal);
+    margin-bottom: 0.25rem;
+}
