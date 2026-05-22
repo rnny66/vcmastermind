@@ -11,6 +11,35 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CVC Hero — photo background with dark blur overlay */
+        .hero {
+            background: url('img/hero-cvc-bg.jpg') center center / cover no-repeat !important;
+        }
+        .hero::before {
+            background: rgba(12, 30, 28, 0.72) !important;
+            opacity: 1 !important;
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+        }
+        .hero .container { position: relative; z-index: 2; }
+        .hero h1 { color: var(--color-cream); }
+        .hero-description { color: rgba(247, 245, 240, 0.82); }
+        .hero-badge { color: var(--color-cream); background: rgba(247, 245, 240, 0.08); }
+        .hero-collab {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            background: rgba(247, 245, 240, 0.93);
+            padding: 0.65rem 1.2rem;
+            border-radius: 4px;
+        }
+        .hero-collab-label { color: var(--color-taupe); }
+        .hero-collab-sep { color: var(--color-taupe); font-size: 1.1rem; }
+        .hero-collab-logo { height: 44px; width: auto; opacity: 1; }
+        .hero-collab-logo[alt="EU.VC"] { height: 64px; }
+    </style>
 </head>
 
 <body>
@@ -48,9 +77,9 @@
                     </a>
                     <div class="hero-collab">
                         <span class="hero-collab-label">In collaboration with</span>
-                        <img src="img/logo.png" alt="The VC Coach" class="hero-collab-logo">
+                        <img src="img/logo-black.png" alt="The VC Coach" class="hero-collab-logo">
                         <span class="hero-collab-sep">×</span>
-                        <img src="img/euvc_logo.png" alt="EUVC" class="hero-collab-logo">
+                        <img src="img/euvc_logo.png" alt="EU.VC" class="hero-collab-logo">
                     </div>
                 </div>
                 <div class="hero-visual">
@@ -379,11 +408,12 @@
                 </div>
                 <div class="facilitator-card fade-in">
                     <div class="facilitator-image">
+                        <img src="img/david.jpg" alt="David Cruz e Silva">
                     </div>
                     <div class="facilitator-info">
                         <h3>David Cruz e Silva</h3>
-                        <p class="facilitator-role">Guest Expert · Co-founder & Host, EUVC</p>
-                        <p>Co-founder of EUVC, Europe's go-to platform for venture capital insights. Through hundreds of conversations with GPs, LPs and CVC practitioners, David has built one of the most comprehensive vantage points on how corporate venture teams operate, raise mandates, and navigate the European ecosystem. He brings that network and pattern recognition directly into the CVC cohort.</p>
+                        <p class="facilitator-role">Guest Expert · Co-founder & Host, EU.VC</p>
+                        <p>Co-founder of EU.VC, Europe's go-to platform for venture capital insights. Through hundreds of conversations with GPs, LPs and CVC practitioners, David has built one of the most comprehensive vantage points on how corporate venture teams operate, raise mandates, and navigate the European ecosystem. He brings that network and pattern recognition directly into the CVC cohort.</p>
                         <a href="https://linkedin.com/in/david-euvc/" class="facilitator-linkedin" target="_blank" rel="noopener">LinkedIn →</a>
                     </div>
                 </div>
