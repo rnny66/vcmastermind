@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "Bash(dir:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\ronal\\\\.claude\" -Force | Where-Object { !$_.PSIsContainer } | Select-Object Name, LastWriteTime | Format-Table -AutoSize)",
+      "Read(//c/Program Files/Google/Chrome/Application//**)",
+      "Read(//c/Program Files \\(x86\\)/Google/Chrome/**)",
+      "WebSearch",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(curl -L \"https://plus.unsplash.com/premium_photo-1745418057271-3e2db10de9a9?w=2400&q=85&auto=format&fit=crop\" -o \"/c/Users/ronal/GitHub/vc-mastermind/img/hero-cvc-bg.jpg\")",
+      "Bash(Remove-Item \"c:\\\\Users\\\\ronal\\\\GitHub\\\\vc-mastermind\\\\cvc-mastermind-lili.html\")"
     ]
   }
 }

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The VC Coach — CVC Mastermind (Pilot)</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -27,10 +28,10 @@
         .hero-description { color: rgba(247, 245, 240, 0.82); }
         .hero-badge { color: var(--color-cream); background: rgba(247, 245, 240, 0.08); }
         .hero-collab {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             gap: 1rem;
-            margin-top: 2.5rem;
+            margin-top: 1rem;
             background: rgba(247, 245, 240, 0.93);
             padding: 0.65rem 1.2rem;
             border-radius: 4px;
@@ -38,7 +39,6 @@
         .hero-collab-label { color: var(--color-taupe); }
         .hero-collab-sep { color: var(--color-taupe); font-size: 1.1rem; }
         .hero-collab-logo { height: 44px; width: auto; opacity: 1; }
-        .hero-collab-logo[alt="EU.VC"] { height: 64px; }
     </style>
 </head>
 
@@ -47,7 +47,7 @@
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="img/logo.png" alt="The VC Coach">
+                <img src="img/logo-black.png" alt="The VC Coach">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -75,12 +75,6 @@
                                 d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                     </a>
-                    <div class="hero-collab">
-                        <span class="hero-collab-label">In collaboration with</span>
-                        <img src="img/logo-black.png" alt="The VC Coach" class="hero-collab-logo">
-                        <span class="hero-collab-sep">×</span>
-                        <img src="img/euvc_logo.png" alt="EU.VC" class="hero-collab-logo">
-                    </div>
                 </div>
                 <div class="hero-visual">
                     <div class="hero-details">
@@ -130,6 +124,12 @@
                                 Pre-apply now
                             </div>
                         </div>
+                    </div>
+                    <div class="hero-collab">
+                        <span class="hero-collab-label">In collaboration with</span>
+                        <img src="img/logo-black.png" alt="The VC Coach" class="hero-collab-logo">
+                        <span class="hero-collab-sep">×</span>
+                        <img src="img/euvc_logo.png" alt="EU.VC" class="hero-collab-logo">
                     </div>
                 </div>
             </div>
@@ -517,7 +517,7 @@
                     <div class="price-amount">€3,390</div>
                     <div class="price-period">ex VAT · one-time investment</div>
                     <div class="price-comparison">Includes the London in-person day. No hidden fees, no upsells.</div>
-                    <a href="#pricing" class="price-cta">Pre-Apply Now</a>
+                    <a href="https://forms.fillout.com/t/sGyS5wC399us" class="price-cta" target="_blank" rel="noopener">Pre-Apply Now</a>
                     <p class="price-note">Pilot cohort applications open — secure your spot</p>
                 </div>
             </div>

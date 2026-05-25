@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVC Mastermind — One Pager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1c4e46;
+            --primary-light: #2a6b60;
+            --charcoal: #2D3A38;
+            --taupe: #6B7A77;
+            --cream: #F7F5F0;
+            --stone: #E8E4DC;
+            --sage: #E9EFED;
+            --accent: #ff8a00;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Outfit', sans-serif;
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 1.1cm 1.4cm;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #d0d0d0;
+            font-family: var(--font-body);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .print-btn-wrapper {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .print-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.8rem;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .print-btn:hover { background: var(--primary-light); }
+
+        /* ── Page ── */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 0 auto;
+            padding: 1.1cm 1.4cm 1cm;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ── Header ── */
+        .header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--primary);
+            margin-bottom: 0.7rem;
+        }
+
+        .header-title h1 {
+            font-family: var(--font-display);
+            font-size: 26pt;
+            font-weight: 500;
+            color: var(--charcoal);
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+        }
+
+        .header-title h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .header-title .subtitle {
+            font-size: 9pt;
+            font-weight: 300;
+            color: var(--taupe);
+            margin-top: 0.2rem;
+            letter-spacing: 0.02em;
+        }
+
+        .header-logos {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .header-logos img {
+            height: 22px;
+            width: auto;
+        }
+
+        .header-logos .sep {
+            font-size: 10pt;
+            color: var(--taupe);
+            font-weight: 300;
+        }
+
+        /* ── Stats bar ── */
+        .stats-bar {
+            background: var(--sage);
+            padding: 0.45rem 0.8rem;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.25rem;
+            flex: 1;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '·';
+            color: var(--taupe);
+            margin: 0 0.5rem;
+            font-weight: 300;
+        }
+
+        .stat-value {
+            font-size: 9.5pt;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 8pt;
+            font-weight: 300;
+            color: var(--taupe);
+        }
+
+        /* ── Body grid ── */
+        .body-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 1.2rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .col-label {
+            font-size: 7pt;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .problem-intro {
+            font-size: 9pt;
+            font-weight: 400;
+            color: var(--charcoal);
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .pressure-list {
+            list-style: none;
+            margin-bottom: 0.5rem;
+        }
+
+        .pressure-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.4rem;
+            font-size: 8.5pt;
+            color: var(--charcoal);
+            padding: 0.2rem 0;
+            line-height: 1.4;
+        }
+
+        .pressure-list li .icon {
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .pressure-list li strong {
+            font-weight: 500;
+        }
+
+        .closing {
+            font-size: 8.5pt;
+            font-weight: 400;
+            color: var(--taupe);
+            line-height: 1.5;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--stone);
+        }
+
+        .includes-list {
+            list-style: none;
+        }
+
+        .includes-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.4rem;
+            font-size: 9pt;
+            font-weight: 400;
+            color: var(--charcoal);
+            padding: 0.3rem 0;
+            border-bottom: 1px solid var(--stone);
+            line-height: 1.3;
+        }
+
+        .includes-list li:last-child { border-bottom: none; }
+
+        .check {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 10pt;
+            line-height: 1.2;
+            flex-shrink: 0;
+        }
+
+        /* ── Timeline ── */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .month {
+            background: var(--sage);
+            padding: 0.5rem 0.65rem;
+            border-left: 3px solid transparent;
+        }
+
+        .month--highlight {
+            border-left-color: var(--primary);
+        }
+
+        .month-heading {
+            font-size: 7pt;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .month p {
+            font-size: 8pt;
+            font-weight: 300;
+            color: var(--taupe);
+            line-height: 1.45;
+        }
+
+        .month p strong {
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        /* ── Facilitators ── */
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--stone);
+            margin-bottom: 0.75rem;
+        }
+
+        .facilitators-label {
+            font-size: 7pt;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .facilitators-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .facilitator {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .facilitator-photo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .facilitator-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13pt;
+            font-family: var(--font-display);
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .facilitator-info h4 {
+            font-size: 9pt;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.1rem;
+        }
+
+        .facilitator-info .role {
+            font-size: 7pt;
+            font-weight: 500;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.2rem;
+        }
+
+        .facilitator-info p {
+            font-size: 7.5pt;
+            font-weight: 300;
+            color: var(--taupe);
+            line-height: 1.4;
+        }
+
+        /* ── Proof point strip ── */
+        .proof-strip {
+            background: var(--sage);
+            border-left: 3px solid var(--primary);
+            padding: 0.4rem 0.7rem;
+            margin-bottom: 0.75rem;
+            font-size: 8pt;
+            color: var(--taupe);
+            line-height: 1.5;
+        }
+
+        .proof-strip strong {
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        /* ── Footer / CTA ── */
+        .footer-cta {
+            background: var(--primary);
+            color: var(--cream);
+            padding: 0.55rem 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .footer-price {
+            font-size: 11pt;
+            font-weight: 600;
+            color: white;
+        }
+
+        .footer-price span {
+            font-size: 8pt;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+            margin-left: 0.4rem;
+        }
+
+        .footer-details {
+            font-size: 8pt;
+            font-weight: 300;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+        }
+
+        .footer-contact {
+            font-size: 8pt;
+            font-weight: 400;
+            color: rgba(255,255,255,0.85);
+            text-align: right;
+        }
+
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .print-btn-wrapper { display: none; }
+            .page {
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                width: 100%;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="print-btn-wrapper">
+        <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+
+    <div class="page">
+
+        <!-- Header -->
+        <div class="header">
+            <div class="header-title">
+                <h1>Corporate Venture <em>Mastermind</em></h1>
+                <p class="subtitle">Pilot programme for CVC investors &nbsp;·&nbsp; Starting August 2025 &nbsp;·&nbsp; 8 members max</p>
+            </div>
+            <div class="header-logos">
+                <img src="img/logo-black.png" alt="The VC Coach">
+                <span class="sep">×</span>
+                <img src="img/euvc_logo.png" alt="EU.VC">
+            </div>
+        </div>
+
+        <!-- Stats bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-value">3 months</span>
+                <span class="stat-label">bi-weekly 90-min sessions</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">8 members max</span>
+                <span class="stat-label">curated for trust</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">London</span>
+                <span class="stat-label">1-day in-person, September</span>
+            </div>
+            <div class="stat-item" style="border-right: none;">
+                <span class="stat-value">€3,390</span>
+                <span class="stat-label">ex VAT · all-inclusive</span>
+            </div>
+        </div>
+
+        <!-- Body grid -->
+        <div class="body-grid">
+            <div class="pitch">
+                <p class="col-label">The Problem</p>
+                <p class="problem-intro">CVC investors operate at the intersection of two worlds — and are fully understood by neither.</p>
+                <ul class="pressure-list">
+                    <li>
+                        <span class="icon">▸</span>
+                        <span><strong>Mandate ambiguity</strong> — strategic value vs. financial return? The answer shifts with every leadership change.</span>
+                    </li>
+                    <li>
+                        <span class="icon">▸</span>
+                        <span><strong>Managing upward</strong> — parent acts as LP but can veto deals, redirect strategy, or shut the unit down.</span>
+                    </li>
+                    <li>
+                        <span class="icon">▸</span>
+                        <span><strong>Internal politics</strong> — a portfolio company vs. a business unit is a political problem, not just an investment one.</span>
+                    </li>
+                    <li>
+                        <span class="icon">▸</span>
+                        <span><strong>Ecosystem isolation</strong> — misunderstood by independent VCs and corporate peers alike.</span>
+                    </li>
+                    <li>
+                        <span class="icon">▸</span>
+                        <span><strong>Career uncertainty</strong> — what if the unit is restructured overnight?</span>
+                    </li>
+                </ul>
+                <p class="closing">A peer group that genuinely understands this context — with no corporate agendas, no competitive overlap, no performance — does not yet exist. We've designed this programme to be that.</p>
+            </div>
+            <div class="includes">
+                <p class="col-label">What's Included</p>
+                <ul class="includes-list">
+                    <li><span class="check">✓</span> Bi-weekly facilitated group sessions (90 min)</li>
+                    <li><span class="check">✓</span> Hotseat coaching — confidential challenge board</li>
+                    <li><span class="check">✓</span> Expert sessions with guest facilitators</li>
+                    <li><span class="check">✓</span> 1:1 on-call coaching between sessions</li>
+                    <li><span class="check">✓</span> 1-day in-person gathering, London (September)</li>
+                    <li><span class="check">✓</span> Zero-posturing environment, strict confidentiality</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline">
+            <div class="month">
+                <p class="month-heading">Month 1 · August</p>
+                <p>Kick-off session · 2× bi-weekly calls<br>(1 hotseat · 1 expert session)</p>
+            </div>
+            <div class="month month--highlight">
+                <p class="month-heading">Month 2 · September ★ In-person</p>
+                <p>2× bi-weekly calls · expert session<br><strong>1-day in-person event, London</strong></p>
+            </div>
+            <div class="month">
+                <p class="month-heading">Month 3 · October</p>
+                <p>2× bi-weekly calls · hotseat coaching<br>Closing session</p>
+            </div>
+        </div>
+
+        <!-- Proof point -->
+        <div class="proof-strip">
+            <strong>Built on a running model.</strong> Adapted from the Emerging Manager Mastermind (Cohort 1, 6 participants). Same format, facilitation approach, and hotseat methodology — applied to the distinct CVC audience.
+        </div>
+
+        <!-- Facilitators -->
+        <hr class="section-divider">
+        <p class="facilitators-label">Facilitators &amp; Guest Expert</p>
+        <div class="facilitators-row">
+            <div class="facilitator">
+                <img src="img/al.png" alt="Anieke Lamers" class="facilitator-photo">
+                <div class="facilitator-info">
+                    <h4>Anieke Lamers</h4>
+                    <p class="role">The VC Coach</p>
+                    <p>15+ years in venture. Founder of The VC Coach. Facilitator of the Emerging Manager Mastermind (Cohort 1 running).</p>
+                </div>
+            </div>
+            <div class="facilitator">
+                <img src="img/lil.png" alt="Liliana Negrila" class="facilitator-photo">
+                <div class="facilitator-info">
+                    <h4>Liliana Negrila</h4>
+                    <p class="role">Coach &amp; Facilitator</p>
+                    <p>Works with fund managers on the human dynamics of the role. Advisory work on VC fundraising and LP engagement.</p>
+                </div>
+            </div>
+            <div class="facilitator">
+                <img src="img/david.jpg" alt="David Cruz e Silva" class="facilitator-photo">
+                <div class="facilitator-info">
+                    <h4>David Cruz e Silva</h4>
+                    <p class="role">Guest Expert · EU.VC</p>
+                    <p>Co-founder of EU.VC. Hundreds of conversations with GPs, LPs and CVC practitioners across Europe.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer / CTA -->
+        <div class="footer-cta">
+            <div class="footer-price">
+                €3,390 <span>ex VAT · 3-month programme</span>
+            </div>
+            <div class="footer-details">
+                Pilot cohort · Applications open · Starting August 2025
+            </div>
+            <div class="footer-contact">
+                mastermind.thevccoach.com
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
