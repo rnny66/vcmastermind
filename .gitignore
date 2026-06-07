@@ -1,1 +1,13 @@
 tmpclaude-*
+
+# Internal dev docs
+CLAUDE.md
+STYLE-GUIDE.md
+IMAGE-OPTIMIZATION.md
+to-do.md
+
+# Claude Code local settings
+.claude/
+
+# Internal client resources
+resources/
