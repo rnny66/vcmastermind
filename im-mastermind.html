@@ -21,6 +21,37 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "x3997ofagn");
     </script>
+
+    <style>
+        /* IM Hero — photo background with dark overlay */
+        .hero {
+            background: url('img/hero-im.png') center 35% / cover no-repeat !important;
+        }
+        .hero::before {
+            background: rgba(12, 30, 28, 0.78) !important;
+            opacity: 1 !important;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+        }
+        .hero .container { position: relative; z-index: 2; }
+        .hero h1 { color: var(--color-cream); }
+        .hero-description { color: rgba(247, 245, 240, 0.82); }
+        .hero-badge { color: var(--color-cream); background: rgba(247, 245, 240, 0.08); }
+
+        /* The source photo is a wide landscape shot — on tall/narrow viewports
+           "cover" has to scale it up a lot to fill the box, which reads as a hard
+           zoom. Shrinking min-height at each breakpoint keeps the box closer to
+           the photo's own aspect ratio so it stays legible. */
+        @media (max-width: 1024px) {
+            .hero { min-height: 85vh; background-position: center 30% !important; }
+        }
+        @media (max-width: 768px) {
+            .hero { min-height: 65vh; background-position: 30% 30% !important; }
+        }
+        @media (max-width: 480px) {
+            .hero { min-height: 55vh; background-position: 25% 30% !important; }
+        }
+    </style>
 </head>
 
 <body>
@@ -28,7 +59,7 @@
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="img/logo.png" alt="The VC Coach">
+                <img src="img/logo-black.png" alt="The VC Coach">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -342,15 +373,17 @@
             <div class="facilitators-grid facilitators-grid--three">
                 <div class="facilitator-card fade-in">
                     <div class="facilitator-image">
-                        <img src="img/lil.png" alt="Liliana Negrila">
+                        <img src="img/lili-hd.png" alt="Liliana Negrila">
                     </div>
                     <div class="facilitator-info">
                         <h3>Liliana Negrila</h3>
                         <p class="facilitator-role">Coach &amp; Facilitator</p>
-                        <p>Coach and facilitator working with fund investment managers and investors on the human
-                            dynamics of the role, with advisory work for VC funds on fundraising strategy and LP
-                            engagement. Liliana brings a deep understanding of the interpersonal and organisational
-                            challenges that define the experience.</p>
+                        <p>Liliana Negrila spent five years at the European Investment Fund as an LP investing in VC
+                            funds. She now advises emerging managers on securing institutional funding, as part of
+                            Pitch Me First.</p>
+                        <p>In parallel, she coaches entrepreneurs and investors on stepping into leadership with
+                            conviction, improving communication, managing the pressures of fundraising, and building
+                            a culture of trust and growth.</p>
                     </div>
                 </div>
                 <div class="facilitator-card fade-in">
@@ -440,7 +473,7 @@
                     <div class="price-amount">€2,490</div>
                     <div class="price-period">One-time investment</div>
                     <div class="price-comparison">By application only — we curate for trust, readiness, and fit.</div>
-                    <a href="https://forms.fillout.com/t/sGyS5wC399us" class="price-cta" target="_blank" rel="noopener">Request an Invitation</a>
+                    <a href="https://forms.fillout.com/t/3x577JJtE6us" class="price-cta" target="_blank" rel="noopener">Request an Invitation</a>
                     <p class="price-note">Application interviews week of August 3rd · Programme kicks off week of
                         August 25th, 2026</p>
                 </div>
@@ -457,7 +490,7 @@
                 <p class="cta-description">You are not just managing capital — you are managing responsibility,
                     influence, and the possibility to shape what the future looks like. The Partner seat doesn't come
                     to those who wait, but it does come to those who are ready.</p>
-                <a href="https://forms.fillout.com/t/sGyS5wC399us" class="cta-button" target="_blank" rel="noopener">
+                <a href="https://forms.fillout.com/t/3x577JJtE6us" class="cta-button" target="_blank" rel="noopener">
                     Request an Invitation
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
