@@ -266,6 +266,10 @@ nav .container {
     line-height: 1.8;
 }
 
+.hero-description--italic {
+    font-style: italic;
+}
+
 .hero-cta {
     display: inline-flex;
     align-items: center;
@@ -697,6 +701,10 @@ nav .container {
     color: rgba(247, 245, 240, 0.9);
     padding-left: 2rem;
     border-left: 2px solid var(--color-accent-light);
+}
+
+.featured-quote p + p {
+    margin-top: 1rem;
 }
 
 /* Why It Works Section */
