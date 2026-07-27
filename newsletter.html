@@ -174,19 +174,19 @@
                 <div class="newsletter-info">
                     <span class="section-label">Newsletter</span>
                     <h1 style="font-family: var(--font-display); font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 2rem;">Insights for the <em>Human Side</em> of VC.</h1>
-                    <p style="font-size: 1.2rem; color: var(--color-taupe); line-height: 1.8; margin-bottom: 2rem;">Join a community of venture capitalists receiving bi-weekly reflections on leadership, sustainable performance, and building impactful funds.</p>
+                    <p style="font-size: 1.2rem; color: var(--color-taupe); line-height: 1.8; margin-bottom: 2rem;">Receive a newsletter for VCs (GPs, partners, emerging fund managers, investment managers, principals and associates) getting reflections on VC leadership, sustainable performance, and building impactful funds.</p>
                     <ul style="list-style: none; padding: 0;">
                         <li style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; color: var(--color-charcoal);">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-accent);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            Practical leadership frameworks
+                            Free events and resources for VCs — I'll keep you posted on those
                         </li>
                         <li style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; color: var(--color-charcoal);">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-accent);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            EM success stories & pitfalls
+                            Practical VC leadership frameworks you can put to work right away
                         </li>
                         <li style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; color: var(--color-charcoal);">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-accent);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            Zero noise, high signal
+                            Real VC stories and inspirational lessons
                         </li>
                     </ul>
                 </div>
@@ -237,6 +237,25 @@
                                                     <label class="entry__label" for="EMAIL" data-required="*">Email address</label>
                                                     <div class="entry__field">
                                                         <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Email address" data-required="true" required />
+                                                    </div>
+                                                </div>
+                                                <label class="entry__error entry__error--primary"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Segmentation field: requires a matching "ROLE" custom contact attribute
+                                         (single choice, options below) to be created in Brevo — see setup notes. -->
+                                    <div style="padding: 16px 0;">
+                                        <div class="sib-input sib-form-block">
+                                            <div class="form__entry entry_block">
+                                                <div class="form__label-row ">
+                                                    <label class="entry__label" for="ROLE">I am a...</label>
+                                                    <div class="entry__field">
+                                                        <select class="input" id="ROLE" name="ROLE">
+                                                            <option value="EM">Emerging Manager (EM)</option>
+                                                            <option value="PARTNER">Partner</option>
+                                                            <option value="PRINCIPAL_ASSOCIATE">Principal / Associate</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <label class="entry__error entry__error--primary"></label>
@@ -330,5 +349,28 @@
         var AUTOHIDE = Boolean(0);
     </script>
     <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+    <script>
+        // Hide the newsletter form fields once Brevo shows the success message,
+        // so signed-up visitors aren't left staring at the same fields they just filled in.
+        // Resets naturally on refresh/revisit — no cookie/localStorage tracking needed.
+        (function () {
+            var successMessage = document.getElementById('success-message');
+            var form = document.getElementById('sib-form');
+            if (!successMessage || !form) return;
+
+            function isVisible(el) {
+                return el.offsetParent !== null && getComputedStyle(el).display !== 'none';
+            }
+
+            var observer = new MutationObserver(function () {
+                if (isVisible(successMessage)) {
+                    form.style.display = 'none';
+                    observer.disconnect();
+                }
+            });
+
+            observer.observe(successMessage, { attributes: true, attributeFilter: ['style', 'class'] });
+        })();
+    </script>
 </body>
 </html>
