@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials — The VC Coach</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "x3997ofagn");
+    </script>
+
+    <style>
+        /* Testimonials hero */
+        .testimonials-hero {
+            padding: 10rem 0 3rem;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at 70% 20%, rgba(28, 78, 70, 0.06) 0%, transparent 50%),
+                var(--color-cream);
+        }
+        .testimonials-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.6rem, 5vw, 3.8rem);
+            font-weight: 400;
+            line-height: 1.15;
+            margin: 0 0 1.5rem;
+        }
+        .testimonials-hero h1 em {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+        .testimonials-hero p {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: var(--color-taupe);
+            line-height: 1.8;
+            max-width: 620px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Filter tabs */
+        .filter-tabs {
+            display: inline-flex;
+        }
+        .filter-tab {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.85rem 1.75rem;
+            border: 1px solid var(--color-primary);
+            background: transparent;
+            color: var(--color-primary);
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        .filter-tab + .filter-tab {
+            border-left: none;
+        }
+        .filter-tab.active,
+        .filter-tab:hover {
+            background: var(--color-primary);
+            color: var(--color-cream);
+        }
+
+        /* Testimonial list */
+        .testimonial-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+            padding: 3rem 0 6rem;
+        }
+        .t-tile {
+            position: relative;
+            padding: 2.5rem 3rem 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .t-tile::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .t-tile--light { background: var(--color-stone); }
+        .t-tile--light::before { border: 1px solid var(--color-primary); }
+        .t-tile--dark { background: var(--color-primary); }
+        .t-tile--dark::before { border: 1px solid rgba(28, 78, 70, 0.55); }
+
+        .t-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.75rem;
+            margin-bottom: 2rem;
+            border: 1px solid;
+        }
+        .t-tile--light .t-tag { color: var(--color-primary); border-color: rgba(28, 78, 70, 0.45); }
+        .t-tile--dark .t-tag { color: var(--color-cream); border-color: rgba(247, 245, 240, 0.5); }
+
+        .t-grid {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        .t-grid--reverse { grid-template-columns: 1fr 220px; }
+        .t-grid--vertical { grid-template-columns: 340px 1fr; align-items: center; }
+
+        /* Photo / video placeholder frame */
+        .t-photo {
+            width: 220px;
+            height: 270px;
+            position: relative;
+            background: var(--color-primary-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .t-tile--dark .t-photo { background: rgba(247, 245, 240, 0.08); }
+        .t-photo-mono {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-style: italic;
+            color: var(--color-primary);
+            opacity: 0.35;
+        }
+        .t-tile--dark .t-photo-mono { color: var(--color-cream); opacity: 0.4; }
+
+        .t-corner {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            pointer-events: none;
+            z-index: 3;
+        }
+        .t-corner--tl { top: -12px; left: -12px; border-top: 1px solid; border-left: 1px solid; }
+        .t-corner--br { bottom: -12px; right: -12px; border-bottom: 1px solid; border-right: 1px solid; }
+        .t-tile--light .t-corner { border-color: var(--color-primary); }
+        .t-tile--dark .t-corner { border-color: rgba(247, 245, 240, 0.75); }
+
+        .t-quote {
+            font-family: var(--font-display);
+            font-size: 2.1rem;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.35;
+            margin: 0 0 1.5rem;
+        }
+        .t-tile--light .t-quote { color: var(--color-charcoal); }
+        .t-tile--dark .t-quote { color: rgba(247, 245, 240, 0.94); }
+        .t-tile--light .t-quote em { font-style: italic; color: var(--color-accent); }
+        .t-tile--dark .t-quote em { font-style: italic; color: var(--color-accent-light); }
+
+        .t-body {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin: 0 0 1.5rem;
+        }
+        .t-tile--light .t-body { color: var(--color-taupe); }
+        .t-tile--dark .t-body { color: rgba(247, 245, 240, 0.75); }
+
+        .t-name { font-size: 1rem; font-weight: 500; margin: 0; }
+        .t-tile--light .t-name { color: var(--color-primary); }
+        .t-tile--dark .t-name { color: var(--color-cream); }
+
+        .t-role { font-size: 0.9rem; margin: 0.15rem 0 0; }
+        .t-tile--light .t-role { color: var(--color-taupe); }
+        .t-tile--dark .t-role { color: rgba(247, 245, 240, 0.7); }
+
+        .t-linkedin {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+        }
+        .t-tile--light .t-linkedin { color: var(--color-primary); }
+        .t-tile--dark .t-linkedin { color: var(--color-accent-light); }
+
+        /* Video card */
+        .t-video {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #14403a;
+            overflow: hidden;
+        }
+        .t-video--vertical { width: 340px; aspect-ratio: 9 / 16; }
+        .t-video-gradient {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(to top, rgba(20, 48, 43, 0.9) 0%, rgba(20, 48, 43, 0.25) 45%, rgba(20, 48, 43, 0.08) 100%);
+        }
+        .t-play {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+        .t-play-btn {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            background: rgba(247, 245, 240, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+        }
+        .t-play-btn--sm { width: 68px; height: 68px; }
+        .t-video-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2.5rem 3rem;
+            pointer-events: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 3rem;
+        }
+        .t-duration {
+            background: rgba(45, 58, 56, 0.85);
+            color: var(--color-cream);
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            padding: 0.3rem 0.6rem;
+        }
+        .t-duration--corner {
+            position: absolute;
+            bottom: 1.25rem;
+            right: 1.25rem;
+            pointer-events: none;
+        }
+
+        .t-cta {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .t-cta p {
+            font-size: 0.9rem;
+            color: var(--color-taupe);
+            margin: 0 0 1.5rem;
+        }
+
+        @media (max-width: 860px) {
+            .t-grid,
+            .t-grid--reverse,
+            .t-grid--vertical {
+                grid-template-columns: 1fr;
+            }
+            .t-photo,
+            .t-video--vertical {
+                width: 100%;
+                margin: 0 auto;
+            }
+            .t-tile {
+                padding: 2rem 1.5rem 2.5rem;
+            }
+            .t-video-caption {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .t-video:not(.t-video--vertical) {
+                aspect-ratio: 4 / 5;
+            }
+            .t-video:not(.t-video--vertical) .t-play {
+                align-items: flex-start;
+                padding-top: 12%;
+            }
+            .t-video:not(.t-video--vertical) .t-play-btn {
+                width: 56px;
+                height: 56px;
+            }
+            .t-video-caption {
+                padding: 1.5rem 1.25rem;
+            }
+            .t-video-caption .t-quote {
+                font-size: 1.25rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/logo-black.png" alt="The VC Coach">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#coaching">1:1 Coaching</a></li>
+                <li><a href="mastermind.html">Mastermind</a></li>
+                <li><a href="testimonials.html" style="color: var(--color-charcoal); font-weight: 500;">Testimonials</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#coaching" class="nav-cta">Get Started</a></li>
+            </ul>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html#coaching" onclick="closeMobileMenu()">1:1 Coaching</a>
+        <a href="mastermind.html">Mastermind</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="index.html#about" onclick="closeMobileMenu()">About</a>
+        <a href="index.html#coaching" onclick="closeMobileMenu()"
+            style="padding: 1rem 2rem; background: var(--color-primary); color: var(--color-cream);">Get Started</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="testimonials-hero">
+        <div class="container">
+            <span class="section-label">Testimonials</span>
+            <h1>In Their <em>Own Words</em></h1>
+            <p>Written and on camera — venture capitalists and fund builders on what the work changed for them.</p>
+            <div class="filter-tabs">
+                <button type="button" class="filter-tab active" data-filter="all">All</button>
+                <button type="button" class="filter-tab" data-filter="1-1">1:1 Coaching</button>
+                <button type="button" class="filter-tab" data-filter="mastermind">Mastermind</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial List -->
+    <section>
+        <div class="container">
+            <div class="testimonial-list">
+
+                <!-- Written · 1:1 · Jess -->
+                <div class="t-tile t-tile--light fade-in" data-category="1-1">
+                    <span class="t-tag">1:1 Coaching</span>
+                    <div class="t-grid">
+                        <div class="t-photo">
+                            <span class="t-photo-mono">JB</span>
+                            <div class="t-corner t-corner--tl"></div>
+                            <div class="t-corner t-corner--br"></div>
+                        </div>
+                        <div>
+                            <p class="t-quote">"With her guidance, I exceeded <em>every one</em> of my goals."</p>
+                            <p class="t-body">"Working with Anieke has been an incredible experience. She is not only an authentic and caring coach, but she consistently goes above and beyond in everything she does. Whether it's creating personalized meditations or sending thoughtful messages at exactly the right moment, her genuine care shines through in every interaction. Her support has had a lasting impact on both my personal and professional growth, and I can't recommend her highly enough."</p>
+                            <p class="t-name">Jess Burley</p>
+                            <p class="t-role">Planet A Ventures</p>
+                            <a href="https://www.linkedin.com/in/jessica-burley-721700149" class="t-linkedin">LinkedIn
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video horizontal · Mastermind · Atanas -->
+                <div class="t-tile t-tile--dark fade-in" data-category="mastermind">
+                    <span class="t-tag">Mastermind</span>
+                    <div class="t-video">
+                        <div class="t-video-gradient"></div>
+                        <div class="t-play">
+                            <div class="t-play-btn">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="#1c4e46"><path d="M8 5.5v13l11-6.5z"></path></svg>
+                            </div>
+                        </div>
+                        <div class="t-video-caption">
+                            <div>
+                                <p class="t-quote" style="font-size: 2rem; max-width: 640px;">"The right balance between <em>expert input</em> and peer discussion."</p>
+                                <p class="t-name" style="margin: 0;">Atanas Mukov</p>
+                                <p class="t-role">Partner, Walter Ventures</p>
+                            </div>
+                            <div class="t-duration">2:14</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Written · Mastermind · Atanas -->
+                <div class="t-tile t-tile--dark fade-in" data-category="mastermind">
+                    <span class="t-tag">Mastermind</span>
+                    <div class="t-grid t-grid--reverse">
+                        <div>
+                            <p class="t-quote">"One of the most <em>focused and valuable</em> programs I've seen."</p>
+                            <p class="t-body">"The sessions on fund narrative, positioning, and team composition were especially useful and gave me a new perspective on how to think about building and presenting a fund. The program strikes the right balance between expert input and peer discussion, and the biweekly cadence worked very well. It's a highly relevant, thoughtfully designed program that I would strongly recommend to other emerging managers."</p>
+                            <p class="t-name">Atanas Mukov</p>
+                            <p class="t-role">Partner, Walter Ventures</p>
+                            <a href="https://www.linkedin.com/in/atanasmukov" class="t-linkedin">LinkedIn
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                        <div class="t-photo">
+                            <span class="t-photo-mono">AM</span>
+                            <div class="t-corner t-corner--tl"></div>
+                            <div class="t-corner t-corner--br"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video vertical · 1:1 -->
+                <div class="t-tile t-tile--light fade-in" data-category="1-1">
+                    <span class="t-tag">1:1 Coaching</span>
+                    <div class="t-grid t-grid--vertical">
+                        <div class="t-video t-video--vertical" style="margin: 0 auto; background: var(--color-primary);">
+                            <div class="t-play">
+                                <div class="t-play-btn t-play-btn--sm">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#1c4e46"><path d="M8 5.5v13l11-6.5z"></path></svg>
+                                </div>
+                            </div>
+                            <div class="t-corner t-corner--tl"></div>
+                            <div class="t-corner t-corner--br"></div>
+                            <div class="t-duration t-duration--corner">1:38</div>
+                        </div>
+                        <div>
+                            <p class="t-quote" style="margin-bottom: 1.75rem;">"Coaching gave me the space to think — <em>because who's coaching you?</em>"</p>
+                            <p class="t-name">Client Name</p>
+                            <p class="t-role">Role, Fund</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="t-cta fade-in">
+                    <p>Every engagement starts with a conversation.</p>
+                    <a href="https://calendly.com/anieke-thevccoach/30min" class="hero-cta">
+                        <span>Schedule Discovery Call</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a href="index.html" class="logo" style="display: block; margin-bottom: 1rem;">
+                        <img src="img/logo.png" alt="The VC Coach">
+                    </a>
+                    <p style="font-size: 0.9rem; color: rgba(247, 245, 240, 0.6); max-width: 300px;">Make the future of
+                        venture capital more human.</p>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="index.html#coaching">1:1 Coaching</a></li>
+                    <li><a href="mastermind.html">Mastermind</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                </ul>
+                <div>
+                    <p style="font-size: 0.85rem; color: rgba(247, 245, 240, 0.6); margin-bottom: 0.5rem;">Connect</p>
+                    <ul class="footer-links" style="flex-direction: column; gap: 0.5rem;">
+                        <li><a href="https://www.linkedin.com/company/the-vc-coach/">LinkedIn</a></li>
+                        <li><a href="newsletter.html">Newsletter</a></li>
+                        <li><a href="index.html#coaching">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(247, 245, 240, 0.1);">
+                <p class="footer-copyright">© 2026 The VC Coach. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            mobileNav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            mobileNav.classList.remove('active');
+            menuToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Intersection Observer for scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Testimonial category filter
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const testimonialTiles = document.querySelectorAll('.t-tile');
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const filter = tab.dataset.filter;
+                testimonialTiles.forEach(tile => {
+                    const match = filter === 'all' || tile.dataset.category === filter;
+                    tile.style.display = match ? '' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
