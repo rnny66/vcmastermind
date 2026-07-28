@@ -36,7 +36,7 @@ Women who are:
 * Navigating complex family dynamics, expectations, or governance structures  
 * Seeking to define their own voice and philosophy around money and investing  
 * Curious about how to grow and deploy capital in aligned and meaningful ways  
-* Ready to move from **passive beneficiary → active steward**
+* Ready to move from **beneficiary → active steward**
 
 ---
 
@@ -61,7 +61,7 @@ Women who are:
 
 * **Bi-weekly Mastermind Sessions**  
    Deep, confidential conversations grounded in real-life decisions  
-* **1:1 LeadershipStewardship Coaching**  
+* **1:1 Leadership Coaching**  
    Personalized support to clarify your voice and next moves  
 * **Expert Conversations**  
    Investors, family office leaders, and alternative thinkers  
