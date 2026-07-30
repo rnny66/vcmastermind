@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The VC Coach — CVC Mastermind (Pilot)</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
@@ -25,7 +25,7 @@
     <style>
         /* CVC Hero — photo background with dark blur overlay */
         .hero {
-            background: url('img/hero-cvc-bg.jpg') center center / cover no-repeat !important;
+            background: url('../img/hero-cvc-bg.jpg') center center / cover no-repeat !important;
         }
         .hero::before {
             background: rgba(12, 30, 28, 0.72) !important;
@@ -56,19 +56,35 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="index.html" class="logo">
-                <img src="img/logo-black.png" alt="The VC Coach">
+            <a href="../index.html" class="logo">
+                <img src="../img/logo-black.png" alt="The VC Coach">
             </a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#what-it-is">The Problem</a></li>
-                <li><a href="#what-you-get">Programme</a></li>
-                <li><a href="#facilitators">Facilitators</a></li>
-                <li><a href="#pricing">Investment</a></li>
-                <li><a href="#pricing" class="nav-cta">Pre-Apply</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="index.html">Masterminds</a></li>
+                <li><a href="../1-1-coaching.html">1:1 Coaching</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../newsletter.html">Newsletter</a></li>
+                <li><a href="#pricing" class="nav-cta">Apply</a></li>
             </ul>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="../index.html" onclick="closeMobileMenu()">Home</a>
+        <a href="index.html" onclick="closeMobileMenu()">Masterminds</a>
+        <a href="../1-1-coaching.html" onclick="closeMobileMenu()">1:1 Coaching</a>
+        <a href="../index.html#about" onclick="closeMobileMenu()">About</a>
+        <a href="../newsletter.html" onclick="closeMobileMenu()">Newsletter</a>
+        <a href="#pricing" onclick="closeMobileMenu()"
+            style="padding: 1rem 2rem; background: var(--color-primary); color: var(--color-cream);">Apply</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
@@ -137,9 +153,9 @@
                     </div>
                     <div class="hero-collab">
                         <span class="hero-collab-label">In collaboration with</span>
-                        <img src="img/logo-black.png" alt="The VC Coach" class="hero-collab-logo">
+                        <img src="../img/logo-black.png" alt="The VC Coach" class="hero-collab-logo">
                         <span class="hero-collab-sep">×</span>
-                        <img src="img/euvc_logo.png" alt="EU.VC" class="hero-collab-logo">
+                        <img src="../img/euvc_logo.png" alt="EU.VC" class="hero-collab-logo">
                     </div>
                 </div>
             </div>
@@ -438,7 +454,7 @@
             <div class="facilitators-grid facilitators-grid--three">
                 <div class="facilitator-card fade-in">
                     <div class="facilitator-image">
-                        <img src="img/al.png" alt="Anieke Lamers">
+                        <img src="../img/al.png" alt="Anieke Lamers">
                     </div>
                     <div class="facilitator-info">
                         <h3>Anieke Lamers</h3>
@@ -448,7 +464,7 @@
                 </div>
                 <div class="facilitator-card fade-in">
                     <div class="facilitator-image">
-                        <img src="img/lil.png" alt="Liliana Negrila">
+                        <img src="../img/lil.png" alt="Liliana Negrila">
                     </div>
                     <div class="facilitator-info">
                         <h3>Liliana Negrila</h3>
@@ -458,7 +474,7 @@
                 </div>
                 <div class="facilitator-card fade-in">
                     <div class="facilitator-image">
-                        <img src="img/david.jpg" alt="David Cruz e Silva">
+                        <img src="../img/david.jpg" alt="David Cruz e Silva">
                     </div>
                     <div class="facilitator-info">
                         <h3>David Cruz e Silva</h3>
@@ -556,34 +572,53 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <a href="index.html" class="logo">
-                    <img src="img/logo.png" alt="The VC Coach">
-                </a>
+                <div>
+                    <a href="../index.html" class="logo" style="display: block; margin-bottom: 1rem;">
+                        <img src="../img/logo.png" alt="The VC Coach">
+                    </a>
+                    <p style="font-size: 0.9rem; color: rgba(247, 245, 240, 0.6); max-width: 300px;">Make the future of
+                        venture capital more human.</p>
+                </div>
                 <ul class="footer-links">
-                    <li><a href="index.html#coaching">1:1 Coaching</a></li>
-                    <li><a href="mastermind.html">Mastermind</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="index.html#process">Process</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="index.html">Masterminds</a></li>
+                    <li><a href="../1-1-coaching.html">1:1 Coaching</a></li>
+                    <li><a href="../index.html#about">About</a></li>
                 </ul>
                 <div>
-                    <p
-                        style="font-size: 0.85rem; color: rgba(247, 245, 240, 0.6); margin-bottom: 0.5rem; color: var(--color-cream); opacity: 0.6;">
-                        Connect</p>
+                    <p style="font-size: 0.85rem; color: rgba(247, 245, 240, 0.6); margin-bottom: 0.5rem;">Connect</p>
                     <ul class="footer-links" style="flex-direction: column; gap: 0.5rem;">
                         <li><a href="https://www.linkedin.com/company/the-vc-coach/">LinkedIn</a></li>
-                        <li><a href="newsletter.html">Newsletter</a></li>
-                        <li><a href="index.html#coaching">Contact</a></li>
+                        <li><a href="../newsletter.html">Newsletter</a></li>
+                        <li><a href="../1-1-coaching.html">Contact</a></li>
                     </ul>
                 </div>
             </div>
             <div
                 style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(247, 245, 240, 0.1);">
-                <p class="footer-copyright">© 2025 The VC Coach. All rights reserved.</p>
+                <p class="footer-copyright">© 2026 The VC Coach. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            mobileNav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            mobileNav.classList.remove('active');
+            menuToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
         const fadeElements = document.querySelectorAll('.fade-in');
 
         const observer = new IntersectionObserver((entries) => {

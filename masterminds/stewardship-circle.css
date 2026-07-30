@@ -69,6 +69,23 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; color: var(--co
   border-radius: 2px; transition: all 0.3s ease; }
 .nav-cta:hover { background: var(--color-accent) !important; color: #fff !important; }
 
+/* ---------- Mobile menu ---------- */
+.mobile-menu-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px;
+  width: 30px; height: 30px; cursor: pointer; z-index: 1001; }
+.mobile-menu-toggle span { display: block; width: 100%; height: 2px; background: var(--color-charcoal);
+  transition: all 0.3s ease; }
+.mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+.mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--color-cream); z-index: 999; padding: 6rem 2rem 2rem;
+  flex-direction: column; align-items: center; gap: 2rem; }
+.mobile-nav.active { display: flex; }
+.mobile-nav a { font-family: var(--font-display); font-size: 1.5rem; color: var(--color-charcoal);
+  text-decoration: none; transition: color 0.3s ease; }
+.mobile-nav a:hover { color: var(--color-primary); }
+
 /* ---------- Buttons ---------- */
 .btn { display: inline-flex; align-items: center; gap: 0.8rem; padding: 1.05rem 2.2rem; border: none;
   font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
@@ -227,6 +244,12 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; color: var(--co
 .footer-note { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; color: var(--fg-on-dark-muted); }
 .footer-bottom { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-dark-hairline); font-size: 0.76rem; letter-spacing: 0.03em; }
 
+.footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+.footer-links a { font-size: 0.82rem; color: var(--fg-on-dark-soft); transition: color 0.3s ease; }
+.footer-links a:hover { color: var(--color-cream); }
+.footer-links--column { flex-direction: column; gap: 0.5rem; }
+.footer-connect-label { font-size: 0.78rem; color: var(--fg-on-dark-soft); margin-bottom: 0.5rem; }
+
 /* ---------- Scroll reveal ---------- */
 .reveal { opacity: 0; transform: translateY(26px); transition: all 0.8s ease-out; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -248,4 +271,5 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; color: var(--co
   .facil-row .facil-media { margin: 0 auto; }
   .split-grid .split-head { position: static; }
   .nav-links { display: none; }
+  .mobile-menu-toggle { display: flex; }
 }
