@@ -125,6 +125,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            width: auto;
             padding: 0.85rem 1.25rem;
             border: 1px solid rgba(28, 78, 70, 0.2);
             background: white;
@@ -133,6 +134,7 @@
             font-size: 0.95rem;
             color: var(--color-charcoal);
             text-align: center;
+            white-space: normal;
             transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
         }
 
@@ -260,12 +262,13 @@
                                         <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
                                     </svg>
                                     <span class="sib-form-message-panel__inner-text">
-                                        Your subscription to The VC Coach has been successful.
+                                        Thanks! Please check your inbox to confirm your subscription.
                                     </span>
                                 </div>
                             </div>
                             <div id="sib-container" class="sib-container--large sib-container--vertical">
-                                <form id="sib-form" method="POST" action="https://04edfea8.sibforms.com/serve/MUIFAPP1WjQ9mtXv_FmtX-UI5MxkdXRaVmIzquBtiJV7qSmSddcwyjjPsjdhLVCC5nm3H5asyNhyJM6iks9OUps62Gm65IqyVRZhJHTrxvvDbbevV3guagwNvV_jtxGnBZH6orgFZQtP9UlqV6LNO1Q2EC7_jzmKMDj-3WdEz1TZzsXcqGJUvdFQlhuXtm6I5speo4YFC-7BtdWWtg==" data-type="subscription">
+                                <iframe name="brevo-submit-target" style="display:none" title="form submission target"></iframe>
+                                <form id="sib-form" method="POST" action="https://04edfea8.sibforms.com/serve/MUIFAPP1WjQ9mtXv_FmtX-UI5MxkdXRaVmIzquBtiJV7qSmSddcwyjjPsjdhLVCC5nm3H5asyNhyJM6iks9OUps62Gm65IqyVRZhJHTrxvvDbbevV3guagwNvV_jtxGnBZH6orgFZQtP9UlqV6LNO1Q2EC7_jzmKMDj-3WdEz1TZzsXcqGJUvdFQlhuXtm6I5speo4YFC-7BtdWWtg==" data-type="subscription" target="brevo-submit-target">
                                     <div style="padding: 16px 0;">
                                         <div class="sib-input sib-form-block">
                                             <div class="form__entry entry_block">
@@ -292,25 +295,29 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Segmentation field: requires a matching "ROLE" custom contact attribute
-                                         (single choice, options below) to be created in Brevo — see setup notes. -->
+                                    <!-- Segmentation field: ROLE custom contact attribute in Brevo,
+                                         options in order EM=1, PARTNER=2, PRINCIPAL_ASSOCIATE=3 -->
                                     <div style="padding: 16px 0;">
-                                        <div class="sib-input sib-form-block">
-                                            <div class="form__entry entry_block">
+                                        <div class="sib-radiobutton-group sib-form-block" data-required="true">
+                                            <div class="form__entry entry_mcq">
                                                 <div class="form__label-row ">
-                                                    <label class="entry__label">I am a...</label>
-                                                    <div class="entry__field">
-                                                        <div class="role-select-group" role="radiogroup" aria-label="I am a...">
-                                                            <label class="role-select-option">
-                                                                <input type="radio" name="ROLE" value="EM" class="role-select-input">
+                                                    <label class="entry__label" for="ROLE" data-required="*">I am a...</label>
+                                                    <div class="role-select-group" role="radiogroup" aria-label="I am a...">
+                                                        <div class="entry__choice role-select-option">
+                                                            <label>
+                                                                <input type="radio" name="ROLE" class="input_replaced role-select-input" value="1" required>
                                                                 <span>Emerging Manager (EM)</span>
                                                             </label>
-                                                            <label class="role-select-option">
-                                                                <input type="radio" name="ROLE" value="PARTNER" class="role-select-input">
+                                                        </div>
+                                                        <div class="entry__choice role-select-option">
+                                                            <label>
+                                                                <input type="radio" name="ROLE" class="input_replaced role-select-input" value="2" required>
                                                                 <span>Partner</span>
                                                             </label>
-                                                            <label class="role-select-option">
-                                                                <input type="radio" name="ROLE" value="PRINCIPAL_ASSOCIATE" class="role-select-input">
+                                                        </div>
+                                                        <div class="entry__choice role-select-option">
+                                                            <label>
+                                                                <input type="radio" name="ROLE" class="input_replaced role-select-input" value="3" required>
                                                                 <span>Principal / Associate</span>
                                                             </label>
                                                         </div>
@@ -408,26 +415,20 @@
     </script>
     <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
     <script>
-        // Hide the newsletter form fields once Brevo shows the success message,
-        // so signed-up visitors aren't left staring at the same fields they just filled in.
-        // Resets naturally on refresh/revisit — no cookie/localStorage tracking needed.
+        // Show the success message and remove the form fields as soon as the visitor
+        // submits, instead of relying on Brevo's external script to reveal them (it
+        // wasn't intercepting the submit, so the browser was navigating to Brevo's
+        // raw JSON response). The form targets a hidden iframe so this submit never
+        // navigates the page away.
         (function () {
-            var successMessage = document.getElementById('success-message');
             var form = document.getElementById('sib-form');
-            if (!successMessage || !form) return;
+            var successMessage = document.getElementById('success-message');
+            if (!form || !successMessage) return;
 
-            function isVisible(el) {
-                return el.offsetParent !== null && getComputedStyle(el).display !== 'none';
-            }
-
-            var observer = new MutationObserver(function () {
-                if (isVisible(successMessage)) {
-                    form.style.display = 'none';
-                    observer.disconnect();
-                }
+            form.addEventListener('submit', function () {
+                successMessage.classList.add('sib-form-message-panel--active');
+                form.style.display = 'none';
             });
-
-            observer.observe(successMessage, { attributes: true, attributeFilter: ['style', 'class'] });
         })();
 
         // Highlight the selected role box
