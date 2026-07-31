@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The VC Coach — Executive Coaching for Venture Capitalists</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -31,11 +32,12 @@
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="masterminds/">Masterminds</a></li>
+                <li><a href="masterminds/masterminds-overview.html">Masterminds</a></li>
                 <li><a href="1-1-coaching.html">1:1 Coaching</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="newsletter.html">Newsletter</a></li>
-                <li><a href="1-1-coaching.html" class="nav-cta">Get Started</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services" class="nav-cta">Get Started</a></li>
             </ul>
             <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
                 <span></span>
@@ -48,11 +50,12 @@
     <!-- Mobile Navigation -->
     <div class="mobile-nav" id="mobileNav">
         <a href="index.html" onclick="closeMobileMenu()">Home</a>
-        <a href="masterminds/" onclick="closeMobileMenu()">Masterminds</a>
+        <a href="masterminds/masterminds-overview.html" onclick="closeMobileMenu()">Masterminds</a>
         <a href="1-1-coaching.html" onclick="closeMobileMenu()">1:1 Coaching</a>
-        <a href="#about" onclick="closeMobileMenu()">About</a>
         <a href="newsletter.html" onclick="closeMobileMenu()">Newsletter</a>
-        <a href="1-1-coaching.html" onclick="closeMobileMenu()"
+        <a href="testimonials.html" onclick="closeMobileMenu()">Testimonials</a>
+        <a href="#about" onclick="closeMobileMenu()">About</a>
+        <a href="#services" onclick="closeMobileMenu()"
             style="padding: 1rem 2rem; background: var(--color-primary); color: var(--color-cream);">Get Started</a>
     </div>
 
@@ -66,7 +69,7 @@
                     <p class="hero-description">Executive coaching for venture capitalists who want to be more impactful
                         as sustainable leaders.</p>
                     <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="1-1-coaching.html" class="hero-cta">
+                        <a href="1-1-coaching.html" class="hero-cta" style="flex: 1 0 240px; justify-content: center; white-space: nowrap;">
                             <span>Explore 1:1 Coaching</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -74,7 +77,8 @@
                                     d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
                         </a>
-                        <a href="masterminds/" class="hero-cta" style="background: var(--color-accent);">
+                        <a href="masterminds/masterminds-overview.html" class="hero-cta hero-cta--accent"
+                            style="background: var(--color-accent); flex: 1 0 240px; justify-content: center; white-space: nowrap;">
                             <span>Explore Masterminds</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -89,6 +93,7 @@
                         loading="eager" width="800" height="960">
                     <div class="hero-image-overlay">
                         <div class="detail-text">
+                            <strong style="display: block; color: var(--color-accent); margin-bottom: 0.25rem;">Anieke Lamers</strong>
                             <strong>Certified Executive Coach</strong>
                             <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem;">Over a decade in venture capital, now
                                 dedicated to making VC leadership more sustainable and impactful.</p>
@@ -100,7 +105,7 @@
     </section>
 
     <!-- Services Section -->
-    <section class="who-for">
+    <section class="who-for" id="services">
         <div class="container">
             <div class="who-for-header fade-in">
                 <span class="section-label">Services</span>
@@ -137,7 +142,7 @@
                     <p>Curated peer groups for venture capitalists — from emerging managers to corporate VCs and
                         investment managers. Bi-weekly facilitated sessions, hot seat coaching, and a trusted circle
                         of peers.</p>
-                    <a href="masterminds/" class="service-link">
+                    <a href="masterminds/masterminds-overview.html" class="service-link">
                         Explore All Masterminds
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -196,6 +201,15 @@
                 <p class="testimonial-author">Jessica Burley</p>
                 <p class="testimonial-role">Investor, Planet A Ventures</p>
             </div>
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <a href="testimonials.html" class="service-link">
+                    Read More Testimonials
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -208,15 +222,15 @@
                 <p class="cta-description">Whether you're seeking 1:1 coaching or a trusted peer group, start with a
                     conversation.</p>
                 <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="1-1-coaching.html" class="cta-button">
-                        Schedule Discovery Call
+                    <a href="1-1-coaching.html" class="cta-button cta-button--hero-anim">
+                        <span>Explore 1:1 Coaching</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                     </a>
-                    <a href="masterminds/" class="cta-button" style="background: var(--color-accent);">
-                        Explore Masterminds
+                    <a href="masterminds/masterminds-overview.html" class="cta-button cta-button--hero-anim cta-button--accent" style="background: var(--color-accent);">
+                        <span>Explore Masterminds</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -240,7 +254,7 @@
                 </div>
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="masterminds/">Masterminds</a></li>
+                    <li><a href="masterminds/masterminds-overview.html">Masterminds</a></li>
                     <li><a href="1-1-coaching.html">1:1 Coaching</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>

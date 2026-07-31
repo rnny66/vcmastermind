@@ -32,11 +32,12 @@
             </a>
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="index.html">Masterminds</a></li>
+                <li><a href="masterminds-overview.html">Masterminds</a></li>
                 <li><a href="../1-1-coaching.html">1:1 Coaching</a></li>
-                <li><a href="../index.html#about">About</a></li>
                 <li><a href="../newsletter.html">Newsletter</a></li>
-                <li><a href="../1-1-coaching.html" class="nav-cta">Get Started</a></li>
+                <li><a href="../testimonials.html">Testimonials</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#services" class="nav-cta">Get Started</a></li>
             </ul>
             <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
                 <span></span>
@@ -49,11 +50,12 @@
     <!-- Mobile Navigation -->
     <div class="mobile-nav" id="mobileNav">
         <a href="../index.html" onclick="closeMobileMenu()">Home</a>
-        <a href="index.html" onclick="closeMobileMenu()">Masterminds</a>
+        <a href="masterminds-overview.html" onclick="closeMobileMenu()">Masterminds</a>
         <a href="../1-1-coaching.html" onclick="closeMobileMenu()">1:1 Coaching</a>
-        <a href="../index.html#about" onclick="closeMobileMenu()">About</a>
         <a href="../newsletter.html" onclick="closeMobileMenu()">Newsletter</a>
-        <a href="../1-1-coaching.html" onclick="closeMobileMenu()"
+        <a href="../testimonials.html" onclick="closeMobileMenu()">Testimonials</a>
+        <a href="../index.html#about" onclick="closeMobileMenu()">About</a>
+        <a href="../index.html#services" onclick="closeMobileMenu()"
             style="padding: 1rem 2rem; background: var(--color-primary); color: var(--color-cream);">Get Started</a>
     </div>
 
@@ -76,26 +78,28 @@
     <section style="padding: 4rem 0 8rem; background: var(--color-cream);">
         <div class="container">
             <div class="program-filters">
-                <div class="filter-group" data-filter-group="audience">
-                    <span class="filter-label">Audience</span>
-                    <button type="button" class="filter-chip is-active" data-audience="all" aria-pressed="true">All</button>
-                    <button type="button" class="filter-chip" data-audience="emerging-managers" aria-pressed="false">Emerging Managers</button>
-                    <button type="button" class="filter-chip" data-audience="corporate-vcs" aria-pressed="false">Corporate VCs</button>
-                    <button type="button" class="filter-chip" data-audience="investment-managers" aria-pressed="false">Investment Managers</button>
-                    <button type="button" class="filter-chip" data-audience="wealth-stewards" aria-pressed="false">Wealth Stewards</button>
+                <div class="filter-group">
+                    <label class="filter-label" for="audienceFilter">Audience</label>
+                    <select id="audienceFilter" class="filter-select">
+                        <option value="all">All</option>
+                        <option value="emerging-managers">Emerging Managers</option>
+                        <option value="investment-managers">Investment Managers</option>
+                        <option value="wealth-stewards">Wealth Stewards</option>
+                        <option value="corporate-vcs">Corporate VCs</option>
+                    </select>
                 </div>
-                <div class="filter-group" data-filter-group="status">
-                    <span class="filter-label">Status</span>
-                    <button type="button" class="filter-chip is-active" data-status="all" aria-pressed="true">All</button>
-                    <button type="button" class="filter-chip" data-status="open" aria-pressed="false">Open for applications</button>
-                    <button type="button" class="filter-chip" data-status="coming" aria-pressed="false">Coming soon</button>
+                <div class="filter-group">
+                    <label class="filter-label" for="statusFilter">Status</label>
+                    <select id="statusFilter" class="filter-select">
+                        <option value="all">All</option>
+                        <option value="open">Open for applications</option>
+                        <option value="coming">Coming soon</option>
+                    </select>
                 </div>
-                <button type="button" class="filter-chip is-active sort-toggle" id="sortToggle" aria-pressed="true">Sorted: soonest first</button>
             </div>
 
             <div class="program-grid" id="programGrid">
-                <article class="program-card fade-in" data-audience="emerging-managers" data-status="open"
-                    data-start="2026-09-09" data-order="1">
+                <article class="program-card fade-in" data-audience="emerging-managers" data-status="open">
                     <div class="program-card-header">
                         <span class="program-badge program-badge--open">Enrolling — Cohort 2</span>
                         <span class="program-audience">Emerging Managers</span>
@@ -111,7 +115,7 @@
                         <li>Fully remote — join from anywhere</li>
                     </ul>
                     <div class="program-card-footer">
-                        <span class="program-price">€2.490</span>
+                        <span class="program-price">€2,490</span>
                         <a href="emerging-manager.html" class="service-link">
                             View Program
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -121,34 +125,7 @@
                     </div>
                 </article>
 
-                <article class="program-card fade-in" data-audience="corporate-vcs" data-status="open"
-                    data-start="2026-08-01" data-order="2">
-                    <div class="program-card-header">
-                        <span class="program-badge program-badge--open">Pilot — pre-apply</span>
-                        <span class="program-audience">Corporate VCs</span>
-                    </div>
-                    <h3>CVC Mastermind</h3>
-                    <p class="program-start">Pilot cohort — pre-apply now</p>
-                    <p>A 3-month peer cohort for CVC professionals who operate at the intersection of two worlds — and
-                        are fully understood by neither.</p>
-                    <ul class="program-meta">
-                        <li>3 months · bi-weekly 90-min sessions</li>
-                        <li>8 members maximum, no competitive overlap</li>
-                        <li>1-day in-person gathering, London</li>
-                    </ul>
-                    <div class="program-card-footer">
-                        <span class="program-price">€3.390</span>
-                        <a href="corporate-venture.html" class="service-link">
-                            View Programme
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="program-card fade-in" data-audience="investment-managers" data-status="open"
-                    data-start="2026-08-25" data-order="3">
+                <article class="program-card fade-in" data-audience="investment-managers" data-status="open">
                     <div class="program-card-header">
                         <span class="program-badge program-badge--open">Applications open</span>
                         <span class="program-audience">Investment Managers</span>
@@ -163,7 +140,7 @@
                         <li>Remote sessions · in-person gathering optional</li>
                     </ul>
                     <div class="program-card-footer">
-                        <span class="program-price">€2.490</span>
+                        <span class="program-price">€2,490</span>
                         <a href="investment-manager.html" class="service-link">
                             View Programme
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -173,13 +150,12 @@
                     </div>
                 </article>
 
-                <article class="program-card fade-in" data-audience="wealth-stewards" data-status="coming"
-                    data-start="9999-01-01" data-order="4">
+                <article class="program-card fade-in" data-audience="wealth-stewards" data-status="coming">
                     <div class="program-card-header">
                         <span class="program-badge">Coming soon</span>
                         <span class="program-audience">Wealth Stewards</span>
                     </div>
-                    <h3>The Stewardship Circle</h3>
+                    <h3>The NextGen Women&rsquo;s Capital Circle</h3>
                     <p class="program-start">Dates to be announced</p>
                     <p>A private lineage lab for next-generation women stepping into wealth, influence, voice, and
                         legacy — with clarity, confidence, and intention.</p>
@@ -189,9 +165,34 @@
                         <li>By application and conversation</li>
                     </ul>
                     <div class="program-card-footer">
-                        <span class="program-price">€2.490</span>
-                        <a href="stewardship-circle.html" class="service-link">
+                        <span class="program-price">€2,490</span>
+                        <a href="nextgen-womens-capital-circle.html" class="service-link">
                             View Program
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="program-card fade-in" data-audience="corporate-vcs" data-status="open">
+                    <div class="program-card-header">
+                        <span class="program-badge program-badge--open">Pilot — pre-apply</span>
+                        <span class="program-audience">Corporate VCs</span>
+                    </div>
+                    <h3>CVC Mastermind</h3>
+                    <p class="program-start">Pilot cohort — pre-apply now</p>
+                    <p>A 3-month peer cohort for CVC professionals who operate at the intersection of two worlds — and
+                        are fully understood by neither.</p>
+                    <ul class="program-meta">
+                        <li>3 months · bi-weekly 90-min sessions</li>
+                        <li>8 members maximum, no competitive overlap</li>
+                        <li>1-day in-person gathering, London</li>
+                    </ul>
+                    <div class="program-card-footer">
+                        <span class="program-price">€3,390</span>
+                        <a href="corporate-venture.html" class="service-link">
+                            View Programme
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
@@ -203,59 +204,6 @@
             <div class="program-empty is-hidden" id="programEmpty">
                 <p>No masterminds match those filters.</p>
                 <button type="button" class="program-empty-clear" id="clearFilters">Clear filters</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Selection Note -->
-    <section class="what-it-is">
-        <div class="container">
-            <div class="what-it-is-content">
-                <div class="what-it-is-left">
-                    <span class="section-label">Selection Process</span>
-                    <h2 class="what-it-is-title">Why Not Everyone Gets In</h2>
-                </div>
-                <div class="what-it-is-text">
-                    <p>This only works if people can speak freely, and that requires confidentiality and zero
-                        competitive overlap. Every cohort is curated for trust, chemistry, and shared ambition.</p>
-                    <div class="not-list">
-                        <div class="not-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                            Not a course
-                        </div>
-                        <div class="not-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                            Not an accelerator
-                        </div>
-                        <div class="not-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                            Not another Slack channel
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content fade-in">
-                <span class="section-label">Next Steps</span>
-                <h2 class="cta-title">Ready to Find <em>Your People?</em></h2>
-                <p class="cta-description">Not sure which room is yours? Start with a conversation.</p>
-                <a href="https://calendly.com/anieke-thevccoach/30min" class="cta-button">
-                    Schedule Discovery Call
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                </a>
             </div>
         </div>
     </section>
@@ -273,7 +221,7 @@
                 </div>
                 <ul class="footer-links">
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="index.html">Masterminds</a></li>
+                    <li><a href="masterminds-overview.html">Masterminds</a></li>
                     <li><a href="../1-1-coaching.html">1:1 Coaching</a></li>
                     <li><a href="../index.html#about">About</a></li>
                 </ul>
@@ -326,16 +274,9 @@
         const grid = document.getElementById('programGrid');
         const cards = Array.from(grid.querySelectorAll('.program-card'));
         const emptyState = document.getElementById('programEmpty');
-        const sortToggle = document.getElementById('sortToggle');
-        const filterState = { audience: 'all', status: 'all', sortSoonest: true };
-
-        function setActiveChip(group, value) {
-            document.querySelectorAll(`.filter-chip[data-${group}]`).forEach(chip => {
-                const active = chip.dataset[group] === value;
-                chip.classList.toggle('is-active', active);
-                chip.setAttribute('aria-pressed', String(active));
-            });
-        }
+        const audienceFilter = document.getElementById('audienceFilter');
+        const statusFilter = document.getElementById('statusFilter');
+        const filterState = { audience: 'all', status: 'all' };
 
         function render() {
             let visibleCount = 0;
@@ -346,43 +287,26 @@
                 card.classList.toggle('is-hidden', !visible);
                 if (visible) {
                     visibleCount++;
-                    card.style.order = filterState.sortSoonest
-                        ? card.dataset.start.replace(/-/g, '')
-                        : card.dataset.order;
                 }
             });
             emptyState.classList.toggle('is-hidden', visibleCount > 0);
         }
 
-        document.querySelectorAll('.filter-chip[data-audience]').forEach(chip => {
-            chip.addEventListener('click', () => {
-                filterState.audience = chip.dataset.audience;
-                setActiveChip('audience', filterState.audience);
-                render();
-            });
+        audienceFilter.addEventListener('change', () => {
+            filterState.audience = audienceFilter.value;
+            render();
         });
 
-        document.querySelectorAll('.filter-chip[data-status]').forEach(chip => {
-            chip.addEventListener('click', () => {
-                filterState.status = chip.dataset.status;
-                setActiveChip('status', filterState.status);
-                render();
-            });
-        });
-
-        sortToggle.addEventListener('click', () => {
-            filterState.sortSoonest = !filterState.sortSoonest;
-            sortToggle.classList.toggle('is-active', filterState.sortSoonest);
-            sortToggle.setAttribute('aria-pressed', String(filterState.sortSoonest));
-            sortToggle.textContent = filterState.sortSoonest ? 'Sorted: soonest first' : 'Sort: soonest first';
+        statusFilter.addEventListener('change', () => {
+            filterState.status = statusFilter.value;
             render();
         });
 
         document.getElementById('clearFilters').addEventListener('click', () => {
             filterState.audience = 'all';
             filterState.status = 'all';
-            setActiveChip('audience', 'all');
-            setActiveChip('status', 'all');
+            audienceFilter.value = 'all';
+            statusFilter.value = 'all';
             render();
         });
 
