@@ -117,6 +117,7 @@
         .role-select-group {
             display: flex;
             flex-wrap: wrap;
+            align-items: stretch;
             gap: 0.75rem;
         }
 
@@ -125,8 +126,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: auto;
-            padding: 0.85rem 1.25rem;
+            width: auto !important;
+            min-height: 4.25rem;
+            margin: 0 !important;
+            padding: 0.85rem 1.25rem !important;
+            text-indent: 0 !important;
             border: 1px solid rgba(28, 78, 70, 0.2);
             background: white;
             cursor: pointer;
@@ -140,6 +144,16 @@
 
         .role-select-option:hover {
             border-color: var(--color-primary);
+        }
+
+        .role-select-option label {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            text-align: center;
         }
 
         .role-select-option .role-select-input {
@@ -224,7 +238,7 @@
             <div class="newsletter-grid">
                 <div class="newsletter-info">
                     <span class="section-label">Newsletter</span>
-                    <h1 style="font-family: var(--font-display); font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 2rem;">Insights for the <em>Human Side</em> of VC.</h1>
+                    <h1 style="font-family: var(--font-display); font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 2rem;">Insights for the <em style="color: var(--color-accent);">Human Side</em> of VC.</h1>
                     <p style="font-size: 1.2rem; color: var(--color-taupe); line-height: 1.8; margin-bottom: 2rem;">Receive a newsletter for VCs (GPs, partners, emerging fund managers, investment managers, principals and associates) getting reflections on VC leadership, sustainable performance, and building impactful funds.</p>
                     <ul style="list-style: none; padding: 0;">
                         <li style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; color: var(--color-charcoal);">
@@ -273,9 +287,9 @@
                                         <div class="sib-input sib-form-block">
                                             <div class="form__entry entry_block">
                                                 <div class="form__label-row ">
-                                                    <label class="entry__label" for="FIRSTNAME">First name</label>
+                                                    <label class="entry__label" for="FIRSTNAME" data-required="*">First name</label>
                                                     <div class="entry__field">
-                                                        <input class="input" maxlength="200" type="text" id="FIRSTNAME" name="FIRSTNAME" autocomplete="off" placeholder="Your first name" />
+                                                        <input class="input" maxlength="200" type="text" id="FIRSTNAME" name="FIRSTNAME" autocomplete="off" placeholder="Your first name" data-required="true" required />
                                                     </div>
                                                 </div>
                                                 <label class="entry__error entry__error--primary"></label>
