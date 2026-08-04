@@ -174,6 +174,76 @@
             color: var(--color-cream);
         }
 
+        .consent-option {
+            display: flex;
+            align-items: flex-start;
+            padding-left: 0 !important;
+        }
+
+        .consent-option label {
+            display: flex !important;
+            align-items: flex-start;
+            gap: 0.75rem;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--color-taupe);
+            text-indent: 0;
+        }
+
+        .consent-option input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            flex-shrink: 0;
+            width: 1.375rem;
+            height: 1.375rem;
+            margin: 0;
+            border: 1.5px solid rgba(28, 78, 70, 0.4);
+            border-radius: 3px;
+            background-color: white;
+            cursor: pointer;
+            opacity: 1;
+            position: relative;
+            z-index: auto;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .consent-option input[type="checkbox"]:checked {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .consent-option input[type="checkbox"]:checked::after {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .consent-option a {
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+
+        .consent-option a:hover {
+            color: var(--color-accent);
+        }
+
+        .consent-option input[type="checkbox"]:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        .consent-option .required-mark {
+            color: #ff4949;
+        }
+
         .newsletter-section {
             padding: 12rem 0 8rem;
             min-height: 80vh;
@@ -243,7 +313,7 @@
                     <ul style="list-style: none; padding: 0;">
                         <li style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; color: var(--color-charcoal);">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-accent);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            Free events and resources for VCs — I'll keep you posted on those
+                            Free events and resources for VCs
                         </li>
                         <li style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; color: var(--color-charcoal);">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-accent);"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -270,6 +340,9 @@
                                     </span>
                                 </div>
                             </div>
+                            <!-- Brevo's main.js overwrites .sib-form-message-panel__inner-text below with the
+                                 success message configured in the Brevo dashboard for this form. Keep that
+                                 dashboard message in sync with the text here — Brevo's response always wins. -->
                             <div id="success-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66;max-width:600px;">
                                 <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
                                     <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
@@ -302,7 +375,7 @@
                                                 <div class="form__label-row ">
                                                     <label class="entry__label" for="EMAIL" data-required="*">Email address</label>
                                                     <div class="entry__field">
-                                                        <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Email address" data-required="true" required />
+                                                        <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Email address" data-required="true" required />
                                                     </div>
                                                 </div>
                                                 <label class="entry__error entry__error--primary"></label>
@@ -335,6 +408,23 @@
                                                                 <span>Principal / Associate</span>
                                                             </label>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                                <label class="entry__error entry__error--primary"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Consent checkbox: requires a Boolean contact attribute named OPT_IN
+                                         to be created in Brevo, or the value is silently discarded on submit. -->
+                                    <div style="padding: 16px 0;">
+                                        <div class="sib-optin sib-form-block" data-required="true">
+                                            <div class="form__entry entry_mcq">
+                                                <div class="form__label-row">
+                                                    <div class="entry__choice consent-option">
+                                                        <label>
+                                                            <input type="checkbox" class="input_replaced" value="1" id="OPT_IN" name="OPT_IN" required>
+                                                            <span>Yes, email me the newsletter and occasional updates about The VC Coach masterminds, coaching and events. You can unsubscribe at any time. See our <a href="privacy.html">Privacy Policy</a>.<span class="required-mark">*</span></span>
+                                                        </label>
                                                     </div>
                                                 </div>
                                                 <label class="entry__error entry__error--primary"></label>
@@ -377,6 +467,7 @@
                     <li><a href="masterminds/masterminds-overview.html">Masterminds</a></li>
                     <li><a href="1-1-coaching.html">1:1 Coaching</a></li>
                     <li><a href="index.html#about">About</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
                 </ul>
                 <div>
                     <p style="font-size: 0.85rem; color: rgba(247, 245, 240, 0.6); margin-bottom: 0.5rem;">Connect</p>
@@ -425,21 +516,26 @@
                 selectedOptions: '{quantity} selected',
             }
         };
-        var AUTOHIDE = Boolean(0);
+        // Hides #sib-container (the form) once Brevo's script confirms a successful
+        // submission — only on genuine success, unlike our local fallback below which
+        // can't distinguish success from failure and would hide the form either way.
+        var AUTOHIDE = Boolean(1);
     </script>
     <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
     <script>
-        // Show the success message and remove the form fields as soon as the visitor
-        // submits, instead of relying on Brevo's external script to reveal them (it
-        // wasn't intercepting the submit, so the browser was navigating to Brevo's
-        // raw JSON response). The form targets a hidden iframe so this submit never
-        // navigates the page away.
+        // Brevo's main.js (loaded above) intercepts this form's submit, posts it by XHR,
+        // and shows/hides #success-message and #error-message itself based on the response
+        // — including writing the dashboard-configured message into the panel text. It marks
+        // the form novalidate once it has taken over. This handler is only a fallback for the
+        // case where main.js failed to load, in which case the form falls back to a native
+        // POST into the hidden iframe and nothing would otherwise tell the visitor it worked.
         (function () {
             var form = document.getElementById('sib-form');
             var successMessage = document.getElementById('success-message');
             if (!form || !successMessage) return;
 
             form.addEventListener('submit', function () {
+                if (form.hasAttribute('novalidate')) return; // Brevo's script is handling this submit
                 successMessage.classList.add('sib-form-message-panel--active');
                 form.style.display = 'none';
             });
