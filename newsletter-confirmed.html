@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js');</script>
     <title>Subscription Confirmed | The VC Coach</title>
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,6 +72,7 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <!-- Navigation -->
     <nav>
         <div class="container">
@@ -86,25 +88,26 @@
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#services" class="nav-cta">Get Started</a></li>
             </ul>
-            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <button type="button" class="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
     <!-- Mobile Navigation -->
     <div class="mobile-nav" id="mobileNav">
-        <a href="index.html" onclick="closeMobileMenu()">Home</a>
-        <a href="masterminds/masterminds-overview.html" onclick="closeMobileMenu()">Masterminds</a>
-        <a href="1-1-coaching.html" onclick="closeMobileMenu()">1:1 Coaching</a>
-        <a href="newsletter.html" onclick="closeMobileMenu()">Newsletter</a>
-        <a href="testimonials.html" onclick="closeMobileMenu()">Testimonials</a>
-        <a href="index.html#about" onclick="closeMobileMenu()">About</a>
-        <a href="index.html#services" onclick="closeMobileMenu()" style="padding: 1rem 2rem; background: var(--color-primary); color: var(--color-cream);">Get Started</a>
+        <a href="index.html">Home</a>
+        <a href="masterminds/masterminds-overview.html">Masterminds</a>
+        <a href="1-1-coaching.html">1:1 Coaching</a>
+        <a href="newsletter.html">Newsletter</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#services" style="padding: 1rem 2rem; background: var(--color-primary); color: var(--color-cream);">Get Started</a>
     </div>
 
+    <main id="main-content">
     <!-- Confirmation Content -->
     <section class="confirmed-section">
         <div class="container">
@@ -123,6 +126,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -144,7 +148,7 @@
                 <div>
                     <p style="font-size: 0.85rem; color: rgba(247, 245, 240, 0.6); margin-bottom: 0.5rem;">Connect</p>
                     <ul class="footer-links" style="flex-direction: column; gap: 0.5rem;">
-                        <li><a href="https://www.linkedin.com/company/the-vc-coach/">LinkedIn</a></li>
+                        <li><a href="https://www.linkedin.com/company/the-vc-coach/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
                         <li><a href="newsletter.html">Newsletter</a></li>
                         <li><a href="1-1-coaching.html">Contact</a></li>
                     </ul>
@@ -156,23 +160,6 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            mobileNav.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
-        }
-
-        function closeMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            mobileNav.classList.remove('active');
-            menuToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    </script>
+    <script defer src="js/site.js"></script>
 </body>
 </html>
