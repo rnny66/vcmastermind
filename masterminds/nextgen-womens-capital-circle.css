@@ -1,5 +1,5 @@
 /* ============================================================
-   THE STEWARDSHIP CIRCLE — standalone page styles
+   THE STEWARDSHIP CIRCLE: standalone page styles
 
    SCOPED TO THIS PAGE ONLY. Do not link ../styles.css alongside
    this file: both define the same custom-property names
@@ -9,19 +9,19 @@
    both would recolour one or the other depending on order.
 
    This page uses the warm palette (mulberry + terracotta),
-   chosen over the teal variant in review — July 2026.
+   chosen over the teal variant in review: July 2026.
    ============================================================ */
 
 :root {
-    /* ---- Core palette — warm ---- */
+    /* ---- Core palette: warm ---- */
     --color-cream:          #F8F2EA;   /* page background, light text on dark */
     --color-sage:           #F1E7DD;   /* alternating section backgrounds */
     --color-stone:          #ECE0D3;   /* card backgrounds, subtle fills */
     --color-charcoal:       #3B332E;   /* primary body text + headings */
     --color-taupe:          #8A7A6C;   /* secondary text, muted */
-    --color-primary:        #6B3F4A;   /* deep mulberry — nav, buttons, icons, borders */
+    --color-primary:        #6B3F4A;   /* deep mulberry: nav, buttons, icons, borders */
     --color-primary-light:  #84505C;   /* mulberry hover / offset frames */
-    --color-accent:         #C56F4D;   /* terracotta — CTAs, emphasis, eyebrows */
+    --color-accent:         #C56F4D;   /* terracotta: CTAs, emphasis, eyebrows */
     --color-accent-light:   #D8895F;   /* terracotta on dark backgrounds */
 
     /* ---- Semantic surfaces ---- */
@@ -135,7 +135,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; color: var(--co
   color: var(--color-taupe); background: var(--color-cream); padding: 0.35rem 0.7rem; border: 1px solid var(--border-hairline); }
 
 /* ============================================================
-   HERO — split
+   HERO: split
    ============================================================ */
 .hero { position: relative; padding: 5rem 0 6rem; background:
   radial-gradient(ellipse at 72% 18%, color-mix(in srgb, var(--color-primary) 7%, transparent) 0%, transparent 52%),
@@ -177,7 +177,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; color: var(--co
 .num-item p { font-size: 1.02rem; font-weight: 300; color: var(--color-charcoal); line-height: 1.55; }
 
 /* ============================================================
-   WHAT YOU RECEIVE — editorial rows
+   WHAT YOU RECEIVE: editorial rows
    ============================================================ */
 .receive-rows { border-top: 1px solid var(--border-hairline); }
 .receive-row { display: grid; grid-template-columns: 56px 1fr 1.4fr; gap: 1.5rem; align-items: start;
@@ -197,7 +197,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; color: var(--co
 .format-stat .l { font-size: 0.92rem; font-weight: 300; color: var(--color-taupe); margin-top: 0.7rem; letter-spacing: 0.02em; }
 
 /* ============================================================
-   FACILITATORS — rows
+   FACILITATORS: rows
    ============================================================ */
 .facil-rows { display: flex; flex-direction: column; gap: 3rem; max-width: 980px; margin: 0 auto; }
 .facil-row { display: grid; grid-template-columns: 200px 1fr; gap: 2.5rem; align-items: center; }

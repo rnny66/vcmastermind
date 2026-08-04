@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletter — The VC Coach</title>
+    <title>Newsletter | The VC Coach</title>
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -342,7 +342,7 @@
                             </div>
                             <!-- Brevo's main.js overwrites .sib-form-message-panel__inner-text below with the
                                  success message configured in the Brevo dashboard for this form. Keep that
-                                 dashboard message in sync with the text here — Brevo's response always wins. -->
+                                 dashboard message in sync with the text here; Brevo's response always wins. -->
                             <div id="success-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66;max-width:600px;">
                                 <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
                                     <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
@@ -517,7 +517,7 @@
             }
         };
         // Hides #sib-container (the form) once Brevo's script confirms a successful
-        // submission — only on genuine success, unlike our local fallback below which
+        // submission, only on genuine success, unlike our local fallback below which
         // can't distinguish success from failure and would hide the form either way.
         var AUTOHIDE = Boolean(1);
     </script>
@@ -525,7 +525,7 @@
     <script>
         // Brevo's main.js (loaded above) intercepts this form's submit, posts it by XHR,
         // and shows/hides #success-message and #error-message itself based on the response
-        // — including writing the dashboard-configured message into the panel text. It marks
+        // including writing the dashboard-configured message into the panel text. It marks
         // the form novalidate once it has taken over. This handler is only a fallback for the
         // case where main.js failed to load, in which case the form falls back to a native
         // POST into the hidden iframe and nothing would otherwise tell the visitor it worked.
