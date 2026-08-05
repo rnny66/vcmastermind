@@ -1269,27 +1269,31 @@ nav .container {
 
 /* Footer */
 footer {
-    padding: 4rem 0;
+    padding: 4rem 0 2.5rem;
     background: var(--color-primary);
-    color: rgba(247, 245, 240, 0.6);
+    color: rgba(247, 245, 240, 0.65);
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
-.footer-logo {
+.footer-slogan {
     font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    color: var(--color-cream);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: rgba(247, 245, 240, 0.65);
+    text-align: center;
+    max-width: 380px;
 }
 
-.footer-logo span {
-    color: rgba(247, 245, 240, 0.7);
+.footer-slogan em {
+    color: var(--color-accent-light);
+    font-style: italic;
 }
 
 .footer-links {
@@ -1299,10 +1303,12 @@ footer {
 }
 
 .footer-links a {
-    display: inline-block;
-    padding: 0.65rem 0;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.65rem 0.25rem;
     font-size: 0.85rem;
-    color: rgba(247, 245, 240, 0.6);
+    color: rgba(247, 245, 240, 0.65);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -1311,8 +1317,46 @@ footer {
     color: var(--color-cream);
 }
 
+footer a:focus-visible {
+    outline: 2px solid var(--color-cream);
+    outline-offset: 3px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(247, 245, 240, 0.1);
+}
+
+.footer-legal-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.65rem 0.25rem;
+    font-size: 0.8rem;
+    color: rgba(247, 245, 240, 0.65);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-legal-link:hover {
+    color: var(--color-cream);
+}
+
 .footer-copyright {
     font-size: 0.8rem;
+}
+
+@media (max-width: 480px) {
+    .footer-bottom {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
 }
 
 /* Responsive Design */
