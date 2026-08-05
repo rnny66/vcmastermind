@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js');</script>
     <title>The VC Coach | Executive Coaching for Venture Capitalists</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="img/logos/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -24,14 +25,15 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <!-- Navigation -->
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="img/logo-black.png" alt="The VC Coach">
+                <img src="img/logos/logo-black.png" alt="The VC Coach">
             </a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" aria-current="page">Home</a></li>
                 <li><a href="masterminds/masterminds-overview.html">Masterminds</a></li>
                 <li><a href="1-1-coaching.html">1:1 Coaching</a></li>
                 <li><a href="newsletter.html">Newsletter</a></li>
@@ -39,26 +41,27 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#services" class="nav-cta">Get Started</a></li>
             </ul>
-            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <button type="button" class="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
     <!-- Mobile Navigation -->
     <div class="mobile-nav" id="mobileNav">
-        <a href="index.html" onclick="closeMobileMenu()">Home</a>
-        <a href="masterminds/masterminds-overview.html" onclick="closeMobileMenu()">Masterminds</a>
-        <a href="1-1-coaching.html" onclick="closeMobileMenu()">1:1 Coaching</a>
-        <a href="newsletter.html" onclick="closeMobileMenu()">Newsletter</a>
-        <a href="testimonials.html" onclick="closeMobileMenu()">Testimonials</a>
-        <a href="#about" onclick="closeMobileMenu()">About</a>
-        <a href="#services" onclick="closeMobileMenu()"
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="masterminds/masterminds-overview.html">Masterminds</a>
+        <a href="1-1-coaching.html">1:1 Coaching</a>
+        <a href="newsletter.html">Newsletter</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="#about">About</a>
+        <a href="#services"
             style="padding: 1rem 2rem; background: var(--color-primary); color: var(--color-cream);">Get Started</a>
     </div>
 
+    <main id="main-content">
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -69,7 +72,7 @@
                     <p class="hero-description">Executive coaching for venture capitalists who want to be more impactful
                         as sustainable leaders.</p>
                     <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="1-1-coaching.html" class="hero-cta" style="flex: 1 0 240px; justify-content: center; white-space: nowrap;">
+                        <a href="1-1-coaching.html" class="hero-cta" style="flex: 1 1 240px; justify-content: center;">
                             <span>Explore 1:1 Coaching</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -78,7 +81,7 @@
                             </svg>
                         </a>
                         <a href="masterminds/masterminds-overview.html" class="hero-cta hero-cta--accent"
-                            style="background: var(--color-accent); flex: 1 0 240px; justify-content: center; white-space: nowrap;">
+                            style="background: var(--color-accent); flex: 1 1 240px; justify-content: center;">
                             <span>Explore Masterminds</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -89,7 +92,7 @@
                     </div>
                 </div>
                 <div class="hero-image-container">
-                    <img src="img/anieke-2.jpg" alt="Anieke Lamers - Executive Coach for Venture Capitalists"
+                    <img src="img/people/anieke-2.jpg" alt="Anieke Lamers - Executive Coach for Venture Capitalists"
                         loading="eager" width="800" height="960">
                     <div class="hero-image-overlay">
                         <div class="detail-text">
@@ -164,7 +167,7 @@
             <div class="facilitators-grid">
                 <div class="facilitator-card fade-in" style="grid-column: 1 / -1; max-width: 900px; margin: 0 auto;">
                     <div class="facilitator-image about-image">
-                        <img src="img/anieke-1.jpg" alt="Anieke Lamers - Executive Coach and Former VC" loading="lazy"
+                        <img src="img/people/anieke-1.jpg" alt="Anieke Lamers - Executive Coach and Former VC" loading="lazy"
                             width="500" height="600">
                     </div>
                     <div class="facilitator-info">
@@ -240,6 +243,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -247,7 +251,7 @@
             <div class="footer-content">
                 <div>
                     <a href="index.html" class="logo" style="display: block; margin-bottom: 1rem;">
-                        <img src="img/logo.png" alt="The VC Coach">
+                        <img src="img/logos/logo.png" alt="The VC Coach">
                     </a>
                     <p style="font-size: 0.9rem; color: rgba(247, 245, 240, 0.6); max-width: 300px;">Make the future of
                         venture capital more human.</p>
@@ -262,7 +266,7 @@
                 <div>
                     <p style="font-size: 0.85rem; color: rgba(247, 245, 240, 0.6); margin-bottom: 0.5rem;">Connect</p>
                     <ul class="footer-links" style="flex-direction: column; gap: 0.5rem;">
-                        <li><a href="https://www.linkedin.com/company/the-vc-coach/">LinkedIn</a></li>
+                        <li><a href="https://www.linkedin.com/company/the-vc-coach/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
                         <li><a href="newsletter.html">Newsletter</a></li>
                         <li><a href="1-1-coaching.html">Contact</a></li>
                     </ul>
@@ -275,54 +279,7 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            mobileNav.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
-        }
-
-        function closeMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            mobileNav.classList.remove('active');
-            menuToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Intersection Observer for scroll animations
-        const fadeElements = document.querySelectorAll('.fade-in');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        fadeElements.forEach(el => observer.observe(el));
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+    <script defer src="js/site.js"></script>
 </body>
 
 </html>

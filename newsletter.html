@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js');</script>
     <title>Newsletter | The VC Coach</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="img/logos/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -174,6 +175,11 @@
             color: var(--color-cream);
         }
 
+        .role-select-option:has(.role-select-input:focus-visible) {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
         .consent-option {
             display: flex;
             align-items: flex-start;
@@ -184,6 +190,7 @@
             display: flex !important;
             align-items: flex-start;
             gap: 0.75rem;
+            padding: 0.65rem 0;
             cursor: pointer;
             font-family: var(--font-body);
             font-size: 0.9rem;
@@ -196,8 +203,8 @@
             appearance: none;
             -webkit-appearance: none;
             flex-shrink: 0;
-            width: 1.375rem;
-            height: 1.375rem;
+            width: 1.5rem;
+            height: 1.5rem;
             margin: 0;
             border: 1.5px solid rgba(28, 78, 70, 0.4);
             border-radius: 3px;
@@ -217,10 +224,10 @@
         .consent-option input[type="checkbox"]:checked::after {
             content: "";
             position: absolute;
-            left: 6px;
-            top: 2px;
-            width: 5px;
-            height: 10px;
+            left: 7px;
+            top: 3px;
+            width: 6px;
+            height: 11px;
             border: solid white;
             border-width: 0 2px 2px 0;
             transform: rotate(45deg);
@@ -268,40 +275,42 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <!-- Navigation -->
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="img/logo-black.png" alt="The VC Coach">
+                <img src="img/logos/logo-black.png" alt="The VC Coach">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="masterminds/masterminds-overview.html">Masterminds</a></li>
                 <li><a href="1-1-coaching.html">1:1 Coaching</a></li>
-                <li><a href="newsletter.html">Newsletter</a></li>
+                <li><a href="newsletter.html" aria-current="page">Newsletter</a></li>
                 <li><a href="testimonials.html">Testimonials</a></li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#services" class="nav-cta">Get Started</a></li>
             </ul>
-            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <button type="button" class="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
     <!-- Mobile Navigation -->
     <div class="mobile-nav" id="mobileNav">
-        <a href="index.html" onclick="closeMobileMenu()">Home</a>
-        <a href="masterminds/masterminds-overview.html" onclick="closeMobileMenu()">Masterminds</a>
-        <a href="1-1-coaching.html" onclick="closeMobileMenu()">1:1 Coaching</a>
-        <a href="newsletter.html" onclick="closeMobileMenu()">Newsletter</a>
-        <a href="testimonials.html" onclick="closeMobileMenu()">Testimonials</a>
-        <a href="index.html#about" onclick="closeMobileMenu()">About</a>
-        <a href="index.html#services" onclick="closeMobileMenu()" style="padding: 1rem 2rem; background: var(--color-primary); color: var(--color-cream);">Get Started</a>
+        <a href="index.html">Home</a>
+        <a href="masterminds/masterminds-overview.html">Masterminds</a>
+        <a href="1-1-coaching.html">1:1 Coaching</a>
+        <a href="newsletter.html" aria-current="page">Newsletter</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#services" style="padding: 1rem 2rem; background: var(--color-primary); color: var(--color-cream);">Get Started</a>
     </div>
 
+    <main id="main-content">
     <!-- Newsletter Content -->
     <section class="newsletter-section">
         <div class="container">
@@ -362,7 +371,7 @@
                                                 <div class="form__label-row ">
                                                     <label class="entry__label" for="FIRSTNAME" data-required="*">First name</label>
                                                     <div class="entry__field">
-                                                        <input class="input" maxlength="200" type="text" id="FIRSTNAME" name="FIRSTNAME" autocomplete="off" placeholder="Your first name" data-required="true" required />
+                                                        <input class="input" maxlength="200" type="text" id="FIRSTNAME" name="FIRSTNAME" autocomplete="given-name" placeholder="Your first name" data-required="true" required />
                                                     </div>
                                                 </div>
                                                 <label class="entry__error entry__error--primary"></label>
@@ -375,7 +384,7 @@
                                                 <div class="form__label-row ">
                                                     <label class="entry__label" for="EMAIL" data-required="*">Email address</label>
                                                     <div class="entry__field">
-                                                        <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Email address" data-required="true" required />
+                                                        <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="email" placeholder="Email address" data-required="true" required />
                                                     </div>
                                                 </div>
                                                 <label class="entry__error entry__error--primary"></label>
@@ -451,6 +460,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -458,7 +468,7 @@
             <div class="footer-content">
                 <div>
                     <a href="index.html" class="logo" style="display: block; margin-bottom: 1rem;">
-                        <img src="img/logo.png" alt="The VC Coach">
+                        <img src="img/logos/logo.png" alt="The VC Coach">
                     </a>
                     <p style="font-size: 0.9rem; color: rgba(247, 245, 240, 0.6); max-width: 300px;">Make the future of venture capital more human.</p>
                 </div>
@@ -472,7 +482,7 @@
                 <div>
                     <p style="font-size: 0.85rem; color: rgba(247, 245, 240, 0.6); margin-bottom: 0.5rem;">Connect</p>
                     <ul class="footer-links" style="flex-direction: column; gap: 0.5rem;">
-                        <li><a href="https://www.linkedin.com/company/the-vc-coach/">LinkedIn</a></li>
+                        <li><a href="https://www.linkedin.com/company/the-vc-coach/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
                         <li><a href="newsletter.html">Newsletter</a></li>
                         <li><a href="1-1-coaching.html">Contact</a></li>
                     </ul>
@@ -484,24 +494,8 @@
         </div>
     </footer>
 
+    <script defer src="js/site.js"></script>
     <script>
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            mobileNav.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
-        }
-
-        function closeMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            mobileNav.classList.remove('active');
-            menuToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
         // Brevo Scripts
         window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
         window.LOCALE = 'en';

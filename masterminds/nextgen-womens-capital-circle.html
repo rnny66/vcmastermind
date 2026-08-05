@@ -7,7 +7,7 @@
     <title>The NextGen Women's Capital Circle | The VC Coach</title>
     <meta name="description"
         content="A private lineage lab for next-generation women stepping into wealth, influence, voice, and legacy. A confidential, curated circle, by application.">
-    <link rel="icon" type="image/png" href="../img/favicon.png">
+    <link rel="icon" type="image/png" href="../img/logos/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -19,13 +19,14 @@
 
 <body>
     <div class="sc-root">
+        <a href="#main-content" class="skip-link">Skip to content</a>
 
         <!-- ============================================================
              NAV
              ============================================================ -->
         <nav class="nav">
             <div class="container nav-inner">
-                <a class="nav-logo" href="../index.html"><img src="../img/logo-black.png" alt="The VC Coach"></a>
+                <a class="nav-logo" href="../index.html"><img src="../img/logos/logo-black.png" alt="The VC Coach"></a>
                 <ul class="nav-links">
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="masterminds-overview.html">Masterminds</a></li>
@@ -35,25 +36,26 @@
                     <li><a href="../index.html#about">About</a></li>
                     <li><a class="nav-cta" href="#access">Apply</a></li>
                 </ul>
-                <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <button type="button" class="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
         </nav>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav" id="mobileNav">
-            <a href="../index.html" onclick="closeMobileMenu()">Home</a>
-            <a href="masterminds-overview.html" onclick="closeMobileMenu()">Masterminds</a>
-            <a href="../1-1-coaching.html" onclick="closeMobileMenu()">1:1 Coaching</a>
-            <a href="../newsletter.html" onclick="closeMobileMenu()">Newsletter</a>
-            <a href="../testimonials.html" onclick="closeMobileMenu()">Testimonials</a>
-            <a href="../index.html#about" onclick="closeMobileMenu()">About</a>
-            <a href="#access" onclick="closeMobileMenu()" class="nav-cta">Apply</a>
+            <a href="../index.html">Home</a>
+            <a href="masterminds-overview.html">Masterminds</a>
+            <a href="../1-1-coaching.html">1:1 Coaching</a>
+            <a href="../newsletter.html">Newsletter</a>
+            <a href="../testimonials.html">Testimonials</a>
+            <a href="../index.html#about">About</a>
+            <a href="#access" class="nav-cta">Apply</a>
         </div>
 
+        <main id="main-content">
         <!-- ============================================================
              HERO
              ============================================================ -->
@@ -85,7 +87,7 @@
                     </div>
                     <div class="reveal">
                         <div class="framed framed-tr">
-                            <img class="framed-img" src="../img/hero-stewardship.jpg"
+                            <img class="framed-img" src="../img/backgrounds/hero-stewardship.jpg"
                                 alt="A small circle of women in conversation" style="aspect-ratio: 4 / 5;">
                         </div>
                     </div>
@@ -374,7 +376,7 @@
                     <div class="facil-row reveal">
                         <div class="facil-media">
                             <div class="framed framed-tl">
-                                <img class="framed-img" src="../img/al.png" alt="Anieke Lamers">
+                                <img class="framed-img" src="../img/people/al.jpg" alt="Anieke Lamers">
                             </div>
                         </div>
                         <div>
@@ -390,7 +392,7 @@
                     <div class="facil-row reveal">
                         <div class="facil-media">
                             <div class="framed framed-tr">
-                                <img class="framed-img" src="../img/elizabeth.jpg" alt="Elizabeth Scutchfield">
+                                <img class="framed-img" src="../img/people/elizabeth.jpg" alt="Elizabeth Scutchfield">
                             </div>
                         </div>
                         <div>
@@ -407,7 +409,7 @@
                     <div class="facil-row reveal">
                         <div class="facil-media">
                             <div class="framed framed-tl">
-                                <img class="framed-img" src="../img/lili-hd.png" alt="Liliana Negrila">
+                                <img class="framed-img" src="../img/people/lili-hd.jpg" alt="Liliana Negrila">
                             </div>
                         </div>
                         <div>
@@ -471,13 +473,16 @@
             </div>
         </section>
 
+        </main>
+
         <!-- ============================================================
              FOOTER
              ============================================================ -->
         <footer class="footer">
             <div class="container footer-inner">
                 <div class="footer-brand">
-                    <img src="../img/logo.png" alt="The VC Coach">
+                    <img src="../img/logos/logo.png" alt="The VC Coach">
+                    <p class="tag">A program of The VC Coach, making the future of capital more human.</p>
                 </div>
                 <ul class="footer-links">
                     <li><a href="../index.html">Home</a></li>
@@ -489,7 +494,7 @@
                 <div class="footer-connect">
                     <p class="footer-connect-label">Connect</p>
                     <ul class="footer-links footer-links--column">
-                        <li><a href="https://www.linkedin.com/company/the-vc-coach/">LinkedIn</a></li>
+                        <li><a href="https://www.linkedin.com/company/the-vc-coach/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
                         <li><a href="../newsletter.html">Newsletter</a></li>
                         <li><a href="../1-1-coaching.html">Contact</a></li>
                     </ul>
@@ -503,20 +508,42 @@
 
     <script>
         // ---- Mobile menu -------------------------------------------------------
-        function toggleMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            mobileNav.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileNav = document.getElementById('mobileNav');
+
+        function openMobileMenu() {
+            mobileNav.classList.add('active');
+            menuToggle.classList.add('active');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
             mobileNav.classList.remove('active');
             menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
+        }
+
+        if (menuToggle && mobileNav) {
+            menuToggle.addEventListener('click', function () {
+                if (mobileNav.classList.contains('active')) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            });
+
+            Array.prototype.forEach.call(mobileNav.querySelectorAll('a'), function (link) {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                    closeMobileMenu();
+                    menuToggle.focus();
+                }
+            });
         }
 
         // ---- Scroll reveal ----------------------------------------------------

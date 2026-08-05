@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js');</script>
     <title>The VC Coach | Masterminds</title>
-    <link rel="icon" type="image/png" href="../img/favicon.png">
+    <link rel="icon" type="image/png" href="../img/logos/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -24,41 +25,43 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <!-- Navigation -->
     <nav>
         <div class="container">
             <a href="../index.html" class="logo">
-                <img src="../img/logo-black.png" alt="The VC Coach">
+                <img src="../img/logos/logo-black.png" alt="The VC Coach">
             </a>
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="masterminds-overview.html">Masterminds</a></li>
+                <li><a href="masterminds-overview.html" aria-current="page">Masterminds</a></li>
                 <li><a href="../1-1-coaching.html">1:1 Coaching</a></li>
                 <li><a href="../newsletter.html">Newsletter</a></li>
                 <li><a href="../testimonials.html">Testimonials</a></li>
                 <li><a href="../index.html#about">About</a></li>
                 <li><a href="../index.html#services" class="nav-cta">Get Started</a></li>
             </ul>
-            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <button type="button" class="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
     <!-- Mobile Navigation -->
     <div class="mobile-nav" id="mobileNav">
-        <a href="../index.html" onclick="closeMobileMenu()">Home</a>
-        <a href="masterminds-overview.html" onclick="closeMobileMenu()">Masterminds</a>
-        <a href="../1-1-coaching.html" onclick="closeMobileMenu()">1:1 Coaching</a>
-        <a href="../newsletter.html" onclick="closeMobileMenu()">Newsletter</a>
-        <a href="../testimonials.html" onclick="closeMobileMenu()">Testimonials</a>
-        <a href="../index.html#about" onclick="closeMobileMenu()">About</a>
-        <a href="../index.html#services" onclick="closeMobileMenu()"
+        <a href="../index.html">Home</a>
+        <a href="masterminds-overview.html" aria-current="page">Masterminds</a>
+        <a href="../1-1-coaching.html">1:1 Coaching</a>
+        <a href="../newsletter.html">Newsletter</a>
+        <a href="../testimonials.html">Testimonials</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#services"
             style="padding: 1rem 2rem; background: var(--color-primary); color: var(--color-cream);">Get Started</a>
     </div>
 
+    <main id="main-content">
     <!-- Hero Section -->
     <section class="hero" style="min-height: auto; padding: 12rem 0 5rem;">
         <div class="container">
@@ -98,13 +101,15 @@
                 </div>
             </div>
 
+            <p id="program-filter-status" class="sr-only" role="status" aria-live="polite"></p>
+
             <div class="program-grid" id="programGrid">
                 <article class="program-card fade-in" data-audience="emerging-managers" data-status="open">
                     <div class="program-card-header">
                         <span class="program-badge program-badge--open">Enrolling: Cohort 2</span>
                         <span class="program-audience">Emerging Managers</span>
                     </div>
-                    <h3>Emerging Manager Mastermind</h3>
+                    <h2>Emerging Manager Mastermind</h2>
                     <p class="program-start">Starts September 9, 2026</p>
                     <p>A small, hand-picked circle of emerging managers who meet bi-weekly to get sharper, calmer, and
                         more effective as GPs, without the noise, posturing, or competitiveness of public VC
@@ -130,7 +135,7 @@
                         <span class="program-badge program-badge--open">Applications open</span>
                         <span class="program-audience">Investment Managers</span>
                     </div>
-                    <h3>Investment Manager Mastermind</h3>
+                    <h2>Investment Manager Mastermind</h2>
                     <p class="program-start">Starts August 2026</p>
                     <p>A trusted lab for next-generation Investment Managers and Principals stepping into the VC
                         Partner role with clarity and conviction.</p>
@@ -155,7 +160,7 @@
                         <span class="program-badge">Coming soon</span>
                         <span class="program-audience">Wealth Stewards</span>
                     </div>
-                    <h3>The NextGen Women&rsquo;s Capital Circle</h3>
+                    <h2>The NextGen Women&rsquo;s Capital Circle</h2>
                     <p class="program-start">Dates to be announced</p>
                     <p>A private lineage lab for next-generation women stepping into wealth, influence, voice, and
                         legacy, with clarity, confidence, and intention.</p>
@@ -180,7 +185,7 @@
                         <span class="program-badge program-badge--open">Pilot: pre-apply</span>
                         <span class="program-audience">Corporate VCs</span>
                     </div>
-                    <h3>CVC Mastermind</h3>
+                    <h2>CVC Mastermind</h2>
                     <p class="program-start">Pilot cohort: pre-apply now</p>
                     <p>A 3-month peer cohort for CVC professionals who operate at the intersection of two worlds, and
                         are fully understood by neither.</p>
@@ -207,6 +212,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -214,7 +220,7 @@
             <div class="footer-content">
                 <div>
                     <a href="../index.html" class="logo" style="display: block; margin-bottom: 1rem;">
-                        <img src="../img/logo.png" alt="The VC Coach">
+                        <img src="../img/logos/logo.png" alt="The VC Coach">
                     </a>
                     <p style="font-size: 0.9rem; color: rgba(247, 245, 240, 0.6); max-width: 300px;">Make the future of
                         venture capital more human.</p>
@@ -229,7 +235,7 @@
                 <div>
                     <p style="font-size: 0.85rem; color: rgba(247, 245, 240, 0.6); margin-bottom: 0.5rem;">Connect</p>
                     <ul class="footer-links" style="flex-direction: column; gap: 0.5rem;">
-                        <li><a href="https://www.linkedin.com/company/the-vc-coach/">LinkedIn</a></li>
+                        <li><a href="https://www.linkedin.com/company/the-vc-coach/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
                         <li><a href="../newsletter.html">Newsletter</a></li>
                         <li><a href="../1-1-coaching.html">Contact</a></li>
                     </ul>
@@ -242,44 +248,18 @@
         </div>
     </footer>
 
+    <script defer src="../js/site.js"></script>
     <script>
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            mobileNav.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
-        }
-
-        function closeMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            mobileNav.classList.remove('active');
-            menuToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Intersection Observer for scroll animations
-        const fadeElements = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        fadeElements.forEach(el => observer.observe(el));
-
         // Program filters
         const grid = document.getElementById('programGrid');
         const cards = Array.from(grid.querySelectorAll('.program-card'));
         const emptyState = document.getElementById('programEmpty');
         const audienceFilter = document.getElementById('audienceFilter');
         const statusFilter = document.getElementById('statusFilter');
+        const filterStatus = document.getElementById('program-filter-status');
         const filterState = { audience: 'all', status: 'all' };
 
-        function render() {
+        function render(announce) {
             let visibleCount = 0;
             cards.forEach(card => {
                 const matchesAudience = filterState.audience === 'all' || card.dataset.audience === filterState.audience;
@@ -291,16 +271,19 @@
                 }
             });
             emptyState.classList.toggle('is-hidden', visibleCount > 0);
+            if (announce && filterStatus) {
+                filterStatus.textContent = visibleCount + (visibleCount === 1 ? ' program' : ' programs') + ' shown.';
+            }
         }
 
         audienceFilter.addEventListener('change', () => {
             filterState.audience = audienceFilter.value;
-            render();
+            render(true);
         });
 
         statusFilter.addEventListener('change', () => {
             filterState.status = statusFilter.value;
-            render();
+            render(true);
         });
 
         document.getElementById('clearFilters').addEventListener('click', () => {
@@ -308,7 +291,7 @@
             filterState.status = 'all';
             audienceFilter.value = 'all';
             statusFilter.value = 'all';
-            render();
+            render(true);
         });
 
         render();
