@@ -1269,33 +1269,31 @@ nav .container {
 
 /* Footer */
 footer {
-    padding: 4rem 0;
+    padding: 4rem 0 2.5rem;
     background: var(--color-primary);
-    color: rgba(247, 245, 240, 0.6);
+    color: rgba(247, 245, 240, 0.65);
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
-.footer-brand .logo {
-    display: block;
-    margin-bottom: 1rem;
+.footer-slogan {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: rgba(247, 245, 240, 0.65);
+    text-align: center;
+    max-width: 380px;
 }
 
-.footer-tagline {
-    font-size: 0.9rem;
-    color: rgba(247, 245, 240, 0.6);
-    max-width: 300px;
-}
-
-.footer-connect-label {
-    font-size: 0.85rem;
-    color: rgba(247, 245, 240, 0.6);
-    margin-bottom: 0.5rem;
+.footer-slogan em {
+    color: var(--color-accent-light);
+    font-style: italic;
 }
 
 .footer-links {
@@ -1304,26 +1302,24 @@ footer {
     list-style: none;
 }
 
-.footer-links--stacked {
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
 .footer-links a {
-    display: inline-block;
-    padding: 0.65rem 0;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.65rem 0.25rem;
     font-size: 0.85rem;
-    color: rgba(247, 245, 240, 0.6);
+    color: rgba(247, 245, 240, 0.65);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.footer-links--stacked a {
-    padding: 0;
-}
-
 .footer-links a:hover {
     color: var(--color-cream);
+}
+
+footer a:focus-visible {
+    outline: 2px solid var(--color-cream);
+    outline-offset: 3px;
 }
 
 .footer-bottom {
@@ -1338,8 +1334,12 @@ footer {
 }
 
 .footer-legal-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.65rem 0.25rem;
     font-size: 0.8rem;
-    color: rgba(247, 245, 240, 0.6);
+    color: rgba(247, 245, 240, 0.65);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -1350,6 +1350,13 @@ footer {
 
 .footer-copyright {
     font-size: 0.8rem;
+}
+
+@media (max-width: 480px) {
+    .footer-bottom {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
 }
 
 /* Responsive Design */
