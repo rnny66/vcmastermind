@@ -8,21 +8,59 @@ what was found along the way that the audit didn't call out. See the branch
 
 ### High #2 — Color contrast
 
-Not touched. Confirmed by hand-computing WCAG contrast ratios against the actual
-brand tokens in `styles.css`:
+Still not touched — this is a sitewide brand-token change (39 selectors across
+`styles.css`) and was judged too large to make unreviewed in a UI/UX-fix pass.
+Confirmed by hand-computing WCAG contrast ratios against the actual brand
+tokens, then investigated further to turn this into an executable spec rather
+than leaving it vague. The audit's "772 `color-contrast` hits" figure is
+inflated — it's the same handful of shared selectors counted once per element,
+per page, per viewport across 65 scans. The real defect surface is below. This
+remains the single highest-reach item left outstanding; the spec below is
+ready to execute in a future pass.
 
-| Token / usage | Ratio | AA (4.5:1) |
-|---|---|---|
-| `--color-taupe #6B7A77` on cream — nav links, muted text | 4.12:1 | fail |
-| `--color-accent #ff8a00` on cream — accent text (not decorative use) | 2.17:1 | fail, badly |
-| `rgba(247,245,240,0.6)` on `--color-primary` — footer text | 4.25:1 | fail (marginal) |
+**Token changes needed (`:root` in `styles.css`):**
 
-The audit's "772 `color-contrast` hits" figure is inflated — it's the same
-handful of shared selectors counted once per element, per page, per viewport
-across 65 scans. The distinct defects are the three rows above. Fixing
-`--color-taupe` and adding a text-only accent token (e.g. `--color-accent-text`
-around `#B85C00`, ~4.6:1) would clear most of the reach. This is the single
-highest-reach item left outstanding.
+- `--color-taupe` (`#6B7A77`) — fails not just on cream (4.12:1) but worse on
+  `--color-stone` (3.54:1) and `--color-sage` (3.86:1); the 25 usages span all
+  three backgrounds. A replacement must clear 4.5:1 against stone, the
+  worst case, not just cream.
+- New `--color-accent-text` (~`#B85C00`, ~4.6:1 on cream) for text-only accent
+  usage. Must be documented/scoped as **light-background only** — it measures
+  only 2.05:1 against `--color-primary`, so it must never replace the 3
+  dark-bg `--color-accent-light` usages that already pass (`styles.css:727`,
+  `1994`, `2024`).
+
+**`--color-taupe` → new token, all 25 usages** (16 on cream, 5 on stone worst
+case, 4 on sage): `styles.css:128, 304, 579, 622, 684, 832, 1009, 1041, 1186,
+1519, 1584, 1624, 1661, 1682, 1781, 1850, 2002, 2010, 2091, 2160, 2220, 2232,
+2261` — all genuine body/label/muted text, no dark-background instances.
+
+**`--color-accent` → `--color-accent-text`, small/normal text (5 clear
+cases):** `.hero-badge:267`, `.section-label:505` (worst case ~1.86:1 on
+stone via the "Services" section), `.timeline-date:886`,
+`.service-link:hover:1538`, `.program-badge--open:2237`.
+
+**Headline emphasis — decided: darken to `--color-accent-text`** (4 instances,
+currently 1.86–2.17:1, failing even the 3:1 large-text threshold — this is a
+recurring brand device, italic orange emphasis inside H1s, so keeping the
+device but closing the gap was a deliberate choice, not a default):
+`.hero h1 em:298`, `.cta-title em:1180` (on sage, 2.03:1),
+`.testimonials-hero h1 em:1845`, `.t-tile--light .t-quote em:1993` (on stone,
+1.86:1).
+
+**Dark-bg text — bump opacity, not color:** `rgba(247,245,240,0.6)` at
+`styles.css:1271` (footer base), `1300` (`.footer-links a`), and `1113`
+(`.price-comparison`) all sit on `--color-primary` at ~4.25:1 — bump opacity
+to clear 4.5:1. While in there, spot-check the two lower-opacity siblings the
+audit didn't flag (likely `.price-period`/`.price-note` at 0.5 opacity) —
+since 0.5 < 0.6 opacity implies contrast is *also* below 4.25:1, they're
+probably failing too and were just missed.
+
+**Open call, not yet decided:** the 2 decorative opacity-0.6 step numerals
+(`.offering-number:668`, `.process-number:1568`) — large ornamental numbers,
+arguably not semantic content. Default if no further input is given when this
+is executed: nudge their opacity up slightly rather than a full color swap,
+since they read as decoration rather than text.
 
 ### Low #5 — Brevo stylesheet console error
 
@@ -43,11 +81,21 @@ there too, since that part of the finding was valid.
 
 ### Medium #6 — Touch targets
 
-Only the newsletter consent checkbox (22px → 24px + padding, ~44px tap area)
-and the one-pager print button were resized. The report's other claim —
-"several smaller text links measure below the recommended size" — named no
-selector or measurement and couldn't be acted on as written. If there's a
-specific link in mind, point at it and it can be sized properly.
+Originally only the newsletter consent checkbox (22px → 24px + padding, ~44px
+tap area) and the one-pager print button were resized, since the report's
+other claim — "several smaller text links measure below the recommended
+size" — named no selector or measurement. Investigated afterward and resolved:
+found 5 concrete undersized targets sitewide, all following the same
+padding-expansion pattern as the consent checkbox (`padding: 0.65rem 0` on the
+clickable element, growing the tap area without changing visual text size) —
+`.nav-links a`, `.footer-links a`, `.service-link`, `.t-linkedin`
+(`styles.css:123, 1298, 1524, 2013`), plus `.mobile-menu-toggle`
+(`styles.css:140`) grown from a hard-coded 30×30px to 44×44px, with its bars
+kept at a fixed 24px width so the icon doesn't visually stretch. Not touched:
+`nextgen-womens-capital-circle.html`'s own isolated stylesheet, which doesn't
+share `styles.css` and wasn't in scope for this pass. Checked and already
+adequate: `.filter-select` (44px min-height), `.filter-tab` (~48px effective),
+`.nav-cta` (~43px), `.mobile-nav a` (24px text + full-width tap area).
 
 ### Medium #7 — Masked horizontal overflow on 4 pages
 
@@ -77,6 +125,36 @@ consistent with the M7 scope decision (don't touch `overflow-x: hidden` or the
 site's decorative frame pattern for a cosmetic, invisible measurement).
 
 ## Found during this work, not in the original audit
+
+### `.fade-in` content never revealed — specificity bug introduced by the High #7 fix, not present on `main`
+
+While browser-verifying the Medium #6 touch-target fixes (screenshotting a
+`.service-card`, which happens to also be `.fade-in`), found that scroll-reveal
+content never actually appears: `.service-card`, `.facilitator-card`,
+`.testimonial-card`, `.cta-content`, and every other `.fade-in` section stay
+permanently at `opacity: 0; transform: translateY(30px)` even after the
+`IntersectionObserver` in `js/site.js` correctly adds the `visible` class.
+
+Root cause: `html.js .fade-in { opacity: 0; ... }` (added by the High #7
+reduced-motion fix, `styles.css:1463`) has higher CSS specificity — 2 classes
+**+ 1 type selector** (`html`) — than `.fade-in.visible { opacity: 1; ... }`
+(`styles.css:1468`, 2 classes, 0 type selectors). The `visible` class was
+being added to the DOM correctly; it just never won the cascade. Verified with
+`getComputedStyle`: forcibly removing the `js` class from `<html>` made
+`opacity` compute to `1` as expected; re-adding it snapped back to `0`.
+
+This bug is **not present on `main`** — confirmed by diffing `main`'s
+`.fade-in` rules, which have no `html.js` gating and no specificity conflict.
+It was introduced by this branch's own reduced-motion fallback work and would
+have shipped a severe regression (most below-the-fold content on every
+content page permanently invisible) had it merged unnoticed.
+
+Fixed in `styles.css:1463` by dropping the redundant `html` type selector —
+`.js .fade-in` still scopes to the same element (`.js` is only ever set on
+`<html>`) but now ties in specificity with `.fade-in.visible`, and since the
+`.visible` rule appears later in source order, it correctly wins the tie.
+Re-verified in-browser: `.service-card` content now transitions to
+`opacity: 1` on scroll as intended.
 
 ### Skip link had no effect without a focus fix
 
