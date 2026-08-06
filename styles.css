@@ -472,6 +472,13 @@ nav .container {
     margin-bottom: 0.25rem;
 }
 
+.detail-link {
+    display: inline-block;
+    margin-top: 0.35rem;
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
 /* What It Is Section */
 .what-it-is {
     padding: 8rem 0;

@@ -52,6 +52,214 @@
         @media (max-width: 480px) {
             .hero { min-height: 55vh; background-position: 25% 30% !important; }
         }
+
+        /* Background rhythm: sage / cream / deep green / stone alternation
+           down the page, distinct from the other mastermind pages that share
+           the plain .what-it-is / .selection styling in styles.css. */
+        .who-for { background: var(--color-sage) !important; }
+        .criteria-card { background: var(--color-cream) !important; }
+        .why-works { background: var(--color-stone) !important; }
+        .cta-section { background: var(--color-cream) !important; }
+
+        /* Our Approach: framed drop-cap card, page-scoped (not the shared
+           .what-it-is styling other mastermind pages rely on). */
+        .approach {
+            padding: 8rem 0;
+            background: var(--color-cream);
+            color: var(--color-charcoal);
+            position: relative;
+        }
+        .approach::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.02;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        .approach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+        }
+        .approach-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+        .approach-title em {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+        .approach-divider {
+            width: 72px;
+            height: 1px;
+            background: var(--color-primary);
+            margin-top: 2.5rem;
+            opacity: 0.5;
+        }
+        .approach-card {
+            position: relative;
+            background: var(--color-stone);
+            padding: 3.5rem;
+        }
+        .approach-card::before {
+            content: '';
+            position: absolute;
+            top: -14px;
+            left: -14px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--color-primary);
+            z-index: -1;
+        }
+        .approach-lead {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--color-taupe);
+        }
+        .approach-lead::first-letter {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            line-height: 0.9;
+            float: left;
+            padding-right: 1rem;
+            color: var(--color-primary);
+        }
+        .approach-rule {
+            height: 1px;
+            background: rgba(28, 78, 70, 0.18);
+            margin: 2.25rem 0;
+        }
+        .approach-pull {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.6rem;
+            line-height: 1.5;
+            color: var(--color-primary);
+            padding-left: 1.75rem;
+            border-left: 2px solid var(--color-accent);
+        }
+        @media (max-width: 1024px) {
+            .approach-grid { grid-template-columns: 1fr; gap: 3rem; }
+        }
+        @media (max-width: 768px) {
+            .approach { padding: 5rem 0; }
+            .approach-card { padding: 2.5rem 1.75rem; }
+        }
+
+        /* What We Explore Together: dark bento grid, page-scoped (not the
+           shared .selection styling other mastermind pages rely on). */
+        .explore {
+            padding: 8rem 0;
+            background: var(--color-primary);
+            color: var(--color-cream);
+            position: relative;
+        }
+        .explore::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        .section-label--light { color: var(--color-accent-light); }
+        .explore-header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 4rem;
+            align-items: end;
+            margin-bottom: 4rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(247, 245, 240, 0.15);
+            position: relative;
+        }
+        .explore-header-text { max-width: 720px; }
+        .explore-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--color-cream);
+        }
+        .explore-title em {
+            font-style: italic;
+            color: var(--color-accent-light);
+        }
+        .explore-tagline {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.5rem;
+            color: rgba(247, 245, 240, 0.6);
+            white-space: nowrap;
+        }
+        .explore-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1.5rem;
+            position: relative;
+        }
+        .explore-card {
+            grid-column: span 2;
+            padding: 2.5rem 2rem;
+            background: rgba(247, 245, 240, 0.04);
+            border: 1px solid rgba(247, 245, 240, 0.15);
+            transition: all 0.4s ease;
+        }
+        .explore-card:hover {
+            border-color: var(--color-accent-light);
+            background: rgba(247, 245, 240, 0.07);
+        }
+        .explore-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.75rem;
+        }
+        .explore-card-number {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            line-height: 1;
+            color: var(--color-accent-light);
+            flex-shrink: 0;
+        }
+        .explore-card-icon {
+            width: 26px;
+            height: 26px;
+            color: rgba(247, 245, 240, 0.4);
+            flex-shrink: 0;
+        }
+        .explore-card p {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: rgba(247, 245, 240, 0.85);
+        }
+        .explore-card--wide {
+            grid-column: span 3;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            padding: 2.5rem;
+        }
+        .explore-card-icon--end { margin-left: auto; }
+        @media (max-width: 1024px) {
+            .explore-header { grid-template-columns: 1fr; align-items: start; gap: 1.5rem; }
+            .explore-tagline { white-space: normal; }
+            .explore-grid { grid-template-columns: repeat(2, 1fr); }
+            .explore-card, .explore-card--wide { grid-column: span 1; }
+        }
+        @media (max-width: 768px) {
+            .explore { padding: 5rem 0; }
+            .explore-grid { grid-template-columns: 1fr; }
+            .explore-card--wide { flex-direction: column; }
+            .explore-card-icon--end { margin-left: 0; }
+        }
     </style>
 </head>
 
@@ -154,8 +362,19 @@
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             <div class="detail-text">
-                                <strong>Starts August 2026</strong>
-                                Applications open now
+                                <strong>Starts September 2026</strong>
+                                Tuesday, September 22nd
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <svg class="detail-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <div class="detail-text">
+                                <strong>Save the Date</strong>
+                                <a href="https://luma.com/ysyhqgmj" class="detail-link" target="_blank" rel="noopener noreferrer">Check the Luma event<span class="sr-only"> (opens in a new tab)</span></a>
                             </div>
                         </div>
                     </div>
@@ -165,18 +384,21 @@
     </section>
 
     <!-- Our Approach Section -->
-    <section class="what-it-is" id="what-it-is">
+    <section class="approach" id="what-it-is">
         <div class="container">
-            <div class="what-it-is-content">
-                <div class="what-it-is-left">
+            <div class="approach-grid">
+                <div class="approach-copy">
                     <span class="section-label">Our Approach</span>
-                    <h2 class="what-it-is-title">Leadership in venture capital is not only strategic. It is
-                        personal, relational, and deeply human.</h2>
+                    <h2 class="approach-title">Leadership in venture capital is not only strategic. It is
+                        personal, relational, and <em>deeply human.</em></h2>
+                    <div class="approach-divider"></div>
                 </div>
-                <div class="what-it-is-text">
-                    <p>We facilitate the conversations that matter, and we create space for reflection, honesty, and
+                <div class="approach-card">
+                    <p class="approach-lead">We facilitate the conversations that matter, and we create space for reflection, honesty, and
                         the occasional moment of levity. In our experience clarity doesn't always emerge through
-                        analysis. Sometimes it shows up through connection, creativity, and the freedom to be fully
+                        analysis.</p>
+                    <div class="approach-rule"></div>
+                    <p class="approach-pull">Sometimes it shows up through connection, creativity, and the freedom to be fully
                         yourself in the room.</p>
                 </div>
             </div>
@@ -228,60 +450,71 @@
     </section>
 
     <!-- What We Explore Together Section -->
-    <section class="selection" id="what-we-explore">
+    <section class="explore" id="what-we-explore">
         <div class="container">
-            <div class="selection-content fade-in">
-                <div>
-                    <span class="section-label">The Work</span>
-                    <h2 class="selection-title">What We Explore Together</h2>
-                    <p class="selection-intro">The work, across three months.</p>
-                    <ul class="selection-criteria">
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                            Power dynamics inside the fund: how decisions actually get made, where you stand, and how
-                            to show up with authority before the title confirms it
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                            </svg>
-                            Your zone of genius: what you're uniquely good at, and how to build from that rather than
-                            compensating for what you're not
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                            </svg>
-                            Your investment POV: what you actually believe about capital, risk, and the future, and
-                            how to articulate it with confidence
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
-                            </svg>
-                            Difficult conversations, done well: using brain-based principles to navigate high-stakes
-                            moments with partners, LPs, and founders
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                            Stakeholder dynamics: understanding what GPs, LPs, and portfolio founders actually need
-                            from you at this stage
-                        </li>
-                    </ul>
+            <div class="explore-header fade-in">
+                <div class="explore-header-text">
+                    <span class="section-label section-label--light">The Work</span>
+                    <h2 class="explore-title">What We Explore <em>Together</em></h2>
+                </div>
+                <p class="explore-tagline">The work, across three months.</p>
+            </div>
+            <div class="explore-grid">
+                <div class="explore-card fade-in">
+                    <div class="explore-card-top">
+                        <span class="explore-card-number">01</span>
+                        <svg class="explore-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <p>Power dynamics inside the fund: how decisions actually get made, where you stand, and how
+                        to show up with authority before the title confirms it</p>
+                </div>
+                <div class="explore-card fade-in">
+                    <div class="explore-card-top">
+                        <span class="explore-card-number">02</span>
+                        <svg class="explore-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <p>Your zone of genius: what you're uniquely good at, and how to build from that rather than
+                        compensating for what you're not</p>
+                </div>
+                <div class="explore-card fade-in">
+                    <div class="explore-card-top">
+                        <span class="explore-card-number">03</span>
+                        <svg class="explore-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <p>Your investment POV: what you actually believe about capital, risk, and the future, and
+                        how to articulate it with confidence</p>
+                </div>
+                <div class="explore-card explore-card--wide fade-in">
+                    <span class="explore-card-number">04</span>
+                    <p>Difficult conversations, done well: using brain-based principles to navigate high-stakes
+                        moments with partners, LPs, and founders</p>
+                    <svg class="explore-card-icon explore-card-icon--end" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                    </svg>
+                </div>
+                <div class="explore-card explore-card--wide fade-in">
+                    <span class="explore-card-number">05</span>
+                    <p>Stakeholder dynamics: understanding what GPs, LPs, and portfolio founders actually need
+                        from you at this stage</p>
+                    <svg class="explore-card-icon explore-card-icon--end" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
                 </div>
             </div>
         </div>
@@ -302,7 +535,7 @@
                         <p>Deep, confidential conversations grounded in real-life decisions.</p>
                     </div>
                     <div class="featured-quote">
-                        "The conversation you can't have with the people who hold your carry."
+                        "The conversation you can't have with people in your fund who have their own agenda."
                     </div>
                 </div>
                 <div class="offering-card fade-in">
@@ -329,6 +562,11 @@
                     <div class="offering-number">06</div>
                     <h3>Reflection &amp; Expression</h3>
                     <p>Because becoming a Partner is about presence and self-trust, not only precision.</p>
+                </div>
+                <div class="offering-card fade-in">
+                    <div class="offering-number">07</div>
+                    <h3>Hard Skill Awareness</h3>
+                    <p>Awareness of the hard skills you need to get to your next milestone.</p>
                 </div>
             </div>
         </div>
@@ -495,8 +733,8 @@
                     <div class="price-period">One-time investment</div>
                     <div class="price-comparison">By application only. We curate for trust, readiness, and fit.</div>
                     <a href="https://forms.fillout.com/t/3x577JJtE6us" class="price-cta" target="_blank" rel="noopener noreferrer">Request an Invitation<span class="sr-only"> (opens in a new tab)</span></a>
-                    <p class="price-note">Application interviews week of August 3rd · Program kicks off week of
-                        August 25th, 2026</p>
+                    <p class="price-note">Application interviews last week of August · Program kicks off Tuesday,
+                        September 22nd, 2026</p>
                 </div>
             </div>
         </div>
