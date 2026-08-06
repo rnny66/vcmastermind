@@ -276,6 +276,7 @@ nav .container {
 .status-dot {
     width: 10px;
     height: 10px;
+    flex-shrink: 0;
     border-radius: 50%;
     background: #2ecc40;
     box-shadow: 0 0 0 3px rgba(46, 204, 64, 0.25);
