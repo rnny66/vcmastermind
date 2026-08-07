@@ -136,7 +136,7 @@
                         <span class="program-audience">Investment Managers</span>
                     </div>
                     <h2>Investment Manager Mastermind</h2>
-                    <p class="program-start">Starts August 2026</p>
+                    <p class="program-start">Starts September 22, 2026</p>
                     <p>A trusted lab for next-generation Investment Managers and Principals stepping into the VC
                         Partner role with clarity and conviction.</p>
                     <ul class="program-meta">
@@ -282,6 +282,18 @@
         });
 
         render();
+
+        // Make the whole card clickable, following its "View Program" link
+        cards.forEach(card => {
+            const link = card.querySelector('.service-link');
+            if (!link) return;
+            card.addEventListener('click', (e) => {
+                if (e.target.closest('a')) return;
+                const selection = window.getSelection();
+                if (selection && selection.toString().length > 0) return;
+                window.location.href = link.href;
+            });
+        });
     </script>
 </body>
 

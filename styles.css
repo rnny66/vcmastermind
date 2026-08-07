@@ -2252,6 +2252,7 @@ footer a:focus-visible {
     background: var(--color-cream);
     border: 1px solid rgba(26, 26, 26, 0.08);
     transition: all 0.4s ease;
+    cursor: pointer;
 }
 
 .program-card:hover {
