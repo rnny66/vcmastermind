@@ -195,62 +195,16 @@
                     <div class="slim-tier-letter">A</div>
                     <h3>Fund Capability Scan</h3>
                     <p>Waar je firma sterk is, en wat je als eerste moet door ontwikkelen.</p>
-                    <div class="slim-tier-footer">
-                        <div class="slim-tier-price">€8.500–€15.000</div>
-                        <div class="slim-tier-price-label">projectomvang</div>
-                    </div>
                 </div>
                 <div class="slim-tier">
                     <div class="slim-tier-letter">B</div>
                     <h3>Development Dialogue System</h3>
                     <p>Heldere verwachtingen per rol, een gesprekscyclus die blijft hangen en partners die hun eigen team kunnen coachen.</p>
-                    <div class="slim-tier-footer">
-                        <div class="slim-tier-price">€15.000–€25.000</div>
-                        <div class="slim-tier-price-label">projectomvang</div>
-                    </div>
                 </div>
                 <div class="slim-tier slim-tier--featured">
                     <div class="slim-tier-letter">C</div>
                     <h3>The Fund Learning Operating System</h3>
                     <p>Alles, ontworpen rond jouw thesis en samen met je team uitgevoerd totdat het simpelweg de manier is waarop de firma werkt.</p>
-                    <div class="slim-tier-footer">
-                        <div class="slim-tier-price">€25.000–€42.000</div>
-                        <div class="slim-tier-price-label">projectomvang · volledige subsidiereikwijdte</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Calculator -->
-    <section class="slim-section" id="calculator">
-        <div class="container">
-            <div class="who-for-header fade-in">
-                <span class="section-label">Rekenvoorbeeld</span>
-                <h2 class="who-for-title">Wat kost <em>jouw</em> project?</h2>
-                <p class="who-for-subtitle">Sleep de schuifknop. 60% subsidie, 40% eigen bijdrage, tot het maximum van €25.000.</p>
-            </div>
-            <div class="slim-calc fade-in">
-                <div class="slim-frame slim-frame--calc"></div>
-                <div class="slim-calc-row">
-                    <span class="slim-calc-label">Projectwaarde</span>
-                    <span class="slim-calc-value" id="calcValue">€ 30.000</span>
-                </div>
-                <input type="range" id="calcSlider" class="slim-calc-slider" min="5000" max="41500" step="500" value="30000"
-                    aria-label="Projectwaarde" aria-valuetext="€ 30.000">
-                <div class="slim-calc-bar-track">
-                    <div class="slim-calc-bar" id="calcBar" aria-hidden="true">
-                        <span class="slim-calc-seg slim-calc-seg--sub"><span id="calcSegSub">€ 18.000</span></span>
-                        <span class="slim-calc-seg slim-calc-seg--own"><span id="calcSegOwn">€ 12.000</span></span>
-                    </div>
-                </div>
-                <p class="sr-only" role="status" id="calcStatus">Subsidie € 18.000, eigen bijdrage € 12.000</p>
-                <div class="slim-calc-footer">
-                    <div class="slim-calc-legend">
-                        <span class="slim-calc-legend-item"><i class="slim-calc-swatch slim-calc-swatch--sub" aria-hidden="true"></i>Subsidie<span class="slim-calc-legend-amount" id="calcLegendSub" aria-hidden="true">€ 18.000</span></span>
-                        <span class="slim-calc-legend-item"><i class="slim-calc-swatch slim-calc-swatch--own" aria-hidden="true"></i>Eigen bijdrage<span class="slim-calc-legend-amount" id="calcLegendOwn" aria-hidden="true">€ 12.000</span></span>
-                    </div>
-                    <span class="slim-calc-cap" id="calcCap" hidden>€25.000-plafond bereikt</span>
                 </div>
             </div>
         </div>
@@ -399,59 +353,6 @@
     </footer>
 
     <script defer src="../js/site.js"></script>
-    <script>
-    (function () {
-        var slider = document.getElementById('calcSlider');
-        if (!slider) return;
-
-        // 41666 (60% = exactly €25,000) isn't reachable on this 500-step grid — Chrome and
-        // Firefox both clamp End-key/keyboard-max navigation to the nearest step (41500),
-        // never the true max. Using 41500 as the scale's end keeps the slider's max reachable;
-        // subsidy tops out at €24,900 instead of €25,000 at the very end of the scale.
-        var MAX_VALUE = 41500;
-
-        var valueEl = document.getElementById('calcValue');
-        var barEl = document.getElementById('calcBar');
-        var segSubEl = document.getElementById('calcSegSub');
-        var segOwnEl = document.getElementById('calcSegOwn');
-        var legendSubEl = document.getElementById('calcLegendSub');
-        var legendOwnEl = document.getElementById('calcLegendOwn');
-        var capEl = document.getElementById('calcCap');
-        var statusEl = document.getElementById('calcStatus');
-
-        var fmt = new Intl.NumberFormat(document.documentElement.lang, {
-            style: 'currency',
-            currency: 'EUR',
-            maximumFractionDigits: 0
-        });
-
-        function update() {
-            var value = Number(slider.value);
-            var subsidy = Math.min(value * 0.6, 25000); // defensive guard only — never binds within [5000, 41500]
-            var own = value - subsidy;
-            var atMax = value >= 41000;
-
-            var valueLabel = fmt.format(value);
-            var subsidyLabel = fmt.format(subsidy);
-            var ownLabel = fmt.format(own);
-
-            valueEl.textContent = valueLabel;
-            segSubEl.textContent = subsidyLabel;
-            segOwnEl.textContent = ownLabel;
-            legendSubEl.textContent = subsidyLabel;
-            legendOwnEl.textContent = ownLabel;
-            // The floor that keeps the bar readable at €5,000 lives in CSS
-            // (.slim-calc-bar min-width) because it differs per breakpoint.
-            barEl.style.width = (100 * value) / MAX_VALUE + '%';
-            capEl.hidden = !atMax;
-            slider.setAttribute('aria-valuetext', valueLabel);
-            statusEl.textContent = 'Subsidie ' + subsidyLabel + ', eigen bijdrage ' + ownLabel;
-        }
-
-        slider.addEventListener('input', update);
-        update();
-    })();
-    </script>
 </body>
 
 </html>
