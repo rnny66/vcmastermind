@@ -1,0 +1,850 @@
+/* ============================================================
+   SLIM redesign: page-scoped additive CSS for slim-nl.html / slim-en.html.
+
+   Loaded AFTER ../styles.css and slim.css. Like slim.css, this file adds
+   new, page-scoped classes rather than redefining bare shared selectors —
+   with one deliberate exception: a few narrow compound overrides
+   (.criteria-grid at 1024px, .cta-title / .hero h1 / .hero-cta at 768px)
+   that only fire within a media query and only affect this page, since
+   this stylesheet is never loaded anywhere else on the site.
+
+   See SLIM-REDESIGN-PLAN.md for the design source this maps onto.
+   ============================================================ */
+
+/* ---------- Section shells (alternating backgrounds) ---------- */
+.slim-section {
+    padding: 8rem 0;
+    background: var(--color-cream);
+}
+
+.slim-section--sage {
+    background: var(--color-sage);
+}
+
+.slim-section--stone {
+    background: var(--color-stone);
+}
+
+/* Emphasis inside headings built from the reused .who-for-title / .slim-bio-title
+   typography — styles.css has no em rule for these, so this is additive, not an
+   override, and (being page-scoped) can't leak into other pages that reuse
+   .who-for-title without an <em>. */
+.who-for-title em,
+.slim-bio-title em {
+    font-style: italic;
+    color: var(--color-accent);
+}
+
+/* ---------- Offset-border frame (hero stat, calculator, bio, testimonials) ---------- */
+.slim-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--color-primary);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.slim-frame--hero,
+.slim-frame--bio {
+    top: -14px;
+    right: -14px;
+}
+
+.slim-frame--calc,
+.slim-frame--quote {
+    top: -12px;
+    left: -12px;
+}
+
+/* ---------- Hero stats (2x2) ---------- */
+.slim-stats {
+    position: relative;
+    background: var(--color-cream);
+    border: 1px solid rgba(26, 26, 26, 0.08);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.slim-stat {
+    padding: 2.5rem 2.25rem;
+    border-right: 1px solid rgba(26, 26, 26, 0.08);
+    border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+}
+
+.slim-stat:nth-child(2n) {
+    border-right: none;
+}
+
+.slim-stat:nth-child(n+3) {
+    border-bottom: none;
+}
+
+.slim-stat-value {
+    font-family: var(--font-display);
+    font-size: 3.4rem;
+    line-height: 1;
+    color: var(--color-primary);
+}
+
+.slim-stat-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-taupe);
+    margin-top: 0.75rem;
+}
+
+/* ---------- What We Shape (2x2 seamless tiles) ---------- */
+.slim-shape-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.slim-shape-tile {
+    background: var(--color-cream);
+    padding: 2.75rem;
+}
+
+.slim-shape-tile h3 {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    color: var(--color-charcoal);
+}
+
+.slim-shape-tile p {
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--color-taupe);
+    margin: 0;
+}
+
+.slim-shape-tile--teal {
+    background: var(--color-primary);
+}
+
+.slim-shape-tile--teal h3 {
+    color: var(--color-cream);
+}
+
+.slim-shape-tile--teal p {
+    color: rgba(247, 245, 240, 0.78);
+}
+
+.slim-shape-tile--stone {
+    background: var(--color-stone);
+}
+
+/* ---------- Eligibility card numeral ---------- */
+.slim-criteria-num {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--color-accent);
+    margin-bottom: 1.1rem;
+}
+
+/* ---------- Project Types (three-tier bordered container) ---------- */
+.slim-tiers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1160px;
+    margin: 0 auto;
+    border: 1px solid rgba(26, 26, 26, 0.08);
+}
+
+.slim-tier {
+    padding: 3rem 2.5rem;
+    border-right: 1px solid rgba(26, 26, 26, 0.08);
+    display: flex;
+    flex-direction: column;
+    background: var(--color-cream);
+}
+
+.slim-tier:last-child {
+    border-right: none;
+}
+
+.slim-tier-letter {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+}
+
+.slim-tier h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    color: var(--color-charcoal);
+}
+
+.slim-tier p {
+    font-weight: 300;
+    color: var(--color-taupe);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin: 0 0 2rem;
+    flex: 1;
+}
+
+.slim-tier-footer {
+    border-top: 1px solid rgba(26, 26, 26, 0.08);
+    padding-top: 1.25rem;
+}
+
+.slim-tier-price {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--color-charcoal);
+}
+
+.slim-tier-price-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-taupe);
+    margin-top: 0.4rem;
+}
+
+.slim-tier--featured {
+    background: var(--color-primary);
+    color: var(--color-cream);
+}
+
+.slim-tier--featured h3,
+.slim-tier--featured .slim-tier-price {
+    color: var(--color-cream);
+}
+
+.slim-tier--featured p {
+    color: rgba(247, 245, 240, 0.78);
+}
+
+.slim-tier--featured .slim-tier-footer {
+    border-top-color: rgba(247, 245, 240, 0.2);
+}
+
+.slim-tier--featured .slim-tier-price-label {
+    color: rgba(247, 245, 240, 0.7);
+}
+
+/* ---------- Calculator ---------- */
+.slim-calc {
+    position: relative;
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--color-sage);
+    border: 1px solid rgba(26, 26, 26, 0.08);
+    padding: 3.5rem;
+}
+
+.slim-calc-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+.slim-calc-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-taupe);
+}
+
+.slim-calc-value {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    color: var(--color-charcoal);
+}
+
+/* Height lives on the box itself (grown at mobile for tap target); track
+   color lives on the runnable-track pseudo-elements so the visible track
+   stays a thin 4px line regardless of the box's own height. */
+.slim-calc-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    display: block;
+    width: 100%;
+    height: 4px;
+    margin: 0.75rem 0 2.25rem;
+    background: transparent;
+}
+
+.slim-calc-slider::-webkit-slider-runnable-track {
+    height: 4px;
+    background: var(--color-primary);
+}
+
+.slim-calc-slider::-moz-range-track {
+    height: 4px;
+    background: var(--color-primary);
+    border: none;
+}
+
+/* WebKit aligns the thumb's top edge with the track's top edge rather than
+   centering it, so the thumb needs a negative margin of half the difference.
+   border-box keeps the 2px border inside the 22px, so the maths stays simple.
+   Firefox centers -moz-range-thumb itself and needs no offset. */
+.slim-calc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    width: 22px;
+    height: 22px;
+    margin-top: -9px; /* (4px track - 22px thumb) / 2 */
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 2px solid var(--color-cream);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slim-calc-slider::-moz-range-thumb {
+    box-sizing: border-box;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 2px solid var(--color-cream);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slim-calc-bar-track {
+    width: 100%;
+    margin-bottom: 0.9rem;
+}
+
+/* Fixed 60/40 split at every position — the design let the slider run past the
+   point where subsidy caps at €25,000, which visibly skewed the split past
+   40% own contribution. Here the split never moves; only the whole bar's
+   *width* (set inline by the calculator script) changes with project value. */
+.slim-calc-bar {
+    display: flex;
+    height: 56px;
+    /* Floor so the narrow 40% segment still fits "€ 2.000" at the €5,000 end
+       of the scale. Mobile drops this floor and moves the amounts out of the
+       bar instead — see the 768px block. */
+    min-width: 35%;
+    transition: width 0.2s ease;
+}
+
+.slim-calc-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* min-width:auto would let the labels push the segments past 60/40 */
+    min-width: 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.slim-calc-seg--sub {
+    flex: 0 0 60%;
+    background: var(--color-primary);
+    color: var(--color-cream);
+}
+
+.slim-calc-seg--own {
+    flex: 0 0 40%;
+    background: var(--color-stone);
+    color: var(--color-charcoal);
+}
+
+.slim-calc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slim-calc-legend {
+    display: flex;
+    gap: 1.75rem;
+}
+
+.slim-calc-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-charcoal);
+}
+
+/* Shown only at mobile, where the amounts move out of the bar */
+.slim-calc-legend-amount {
+    display: none;
+}
+
+.slim-calc-swatch {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+}
+
+.slim-calc-swatch--sub {
+    background: var(--color-primary);
+}
+
+.slim-calc-swatch--own {
+    background: var(--color-stone);
+    border: 1px solid rgba(28, 78, 70, 0.25);
+}
+
+.slim-calc-cap {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .slim-calc-bar {
+        transition: none;
+    }
+}
+
+/* ---------- How It Works ---------- */
+.slim-steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1160px;
+    margin: 4.5rem auto 0;
+    text-align: center;
+}
+
+.slim-steps::before {
+    content: '';
+    position: absolute;
+    top: 27px;
+    left: 7%;
+    right: 7%;
+    height: 1px;
+    background: rgba(28, 78, 70, 0.25);
+}
+
+.slim-step {
+    position: relative;
+}
+
+.slim-step-num {
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-cream);
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    position: relative;
+}
+
+.slim-step-num--outline {
+    background: var(--color-cream);
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+.slim-step h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--color-charcoal);
+}
+
+.slim-step p {
+    font-weight: 300;
+    color: var(--color-taupe);
+    line-height: 1.6;
+    font-size: 0.92rem;
+    margin-bottom: 0.9rem;
+}
+
+.slim-step-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    border: 1px solid rgba(28, 78, 70, 0.3);
+    padding: 0.25rem 0.75rem;
+}
+
+.slim-step-tag--muted {
+    color: var(--color-taupe);
+    border-color: rgba(26, 26, 26, 0.15);
+}
+
+/* ---------- Who Delivers It (bio) ---------- */
+.slim-bio {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.slim-bio-portrait {
+    position: relative;
+}
+
+.slim-bio-portrait img {
+    position: relative;
+    width: 100%;
+    display: block;
+    filter: grayscale(10%);
+}
+
+.slim-bio-title {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 1rem 0 1.25rem;
+}
+
+.slim-bio-text p {
+    font-weight: 300;
+    color: var(--color-charcoal);
+    line-height: 1.8;
+    margin: 0 0 1rem;
+}
+
+.slim-bio-text p.slim-bio-text-muted {
+    color: var(--color-taupe);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* ---------- Testimonials ---------- */
+.slim-quotes {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.slim-quote-card {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+    align-items: center;
+    background: var(--color-cream);
+    border: 1px solid rgba(26, 26, 26, 0.08);
+    padding: 3rem;
+}
+
+.slim-quote-photo {
+    position: relative;
+}
+
+.slim-quote-photo img {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+.slim-quote-pull {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    font-weight: 400;
+    line-height: 1.35;
+    margin: 0 0 1rem;
+}
+
+.slim-quote-pull em {
+    font-style: italic;
+    color: var(--color-accent);
+}
+
+.slim-quote-body {
+    font-weight: 300;
+    color: var(--color-taupe);
+    line-height: 1.8;
+    margin: 0 0 1.25rem;
+}
+
+.slim-quote-author {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin: 0;
+}
+
+.slim-quote-author span {
+    color: var(--color-taupe);
+    font-weight: 300;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 1024px) {
+    .slim-section {
+        padding: 6rem 0;
+    }
+
+    /* Eligibility: 3 -> 2 columns, third card spans full width. Overrides
+       styles.css's own 1024px rule for .criteria-grid — safe here because
+       this stylesheet only loads on the slim pages and criteria-grid only
+       appears once on this page. */
+    .criteria-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .criteria-grid>:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .slim-tiers {
+        grid-template-columns: 1fr;
+    }
+
+    .slim-tier {
+        border-right: none;
+        border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+    }
+
+    .slim-tier:last-child {
+        border-bottom: none;
+    }
+
+    .slim-tier--featured {
+        border-bottom-color: rgba(247, 245, 240, 0.2);
+    }
+
+    .slim-steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem 2rem;
+    }
+
+    .slim-steps::before {
+        display: none;
+    }
+
+    .slim-bio {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+
+    .slim-bio-portrait {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .slim-quote-card {
+        grid-template-columns: 180px 1fr;
+        gap: 2.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .slim-section {
+        padding: 5rem 0;
+    }
+
+    /* Hero */
+    .hero h1 {
+        font-size: clamp(2rem, 8vw, 2.4rem);
+    }
+
+    .hero-cta {
+        width: 100%;
+        justify-content: center;
+        min-height: 56px;
+    }
+
+    .slim-frame--hero {
+        top: -8px;
+        right: -8px;
+    }
+
+    .slim-frame--calc {
+        top: -8px;
+        left: -8px;
+    }
+
+    .slim-frame--bio {
+        top: -10px;
+        right: -10px;
+    }
+
+    .slim-stat {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .slim-stat-value {
+        font-size: 2.2rem;
+    }
+
+    /* What We Shape */
+    .slim-shape-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .slim-shape-tile {
+        padding: 2rem;
+    }
+
+    .slim-shape-tile h3 {
+        font-size: 1.35rem;
+    }
+
+    /* Eligibility */
+    .criteria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Calculator */
+    .slim-calc {
+        padding: 1.75rem;
+    }
+
+    .slim-calc-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    /* At this width the 40% segment is ~38px — too narrow for "€ 2.000".
+       Widening the bar enough to fit the label would put €5,000 at well over
+       half the track, so the amounts move to the legend instead and the bar
+       stays close to proportional; the floor only keeps it reading as a bar. */
+    .slim-calc-bar {
+        height: 48px;
+        min-width: 25%;
+    }
+
+    .slim-calc-seg > span {
+        display: none;
+    }
+
+    /* Stacked rows with the amounts flushed right, so the two figures line up */
+    .slim-calc-legend {
+        flex-direction: column;
+        gap: 0.6rem;
+        width: 100%;
+    }
+
+    .slim-calc-legend-amount {
+        display: inline;
+        margin-left: auto;
+        font-weight: 600;
+    }
+
+    /* Grows the input's own hit area to clear 44px; the visible track stays
+       thin because its color lives on the runnable-track pseudo-element,
+       which browsers center vertically within the taller box. */
+    .slim-calc-slider {
+        height: 44px;
+    }
+
+    .slim-calc-slider::-webkit-slider-thumb {
+        width: 28px;
+        height: 28px;
+        margin-top: -12px; /* (4px track - 28px thumb) / 2 */
+    }
+
+    .slim-calc-slider::-moz-range-thumb {
+        width: 28px;
+        height: 28px;
+    }
+
+    .slim-calc-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    /* How It Works */
+    .slim-steps {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .slim-step-tag {
+        min-height: 32px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 0.9rem;
+    }
+
+    /* Bio */
+    .slim-bio-portrait {
+        max-width: 260px;
+    }
+
+    .slim-bio-text {
+        text-align: left;
+    }
+
+    /* Testimonials */
+    .slim-quote-card {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.75rem;
+        text-align: left;
+    }
+
+    .slim-quote-photo {
+        width: 140px;
+    }
+
+    .slim-quote-photo img {
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
+
+    .slim-quote-pull {
+        font-size: 1.35rem;
+    }
+
+    /* CTA */
+    .cta-title {
+        font-size: 2.2rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .slim-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .slim-stat {
+        border-right: none;
+        border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+    }
+
+    .slim-stat:last-child {
+        border-bottom: none;
+    }
+}
