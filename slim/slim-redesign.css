@@ -57,6 +57,40 @@
     left: -12px;
 }
 
+/* ---------- Hero photo ---------- */
+.slim-hero-photo {
+    position: relative;
+    background: var(--color-cream);
+}
+
+/* height:auto is load-bearing, not decoration: the width/height attributes on
+   the <img> (kept for CLS) apply as presentational hints, so a lone width:100%
+   would leave the attribute's height in force and stretch the photo. Same
+   reason it appears on .slim-bio-portrait img. */
+.slim-hero-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: grayscale(10%);
+}
+
+/* ---------- Hero deadline ---------- */
+/* Sits between .hero-description and .hero-cta. The :has() rule pulls the
+   description's 2.5rem bottom gap in so the two read as one block; without
+   :has() support the line just sits lower — nothing breaks. */
+.hero-description:has(+ .slim-hero-deadline) {
+    margin-bottom: 1.25rem;
+}
+
+.slim-hero-deadline {
+    max-width: 540px;
+    margin: 0 0 2.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--color-accent);
+}
+
 /* ---------- Hero stats (2x2) ---------- */
 .slim-stats {
     position: relative;
@@ -512,6 +546,10 @@
 .slim-bio-portrait img {
     position: relative;
     width: 100%;
+    /* Without this the width/height attributes' presentational hint keeps
+       height:1140px while width scales to the 380px column — a 3x vertical
+       stretch. See the note on .slim-hero-photo img. */
+    height: auto;
     display: block;
     filter: grayscale(10%);
 }
@@ -659,6 +697,12 @@
     .slim-quote-card {
         grid-template-columns: 180px 1fr;
         gap: 2.25rem;
+    }
+
+    /* Mirrors the .hero-description centring styles.css applies at this width. */
+    .slim-hero-deadline {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
