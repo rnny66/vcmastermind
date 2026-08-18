@@ -27,7 +27,6 @@
         /* IM Hero: photo background with dark overlay */
         .hero {
             background: url('../img/backgrounds/hero-im.jpg') center 35% / cover no-repeat !important;
-            padding-bottom: 6rem;
         }
         .hero::before {
             background: rgba(12, 30, 28, 0.78) !important;
@@ -261,291 +260,11 @@
             .explore-card--wide { flex-direction: column; }
             .explore-card-icon--end { margin-left: 0; }
         }
-
-        /* Live Intro Session: promo banner inside the hero, a matching sticky
-           bar that takes over once the hero banner scrolls out of view (see
-           the scroll listener at the bottom of the page), and a reminder
-           block in the pricing section for people not ready to apply yet. */
-        .hero-live-banner {
-            margin-top: 4rem;
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            padding: 1.75rem 2rem;
-            background: rgba(247, 245, 240, 0.95);
-            backdrop-filter: blur(10px);
-            border-left: 3px solid var(--color-accent);
-            animation: fadeUp 1s ease-out 0.6s both;
-        }
-        .hero-live-banner-status {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            flex-shrink: 0;
-        }
-        .hero-live-banner-label {
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--color-accent);
-        }
-        .hero-live-banner-text {
-            flex: 1;
-            min-width: 260px;
-        }
-        .hero-live-banner-title {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: var(--color-charcoal);
-            line-height: 1.3;
-            margin-bottom: 0.4rem;
-        }
-        .hero-live-banner-date {
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: var(--color-taupe);
-            line-height: 1.6;
-        }
-        .hero-live-banner-divider {
-            color: rgba(45, 58, 56, 0.35);
-        }
-        .hero-live-banner-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.85rem;
-            flex-shrink: 0;
-            padding: 1rem 2rem;
-            background: var(--color-primary);
-            color: var(--color-cream);
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            transition: all 0.4s ease;
-        }
-        .hero-live-banner-cta:hover {
-            background: var(--color-accent);
-            color: var(--color-charcoal);
-        }
-        .hero-live-banner-cta svg {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-        }
-
-        .sticky-live-bar {
-            position: fixed;
-            top: 88px;
-            left: 0;
-            right: 0;
-            z-index: 950;
-            background: rgba(28, 78, 70, 0.97);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(247, 245, 240, 0.15);
-            transform: translateY(-120%);
-            opacity: 0;
-            pointer-events: none;
-            transition: transform 0.4s ease, opacity 0.4s ease;
-        }
-        .sticky-live-bar.is-stuck {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .sticky-live-bar-inner {
-            padding-top: 0.85rem;
-            padding-bottom: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .sticky-live-bar-label {
-            font-size: 0.72rem;
-            font-weight: 500;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--color-accent-light);
-            flex-shrink: 0;
-        }
-        .sticky-live-bar-text {
-            flex: 1;
-            min-width: 200px;
-            display: flex;
-            flex-direction: column;
-            gap: 0.15rem;
-        }
-        .sticky-live-bar-title {
-            font-size: 0.95rem;
-            font-weight: 300;
-            color: rgba(247, 245, 240, 0.9);
-        }
-        .sticky-live-bar-date {
-            font-size: 0.85rem;
-            font-weight: 300;
-            color: rgba(247, 245, 240, 0.6);
-        }
-        .sticky-live-bar-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            flex-shrink: 0;
-            padding: 0.6rem 1.4rem;
-            background: var(--color-cream);
-            color: var(--color-primary);
-            text-decoration: none;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-        .sticky-live-bar-cta:hover {
-            background: var(--color-accent);
-            color: var(--color-charcoal);
-        }
-        .sticky-live-bar-cta svg {
-            width: 16px;
-            height: 16px;
-            flex-shrink: 0;
-        }
-
-        .pricing-webinar {
-            margin-top: 5rem;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 3rem;
-            align-items: center;
-            padding: 2.5rem 3rem;
-            background: var(--color-cream);
-            border: 1px solid rgba(26, 26, 26, 0.08);
-            border-left: 3px solid var(--color-accent);
-        }
-        .pricing-webinar-status {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.9rem;
-        }
-        .pricing-webinar-label {
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--color-accent);
-        }
-        .pricing-webinar-title {
-            font-family: var(--font-display);
-            font-size: 1.75rem;
-            font-weight: 400;
-            color: var(--color-charcoal);
-            margin-bottom: 0.6rem;
-        }
-        .pricing-webinar-title em {
-            font-style: italic;
-            color: var(--color-accent);
-        }
-        .pricing-webinar-description {
-            font-size: 1rem;
-            font-weight: 300;
-            color: var(--color-taupe);
-            line-height: 1.7;
-            max-width: 560px;
-        }
-        .pricing-webinar-date {
-            margin-top: 1rem;
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--color-primary);
-            letter-spacing: 0.02em;
-        }
-        .pricing-webinar-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.85rem;
-            padding: 1.15rem 2.25rem;
-            background: var(--color-primary);
-            color: var(--color-cream);
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            transition: all 0.4s ease;
-            white-space: nowrap;
-        }
-        .pricing-webinar-cta:hover {
-            background: var(--color-accent);
-            color: var(--color-charcoal);
-        }
-        .pricing-webinar-cta svg {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-        }
-        @media (max-width: 1024px) {
-            .pricing-webinar {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-        @media (max-width: 768px) {
-            .hero-live-banner { padding: 1.5rem; }
-            .pricing-webinar { padding: 2rem 1.75rem; }
-
-            /* Sticky bar is fixed on screen while scrolling, so on small
-               viewports it stays to a single compact row: dot, label, CTA. */
-            .sticky-live-bar-inner { flex-wrap: nowrap; }
-            .sticky-live-bar-text { display: none; }
-            .sticky-live-bar-cta {
-                margin-left: auto;
-                gap: 0;
-                padding: 0.5rem 1rem;
-            }
-            .sticky-live-bar-cta svg { display: none; }
-        }
-        @media (max-width: 400px) {
-            /* Dot + label + CTA no longer fit the 768px sizing on the
-               narrowest phones without the CTA bleeding past the edge, so
-               trim the label and button further to pull it back left. */
-            .sticky-live-bar-inner { gap: 0.75rem; }
-            .sticky-live-bar-label {
-                font-size: 0.62rem;
-                letter-spacing: 0.08em;
-            }
-            .sticky-live-bar-cta {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.65rem;
-            }
-        }
     </style>
 </head>
 
 <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
-
-    <!-- Live Intro Session sticky bar: hidden until the hero banner scrolls out of view -->
-    <div class="sticky-live-bar" id="stickyLiveBar">
-        <div class="sticky-live-bar-inner container">
-            <span class="status-dot"></span>
-            <span class="sticky-live-bar-label">Live Intro Session</span>
-            <span class="sticky-live-bar-text">
-                <span class="sticky-live-bar-title">Meet the facilitators and hear how the cohort works.</span>
-                <span class="sticky-live-bar-date">Monday 17 August · 19:00–20:00 GMT+1</span>
-            </span>
-            <a href="https://luma.com/ysyhqgmj" target="_blank" rel="noopener noreferrer" class="sticky-live-bar-cta">
-                <span>Save Your Seat</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-                <span class="sr-only"> (opens in a new tab)</span>
-            </a>
-        </div>
-    </div>
 
     <!-- Navigation -->
     <nav>
@@ -650,23 +369,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="hero-live-banner" id="heroLiveBanner">
-                <div class="hero-live-banner-status">
-                    <span class="status-dot"></span>
-                    <span class="hero-live-banner-label">Live Intro Session</span>
-                </div>
-                <div class="hero-live-banner-text">
-                    <p class="hero-live-banner-title">Meet the facilitators and hear how the cohort works.</p>
-                    <p class="hero-live-banner-date">Monday 17 August <span class="hero-live-banner-divider">·</span> 19:00–20:00 GMT+1</p>
-                </div>
-                <a href="https://luma.com/ysyhqgmj" target="_blank" rel="noopener noreferrer" class="hero-live-banner-cta">
-                    <span>Save Your Seat</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                    <span class="sr-only"> (opens in a new tab)</span>
-                </a>
             </div>
         </div>
     </section>
@@ -1025,25 +727,6 @@
                         September 22nd, 2026</p>
                 </div>
             </div>
-            <div class="pricing-webinar">
-                <div class="pricing-webinar-text">
-                    <div class="pricing-webinar-status">
-                        <span class="status-dot"></span>
-                        <span class="pricing-webinar-label">Live Intro Session</span>
-                    </div>
-                    <h3 class="pricing-webinar-title">Not ready to apply? Start with the <em>webinar.</em></h3>
-                    <p class="pricing-webinar-description">A free online hour with the facilitators: how the cohort
-                        runs, who it's for, and what the three months ask of you. Come with questions.</p>
-                    <p class="pricing-webinar-date">Monday 17 August · 19:00–20:00 GMT+1</p>
-                </div>
-                <a href="https://luma.com/ysyhqgmj" target="_blank" rel="noopener noreferrer" class="pricing-webinar-cta">
-                    <span>Save Your Seat</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                    <span class="sr-only"> (opens in a new tab)</span>
-                </a>
-            </div>
         </div>
     </section>
 
@@ -1093,24 +776,6 @@
     </footer>
 
     <script defer src="../js/site.js"></script>
-    <script defer>
-        // Live Intro Session sticky bar: takes over once the hero banner
-        // (the same promo, shown inline in the hero) scrolls out of view.
-        (function () {
-            'use strict';
-            var banner = document.getElementById('heroLiveBanner');
-            var stickyBar = document.getElementById('stickyLiveBar');
-            if (!banner || !stickyBar) return;
-
-            function updateStickyBar() {
-                var stuck = banner.getBoundingClientRect().bottom < 100;
-                stickyBar.classList.toggle('is-stuck', stuck);
-            }
-
-            window.addEventListener('scroll', updateStickyBar, { passive: true });
-            updateStickyBar();
-        })();
-    </script>
 </body>
 
 </html>
