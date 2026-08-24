@@ -11,14 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "x3997ofagn");
-    </script>
+    <!-- Cookie consent. Loads Microsoft Clarity only after the visitor accepts.
+         Never add a tracker snippet directly to this <head>: it would bypass consent. -->
+    <link rel="stylesheet" href="css/consent.css">
+    <script src="js/consent.js"></script>
 
     <style>
         .legal-section {
@@ -54,6 +50,14 @@
             font-weight: 500;
             color: var(--color-charcoal);
             margin: 3rem 0 1.25rem;
+        }
+
+        .legal-body h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            margin: 2rem 0 1rem;
         }
 
         .legal-body h2:first-child {
@@ -93,6 +97,33 @@
         .legal-body strong {
             color: var(--color-charcoal);
             font-weight: 500;
+        }
+
+        #cookieSettings {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            padding: 0.9rem 1.75rem;
+            margin-bottom: 1.25rem;
+            background: none;
+            border: 1px solid var(--color-primary);
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-primary);
+            transition: all 0.3s ease;
+        }
+
+        #cookieSettings:hover {
+            background: var(--color-primary);
+            color: var(--color-cream);
+        }
+
+        #cookieSettings[hidden] {
+            display: none;
         }
 
         .legal-toc {
@@ -172,7 +203,7 @@
             <div class="legal-header">
                 <span class="section-label">Legal</span>
                 <h1>Privacy Policy</h1>
-                <p class="legal-updated">Last updated: August 3, 2026</p>
+                <p class="legal-updated">Last updated: August 20, 2026</p>
             </div>
 
             <div class="legal-body">
@@ -181,6 +212,7 @@
                     <ol>
                         <li><a href="#who-we-are">Who we are</a></li>
                         <li><a href="#what-we-collect">What we collect</a></li>
+                        <li><a href="#cookies">Cookies and similar technologies</a></li>
                         <li><a href="#how-we-use-it">How we use it</a></li>
                         <li><a href="#legal-basis">Legal basis for processing</a></li>
                         <li><a href="#third-parties">Third parties we share data with</a></li>
@@ -200,7 +232,32 @@
                 <p>We collect personal data in two ways:</p>
                 <ul>
                     <li><strong>Newsletter sign-up.</strong> When you subscribe on our <a href="newsletter.html">newsletter page</a>, we collect your first name, email address, your role (Emerging Manager, Partner, or Principal/Associate), and your marketing consent choice.</li>
-                    <li><strong>Site analytics.</strong> We use Microsoft Clarity to understand how visitors use this site: for example, page views, clicks, and scroll behavior. Clarity may set cookies and record anonymized session data. It does not collect the contents of forms unless masking is disabled, which we have not done.</li>
+                    <li><strong>Site analytics &mdash; only if you accept.</strong> We use Microsoft Clarity to understand how visitors use this site: page views, clicks, and scroll behavior. It sets cookies and records anonymized session data, but only after you accept analytics cookies. It does not collect the contents of forms unless masking is disabled, which we have not done. See <a href="#cookies">Cookies and similar technologies</a> for the detail.</li>
+                </ul>
+
+                <h2 id="cookies">Cookies and similar technologies</h2>
+                <p>We use one analytics tool on this site, and it does not run until you say yes.</p>
+                <p>The first time you visit, we ask whether you accept analytics cookies. Nothing analytics-related loads before you answer. If you decline, we clear anything that was set previously and load nothing further. The site works exactly the same either way &mdash; declining costs you nothing.</p>
+
+                <h3>What we use</h3>
+                <p><strong>Microsoft Clarity</strong> shows us how people use this site: which pages get read, where visitors stop scrolling, what they click. It records anonymized session data and does not capture what you type into forms. See <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">Microsoft's privacy statement<span class="sr-only"> (opens in a new tab)</span></a>.</p>
+
+                <h3>What gets stored, and for how long</h3>
+                <ul>
+                    <li><strong>_clck</strong> &mdash; Microsoft Clarity. About 1 year. Set only if you accept.</li>
+                    <li><strong>_clsk</strong> &mdash; Microsoft Clarity. About 1 day. Set only if you accept.</li>
+                    <li><strong>tvc-consent</strong> &mdash; stored by this site in your browser. About 12 months. Records whether you accepted or declined so we do not ask again on every page. This one is stored either way: we cannot remember your choice without it.</li>
+                </ul>
+
+                <h3>Changing your mind</h3>
+                <p>Use Cookie settings in the footer of any page. Accepting starts analytics straight away. Declining clears the Clarity cookies and reloads the page, so nothing keeps running in the background.</p>
+                <button type="button" id="cookieSettings" hidden>Cookie settings</button>
+
+                <h3>What loads regardless</h3>
+                <p>Two things load without asking, because they are needed for the page to work rather than to track you:</p>
+                <ul>
+                    <li><strong>Google Fonts.</strong> Our typefaces load from Google's servers, which means Google receives your IP address. We are working on hosting them ourselves.</li>
+                    <li><strong>Brevo form assets.</strong> On the newsletter page, the sign-up form's styles and script load from Brevo. Without them there is no form.</li>
                 </ul>
 
                 <h2 id="how-we-use-it">How we use it</h2>
@@ -214,13 +271,16 @@
 
                 <h2 id="legal-basis">Legal basis for processing</h2>
                 <p>Where the GDPR applies, our legal basis for sending you marketing email is your <strong>consent</strong> (Article 6(1)(a)). Newsletter sign-ups use double opt-in: you must click a confirmation link in an email before you're added to our list, which we keep as evidence of that consent. You can withdraw consent at any time by unsubscribing. See <a href="#contact">Contact us</a> below.</p>
-                <p>For site analytics, we rely on our legitimate interest in understanding site usage. We are reviewing our cookie practices to ensure they meet applicable consent requirements for visitors in the EU and UK; in the meantime, you can block or clear cookies at any time in your browser settings.</p>
+                <p>For site analytics, our legal basis is your <strong>consent</strong> (Article 6(1)(a)). Analytics is off by default: nothing loads until you accept, and you can withdraw at any time using Cookie settings in the footer, which takes effect immediately. See <a href="#cookies">Cookies and similar technologies</a> above.</p>
 
                 <h2 id="third-parties">Third parties we share data with</h2>
                 <p>We share personal data only with the service providers ("processors") that help us run this site and our newsletter:</p>
                 <ul>
                     <li><strong>Brevo</strong> (Sendinblue SAS, France) is our email marketing platform. Brevo stores your name, email, role and consent status, and sends the newsletter and confirmation emails on our behalf. Brevo is based in the EU. See <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener noreferrer">Brevo's privacy policy<span class="sr-only"> (opens in a new tab)</span></a>.</li>
-                    <li><strong>Microsoft Clarity</strong> (Microsoft Corporation) is our website analytics provider. See <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">Microsoft's privacy statement<span class="sr-only"> (opens in a new tab)</span></a>.</li>
+                    <li><strong>Microsoft Clarity</strong> (Microsoft Corporation) is our website analytics provider, and runs only if you accept analytics cookies. See <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">Microsoft's privacy statement<span class="sr-only"> (opens in a new tab)</span></a>.</li>
+                    <li><strong>Google Fonts</strong> (Google Ireland Limited) serves the typefaces used across this site. Because the files load from Google's servers, Google receives your IP address on every page. This happens regardless of your cookie choice; we are working on hosting the fonts ourselves to remove it.</li>
+                    <li><strong>Calendly</strong> (Calendly LLC, United States) handles coaching call bookings. Nothing is shared with Calendly unless you click through to book, at which point their own privacy policy applies.</li>
+                    <li><strong>Fillout</strong> (Fillout Inc., United States) hosts our mastermind application forms. Nothing is shared with Fillout unless you click through to apply.</li>
                 </ul>
                 <p>We do not sell or rent your personal data to anyone.</p>
 
