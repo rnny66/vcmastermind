@@ -1,0 +1,370 @@
+/* ============================================================
+   COOKIE CONSENT BANNER
+
+   PORTABILITY CONSTRAINT — read before editing.
+
+   This file is loaded on every page, including
+   masterminds/nextgen-womens-capital-circle.html, which uses its
+   own palette and is deliberately NOT loaded alongside styles.css.
+
+   To compose with either stylesheet, this file:
+     - defines NO :root block
+     - defines NO bare element selectors (body, h2, p, ul, button…)
+     - reads only custom properties that BOTH styles.css and
+       nextgen-womens-capital-circle.css define:
+         --color-cream --color-sage --color-stone --color-charcoal
+         --color-taupe --color-primary --color-primary-light
+         --color-accent --color-accent-light
+         --font-display --font-body
+
+   Do not reference --color-primary-soft (styles.css only) or
+   --fg-on-dark* / --border-hairline (nextgen only). Stick to the
+   eleven above and the banner renders teal/orange on the main site
+   and mulberry/terracotta on the nextgen page, with no conditional
+   CSS and no page-specific overrides.
+
+   z-index scale, identical in both stylesheets:
+     skip-link 2000 > BANNER 1500 > mobile toggle 1001 >
+     nav 1000 > mobile nav overlay 999
+   ============================================================ */
+
+.cookie-banner {
+    position: fixed;
+    /* RIGHT corner. Checked against the left during implementation: the
+       hero CTAs ("Pre-Apply Now", "Apply for Next Cohort") are
+       left-aligned on every mastermind page, so a left card covers the
+       page's primary CTA on landing. On the right, nothing is covered
+       at rest — the only overlap is with the footer links at the very
+       bottom of the page, and only while a decision is still pending.
+       Re-run that check before moving this. */
+    right: 2rem;
+    bottom: 2rem;
+    left: auto;
+    z-index: 1500;
+    width: calc(100% - 4rem);
+    max-width: 430px;
+    /* Expanded, on a short viewport, the details panel would otherwise
+       push the card off the top of the screen. */
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    background: var(--color-cream);
+    border: 1px solid var(--color-stone);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
+    border-top: 3px solid var(--color-accent);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    /* Sharp corners are the brand — no border-radius. */
+    transform: translateY(calc(100% + 2rem));
+    transition: transform 0.4s ease;
+}
+
+.cookie-banner[hidden] {
+    display: none;
+}
+
+.cookie-banner.is-visible {
+    transform: translateY(0);
+}
+
+.cookie-banner-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+/* ---------- Copy ---------- */
+
+.cookie-banner-text h2 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-charcoal);
+    margin: 0 0 0.75rem;
+}
+
+.cookie-banner-text p {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--color-charcoal);
+    color: color-mix(in srgb, var(--color-taupe) 55%, var(--color-charcoal));
+    margin: 0;
+}
+
+.cookie-banner-text a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.cookie-banner-text a:hover {
+    color: var(--color-accent);
+}
+
+/* Shown only when the banner is reopened from a Cookie settings
+   control, so the visitor can see what is currently set. */
+.cookie-banner-status {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin: 0.9rem 0 0;
+}
+
+.cookie-banner-status[hidden] {
+    display: none;
+}
+
+/* ---------- "What we collect" expander ---------- */
+
+.cookie-banner-more {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 0.45rem;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.3s ease;
+}
+
+.cookie-banner-more:hover {
+    color: var(--color-accent);
+}
+
+.cookie-banner-more svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.cookie-banner-more[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+}
+
+/* Show/hide only — no height animation, which sidesteps
+   reduced-motion handling for the panel entirely. */
+.cookie-banner-details {
+    border-top: 1px solid var(--color-stone);
+    border-top: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
+    padding-top: 1rem;
+}
+
+.cookie-banner-details[hidden] {
+    display: none;
+}
+
+.cookie-banner-details p {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--color-charcoal);
+    color: color-mix(in srgb, var(--color-taupe) 55%, var(--color-charcoal));
+    margin: 0 0 0.85rem;
+}
+
+.cookie-banner-details ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cookie-banner-details li {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-charcoal);
+    color: color-mix(in srgb, var(--color-taupe) 55%, var(--color-charcoal));
+    margin-bottom: 0.6rem;
+}
+
+.cookie-banner-details li:last-child {
+    margin-bottom: 0;
+}
+
+.cookie-banner-details strong {
+    color: var(--color-charcoal);
+    font-weight: 500;
+}
+
+/* ---------- Actions ---------- */
+
+.cookie-banner-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Both buttons share the same box: same padding, type, weight,
+   letter-spacing and 1px border box. Declining must be exactly as
+   easy as accepting. */
+.cookie-btn {
+    flex: 1 1 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 1rem 1.25rem;
+    background: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s ease;
+}
+
+/* Echoes .hero-cta--accent: accent fill, primary overlay sliding in. */
+.cookie-btn--accept {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    /* Plain --color-charcoal is 5.0:1 on the site's orange but only
+       3.4:1 on the nextgen page's terracotta, which is darker. Mixing
+       toward black clears AA on both (7.2:1 / 4.8:1) and is visually
+       indistinguishable from charcoal at this size. */
+    color: var(--color-charcoal);
+    color: color-mix(in srgb, var(--color-charcoal) 50%, #000);
+}
+
+.cookie-btn--accept::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--color-primary);
+    transition: left 0.4s ease;
+    z-index: 0;
+}
+
+.cookie-btn--accept:hover::before {
+    left: 0;
+}
+
+.cookie-btn--accept:hover {
+    color: var(--color-cream);
+}
+
+/* Without this the sliding overlay covers the label. */
+.cookie-btn--accept span {
+    position: relative;
+    z-index: 1;
+}
+
+.cookie-btn--decline {
+    background: none;
+    border-color: transparent;
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.cookie-btn--decline:hover {
+    color: var(--color-accent);
+}
+
+/* Deliberately no :focus-visible override — both stylesheets set a
+   global ring, so the banner inherits each page's own palette. */
+
+/* ---------- Footer "Cookie settings" control ---------- */
+/* Injected into .footer-links. Both footers sit on --color-primary. */
+
+.footer-cookie-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.65rem 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--color-cream);
+    color: color-mix(in srgb, var(--color-cream) 65%, transparent);
+    transition: color 0.3s ease;
+}
+
+.footer-cookie-link:hover {
+    color: var(--color-cream);
+}
+
+/* ---------- Responsive ---------- */
+/* A 430px card does not fit a 390px screen: become a full-width
+   inset bar with stacked, full-width buttons. */
+
+@media (max-width: 768px) {
+    .cookie-banner {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        width: auto;
+        max-width: none;
+        max-height: calc(100vh - 2rem);
+        transform: translateY(calc(100% + 1rem));
+    }
+
+    .cookie-banner-inner {
+        gap: 1.25rem;
+        padding: 1.5rem;
+    }
+
+    .cookie-banner-actions {
+        flex-direction: column;
+    }
+
+    .cookie-btn {
+        width: 100%;
+    }
+
+    /* The expander is only ~16px of text. Grow the hit area to 44px
+       without changing the visual rhythm: the negative margin cancels
+       the padding in layout, but not for the pointer. */
+    .cookie-banner-more {
+        min-height: 44px;
+        padding: 0.75rem 0;
+        margin: -0.75rem 0;
+    }
+}
+
+/* ---------- Reduced motion ---------- */
+/* Neither stylesheet's reduced-motion block covers this component,
+   so it ships its own reset. */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cookie-banner,
+    .cookie-banner.is-visible {
+        transform: none;
+        transition: none;
+    }
+
+    .cookie-banner-more svg,
+    .cookie-btn,
+    .cookie-btn--accept::before,
+    .footer-cookie-link {
+        transition: none;
+    }
+}

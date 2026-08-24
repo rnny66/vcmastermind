@@ -1,8 +1,10 @@
 # Cookie consent banner
 
+**Status:** Legal review of the §5a privacy-policy draft is complete, and pre-launch Clarity baseline metrics (pageviews/sessions per page for a normal week) have been captured. Both prerequisites from the Verification section are satisfied — implementation can proceed.
+
 ## Context
 
-The site loads **Microsoft Clarity** (project `x3997ofagn`) as an inline `<script>` in the `<head>` of 11 pages. It fires unconditionally on page load, before the visitor has agreed to anything, and sets the `_clck` / `_clsk` cookies. There is no consent mechanism anywhere in the repo — no `document.cookie`, no `localStorage`, no banner markup or CSS.
+The site loads **Microsoft Clarity** (project `x3997ofagn`) as an inline `<script>` in the `<head>` of 13 pages, including the two SLIM landing pages (`slim/slim-en.html`, `slim/slim-nl.html`) added by the recent `slim` branch merge. It fires unconditionally on page load, before the visitor has agreed to anything, and sets the `_clck` / `_clsk` cookies. There is no consent mechanism anywhere in the repo — no `document.cookie`, no `localStorage`, no banner markup or CSS.
 
 The privacy policy already documents the gap. `privacy.html:217`:
 
@@ -161,7 +163,7 @@ Avoid `--color-primary-soft` (only in `styles.css`) and `--fg-on-dark*` / `--bor
 
 This is a deliberate, documented deviation from the "one shared stylesheet" convention in `CLAUDE.md`. Add a comment at the top of `consent.css` explaining the portability constraint, and a one-line note in `CLAUDE.md`'s file-structure section.
 
-### 3. HTML pages — 12 files
+### 3. HTML pages — 13 files
 
 In each, **delete** the inline Clarity block and **replace** it in place with:
 
@@ -183,6 +185,15 @@ In each, **delete** the inline Clarity block and **replace** it in place with:
 | `masterminds/corporate-venture.html` | 17–24 |
 | `masterminds/emerging-manager.html` | 17–24 |
 | `masterminds/investment-manager.html` | 17–24 |
+| `slim/slim-en.html` | 26–33 |
+| `slim/slim-nl.html` | 26–33 |
+
+Both SLIM pages sit one level deep (`slim/`), the same depth as `masterminds/`, and both load the shared `../styles.css` (plus their own `slim.css` / `slim-redesign.css` on top) — not a separate `:root`. So they get the same teal/orange banner as the root and `masterminds/` pages, via the same relative-path tags:
+
+```html
+<link rel="stylesheet" href="../css/consent.css">
+<script src="../js/consent.js"></script>
+```
 
 Grep for `clarity.ms` afterwards — the only remaining hit must be inside `js/consent.js`.
 
@@ -204,16 +215,16 @@ Insert after line 17 (`<link rel="stylesheet" href="nextgen-womens-capital-circl
 Note also that this page duplicates the mobile-menu and scroll-reveal logic inline (lines 510-563) rather than loading `js/site.js`. `consent.js` is deliberately independent of `site.js`, so that duplication doesn't affect it.
 
 **Still excluded, and why:**
-- `cvc-mastermind-lili-onepager.html` — standalone print one-pager, no scripts, no Clarity, no fonts from Google. Sets nothing.
+- `cvc-mastermind-lili-onepager.html` — standalone print one-pager, no scripts, no Clarity. Sets nothing. (It does load Google Fonts from `fonts.googleapis.com`, same as every other page — see the self-hosting task in `to-do.md`.)
 - The five redirect stubs — see the deeplinks section below.
 
 ### 4. Footer "Cookie settings" control
 
 Injected by `consent.js` into `.footer-links` as a `<li><button class="footer-cookie-link">Cookie settings</button></li>`, styled to match the surrounding footer links. Clicking calls `TVCConsent.open()`, which shows the banner pre-set to the current choice and moves focus into it.
 
-`document.querySelector('.footer-links')` works unchanged on all 13 pages — including the nextgen page, whose footer is structurally different (`.footer-inner` / `.footer-brand` / `.footer-note`) but still uses `.footer-links` for its link list (`nextgen-womens-capital-circle.html:487`). On that page there are two such lists; `querySelector` returns the first, which is the one holding the Privacy link — the right neighbour for a Cookie settings control.
+`document.querySelector('.footer-links')` works unchanged on all 14 pages that get `consent.js` (the 13 in the table above plus the nextgen page) — including the nextgen page, whose footer is structurally different (`.footer-inner` / `.footer-brand` / `.footer-note`) but still has a single `.footer-links` list holding LinkedIn / Book a Discovery Call / Newsletter (`nextgen-womens-capital-circle.html:485`), same as every other page. The Privacy link itself is never inside `.footer-links` on any page — it lives in the separate `.footer-bottom` block next to the copyright line — so "Cookie settings" lands among the other footer links, not beside Privacy. The two SLIM pages follow the identical pattern (`slim-en.html:340`, `slim-nl.html:342`), so no page-specific handling is needed there either.
 
-Alternative considered: hand-editing the footer in all 13 files. Rejected — same copy 13 times, and it drifts.
+Alternative considered: hand-editing the footer in all 14 files. Rejected — same copy 14 times, and it drifts.
 
 ### 4b. Deeplinks
 
@@ -225,9 +236,10 @@ Deeplinked entry is the normal case here, not the exception, so it gets explicit
 
 **The card overlaps content rather than displacing it.** This was a full-width bar in an earlier draft, which needed `padding-bottom` and `scroll-padding-bottom` on `<body>` so anchor targets and the footer stayed clear. **The corner card drops both rules** — it occupies only the bottom-right ~430×200px and reserving a full-width strip for it would be wrong.
 
-The residual risk moves from "content hidden behind the bar" to "card lands on a specific control". Two places to check, because both put something important bottom-right:
+The residual risk moves from "content hidden behind the bar" to "card lands on a specific control". Three places to check, because each puts something important bottom-right (or, for SLIM, has no fixed/sticky element at all, which is worth confirming rather than assuming):
 - `masterminds/corporate-venture.html#apply` and the other three mastermind pages — the Fillout "Pre-Apply" CTAs sit right of centre.
 - The nextgen page's `#access` target, which is what its nav CTA points at.
+- `slim/slim-en.html#eligibility` and `slim/slim-nl.html#eligibility` — neither `slim.css` nor `slim-redesign.css` defines any `position: fixed` or `sticky` element, so there's no known collision, but the eligibility-check section should still be scrolled past with the card open since it's the page's primary CTA.
 
 If either collides, the fix is to move the card to the **left** corner rather than to reintroduce page padding.
 
@@ -360,7 +372,7 @@ Then bump **Last updated** at `privacy.html:175`.
 ### 6. `to-do.md` — rewrite
 
 - Replace the GA4 instructions: no longer "paste `gtag.js` into `<head>`" but "uncomment the `ga4` entry in `js/consent.js` and paste the Measurement ID". Add a bold warning that adding any tracker directly to `<head>` bypasses consent.
-- Add a new task: self-host Cormorant Garamond + Outfit to remove the pre-consent IP transfer to Google. Note that the `@font-face` rules need to land in **both** `styles.css` and `masterminds/nextgen-womens-capital-circle.css`, since the two stylesheets are never loaded together — and that the `fonts.googleapis.com` links come out of all 13 pages plus the one-pager.
+- Add a new task: self-host Cormorant Garamond + Outfit to remove the pre-consent IP transfer to Google. Note that the `@font-face` rules need to land in **both** `styles.css` and `masterminds/nextgen-womens-capital-circle.css`, since the two stylesheets are never loaded together — and that the `fonts.googleapis.com` links come out of all 14 `consent.js` pages (the SLIM pages load fonts via the shared `styles.css` rule, not a page-specific one, so no extra `@font-face` location) plus the one-pager, which also loads Google Fonts despite having no scripts and no Clarity.
 
 ---
 
@@ -390,20 +402,25 @@ Serve locally (`python -m http.server` from the repo root) and use a fresh incog
 **Deeplinks — enter cold, never via the homepage**
 9. Open `masterminds/corporate-venture.html` directly in a fresh window. Confirm `../css/consent.css` and `../js/consent.js` both return 200, the card is styled (not unstyled text), and its Privacy Policy link resolves to `../privacy.html#cookies` **and actually scrolls to that section** — a deep link to a missing anchor fails silently at the top of the page.
 10. Open `cvc-mastermind.html#pricing` → confirm it lands on `masterminds/corporate-venture.html#pricing`, the fragment survives the redirect, and the banner appears on arrival with no flash on the stub itself.
-11. With the card showing, open `masterminds/corporate-venture.html#apply`, then the equivalent on the other three mastermind pages, then the nextgen page's `#access`. The card must not land on top of a Fillout "Pre-Apply" button or any other right-aligned control. Scroll to the footer on each and confirm nothing important sits permanently underneath it.
-12. Confirm a decision made on `index.html` is respected on `newsletter.html` (same origin, same `localStorage`).
+11. With the card showing, open `masterminds/corporate-venture.html#apply`, then the equivalent on the other three mastermind pages, then the nextgen page's `#access`, then `slim/slim-en.html#eligibility`. The card must not land on top of a Fillout "Pre-Apply" button, the SLIM eligibility section, or any other right-aligned control. Scroll to the footer on each and confirm nothing important sits permanently underneath it.
+12. Confirm a decision made on `index.html` is respected on `newsletter.html` and on `slim/slim-en.html` (same origin, same `localStorage`).
 
 **Nextgen page — the palette test**
 13. Open `masterminds/nextgen-womens-capital-circle.html` cold. The banner must render in **mulberry/terracotta**, not teal/orange — that proves the token-driven CSS is resolving against the page's own `:root`.
 14. Confirm the page itself is visually unchanged: the mulberry nav, terracotta eyebrows and warm cream background must all be exactly as before. Any teal anywhere means `consent.css` is leaking a `:root` or a bare selector and must be fixed.
-15. Confirm the Cookie settings link lands in the footer list containing Privacy (line 487's list), not the Connect column below it.
+15. Confirm the Cookie settings control lands in the `.footer-links` list (LinkedIn / Book a Discovery Call / Newsletter), not in the separate `.footer-bottom` block that holds Privacy and the copyright line — that's true on every page, nextgen included, not just this one.
 16. Check the banner sits above that page's own sticky nav and mobile overlay — it uses the same z-index scale (1000/999), so 1500 should win.
 16b. Accept on this page and confirm a `clarity.ms/tag/x3997ofagn` request fires. This page reported nothing before, so this is a new data source, not a regression check.
+
+**SLIM pages**
+16c. Open `slim/slim-en.html` and `slim/slim-nl.html` cold. Both load `../styles.css`, so the banner renders teal/orange like the root pages — no separate palette test needed, but confirm `slim.css` / `slim-redesign.css` don't visibly clash with the card (they define no `:root` or bare selectors that would conflict).
+16d. Accept on `slim-en.html`, confirm `clarity.ms/tag/x3997ofagn` fires — these two pages had Clarity firing unconditionally before this change, so this is a real behavior change to confirm, not just a smoke test.
 
 **Regression**
 17. `newsletter.html` — the Brevo form still renders and submits. Its `sibforms.com` assets are intentionally left ungated (strictly necessary: they are the form the visitor came for).
 18. `testimonials.html` and `masterminds-overview.html` — their page-local filter scripts still work alongside the banner.
-19. Mobile menu still opens on both `styles.css` pages and the nextgen page, and the banner sits **above** the open overlay (z-index 1500 vs 999).
+19. Mobile menu still opens on both `styles.css` pages, the two SLIM pages, and the nextgen page, and the banner sits **above** the open overlay (z-index 1500 vs 999).
+19b. `slim/slim-en.html#eligibility` and the `slim-nl.html` equivalent — the eligibility-check interaction still works with the banner present.
 
 **Accessibility / responsive**
 20. Keyboard only: Tab reaches Accept and Decline; the global focus ring is visible on both; focus is **not** stolen on first page load, but **is** moved into the banner when reopened from the footer.
