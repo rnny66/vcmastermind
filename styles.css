@@ -2082,14 +2082,30 @@ footer a:focus-visible {
 .t-tile--light .t-linkedin { color: var(--color-primary); }
 .t-tile--dark .t-linkedin { color: var(--color-accent-light); }
 
-/* Testimonials Page: video card (mockup template only) */
+/* Testimonials Page: video card.
+   Player behaviour lives in js/video.js. The overlay layers (gradient, caption,
+   centre play button) sit above the <video> in the idle state and fade out
+   once playback starts. */
 .t-video {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
     background: #14403a;
+    overflow: hidden;
 }
 .t-video--vertical { width: 340px; aspect-ratio: 9 / 16; }
+.t-video-el {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Some recordings are exported with a thin black band along the top. Scaling
+   just past 100% trims it without leaving the card letterboxed. Only add this
+   modifier to cards whose source actually has the band. */
+.t-video--letterboxed .t-video-el {
+    transform: scale(1.03);
+}
 .t-video-gradient {
     position: absolute;
     inset: 0;
@@ -2102,7 +2118,12 @@ footer a:focus-visible {
     display: flex;
     align-items: center;
     justify-content: center;
-    pointer-events: none;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
 }
 .t-play-btn {
     width: 84px;
@@ -2113,8 +2134,11 @@ footer a:focus-visible {
     align-items: center;
     justify-content: center;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    color: var(--color-primary);
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 .t-play-btn--sm { width: 68px; height: 68px; }
+.t-play:hover .t-play-btn { transform: scale(1.06); background: var(--color-cream); }
 .t-video-caption {
     position: absolute;
     bottom: 0;
@@ -2139,6 +2163,173 @@ footer a:focus-visible {
     bottom: 1.25rem;
     right: 1.25rem;
     pointer-events: none;
+}
+/* Top-left, because these recordings carry a burned-in name card bottom-right
+   and the programme logo top-right. */
+.t-duration--tl {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Control bar: play/pause, skip forward, mute. Nothing else by design. */
+.t-video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(to top, rgba(20, 48, 43, 0.92) 0%, rgba(20, 48, 43, 0) 100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.t-ctrl {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--color-cream);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.t-ctrl-row {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+.t-ctrl:hover { color: var(--color-accent-light); }
+.t-ctrl svg { display: block; }
+
+.t-time {
+    margin-left: auto;
+    padding-right: 0.25rem;
+    color: var(--color-cream);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+/* Scrubber. A real <input type="range"> so that keyboard seeking, drag
+   handling and screen-reader semantics come from the platform rather than
+   being reimplemented. --t-progress is set by js/video.js on each frame. */
+.t-scrub {
+    --t-progress: 0%;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    margin: 0;
+    padding: 0.5rem 0;
+    background: transparent;
+    cursor: pointer;
+}
+.t-scrub:disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+/* Track and thumb must be declared per-engine: an unrecognised pseudo-element
+   invalidates the whole selector, so these cannot be combined into one rule. */
+.t-scrub::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(to right,
+        var(--color-accent) 0 var(--t-progress),
+        rgba(247, 245, 240, 0.35) var(--t-progress) 100%);
+}
+.t-scrub::-moz-range-track {
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(to right,
+        var(--color-accent) 0 var(--t-progress),
+        rgba(247, 245, 240, 0.35) var(--t-progress) 100%);
+}
+.t-scrub::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    margin-top: -5px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--color-cream);
+    transition: transform 0.3s ease;
+}
+.t-scrub::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--color-cream);
+    transition: transform 0.3s ease;
+}
+.t-scrub:hover::-webkit-slider-thumb { transform: scale(1.2); }
+.t-scrub:hover::-moz-range-thumb { transform: scale(1.2); }
+
+/* An author `display` beats the UA's [hidden] rule, so the layers js/video.js
+   toggles need their own hidden state or they render regardless. */
+.t-play[hidden],
+.t-video-controls[hidden],
+.t-ctrl svg[hidden] {
+    display: none;
+}
+
+/* Idle -> playing: overlays out, control bar in. */
+.t-video.is-playing .t-video-gradient,
+.t-video.is-playing .t-video-caption,
+.t-video.is-playing .t-duration--tl,
+.t-video.is-playing .t-play {
+    opacity: 0;
+    pointer-events: none;
+}
+.t-video-gradient,
+.t-video-caption,
+.t-duration--tl,
+.t-play {
+    transition: opacity 0.4s ease;
+}
+.t-video.is-playing .t-video-controls {
+    opacity: 1;
+    pointer-events: auto;
+}
+.t-video.is-playing.is-bar-hidden .t-video-controls {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* The global :focus-visible ring is dark green (styles.css:22) and disappears
+   against video. Same cream treatment the footer uses. */
+.t-video :focus-visible {
+    outline: 2px solid var(--color-cream);
+    outline-offset: -4px;
+}
+
+/* Must sit after the rules above: these selectors carry the same specificity,
+   so source order is what decides. */
+@media (prefers-reduced-motion: reduce) {
+    .t-video-gradient,
+    .t-video-caption,
+    .t-duration--tl,
+    .t-play,
+    .t-play-btn,
+    .t-video-controls,
+    .t-ctrl {
+        transition: none;
+    }
+
+    .t-scrub::-webkit-slider-thumb { transition: none; }
+    .t-scrub::-moz-range-thumb { transition: none; }
 }
 
 .t-cta {
@@ -2173,10 +2364,12 @@ footer a:focus-visible {
 }
 
 @media (max-width: 600px) {
-    .t-video:not(.t-video--vertical) {
+    /* The taller crop is for placeholder cards only -- a card holding a real
+       16:9 recording keeps its aspect ratio rather than losing the sides. */
+    .t-video:not(.t-video--vertical):not(:has(.t-video-el)) {
         aspect-ratio: 4 / 5;
     }
-    .t-video:not(.t-video--vertical) .t-play {
+    .t-video:not(.t-video--vertical):not(:has(.t-video-el)) .t-play {
         align-items: flex-start;
         padding-top: 12%;
     }
@@ -2190,6 +2383,17 @@ footer a:focus-visible {
     .t-video-caption .t-quote {
         font-size: 1.25rem !important;
         margin-bottom: 0.75rem !important;
+    }
+    .t-video-controls {
+        padding: 0.5rem;
+        gap: 0;
+    }
+    .t-time {
+        font-size: 0.7rem;
+    }
+    .t-duration--tl {
+        top: 0.75rem;
+        left: 0.75rem;
     }
 }
 
