@@ -2001,6 +2001,40 @@ footer a:focus-visible {
 .t-grid--vertical { grid-template-columns: 340px 1fr; align-items: center; }
 .t-quote-block { max-width: 720px; }
 
+/* Short, text-only testimonials share the editorial card treatment while
+   staying compact enough to read as one four-voice group. */
+.t-compact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+.t-compact-grid[hidden] { display: none; }
+.t-tile--compact {
+    display: flex;
+    flex-direction: column;
+    min-height: 310px;
+    padding: 2rem 2.25rem 2.25rem;
+}
+.t-tile--compact .t-tag { margin-bottom: 1.25rem; }
+.t-compact-quote {
+    margin: 0 0 1.75rem;
+    flex: 1;
+}
+.t-compact-quote p {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 0 1rem;
+}
+.t-compact-quote p:last-child { margin-bottom: 0; }
+.t-tile--light .t-compact-quote { color: var(--color-charcoal); }
+.t-tile--dark .t-compact-quote { color: rgba(247, 245, 240, 0.9); }
+
 /* Photo / video placeholder frame */
 .t-photo {
     width: 220px;
@@ -2343,6 +2377,10 @@ footer a:focus-visible {
 }
 
 @media (max-width: 860px) {
+    .t-compact-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
     .t-grid,
     .t-grid--reverse,
     .t-grid--vertical {
@@ -2356,6 +2394,7 @@ footer a:focus-visible {
     .t-tile {
         padding: 2rem 1.5rem 2.5rem;
     }
+    .t-tile--compact { min-height: 0; }
     .t-video-caption {
         flex-direction: column;
         align-items: flex-start;

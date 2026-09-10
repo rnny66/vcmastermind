@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js');</script>
+    <title>Testimonials | The VC Coach</title>
+    <link rel="icon" type="image/png" href="img/logos/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Cookie consent. Loads Microsoft Clarity only after the visitor accepts.
+         Never add a tracker snippet directly to this <head>: it would bypass consent. -->
+    <link rel="stylesheet" href="css/consent.css">
+    <script src="js/consent.js"></script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/logos/logo-black.png" alt="The VC Coach">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="masterminds/masterminds-overview.html">Masterminds</a></li>
+                <li><a href="1-1-coaching.html">1:1 Coaching</a></li>
+                <li><a href="newsletter.html">Newsletter</a></li>
+                <li><a href="testimonials.html" aria-current="page">Testimonials</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services" class="nav-cta">Get Started</a></li>
+            </ul>
+            <button type="button" class="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="masterminds/masterminds-overview.html">Masterminds</a>
+        <a href="1-1-coaching.html">1:1 Coaching</a>
+        <a href="newsletter.html">Newsletter</a>
+        <a href="testimonials.html" aria-current="page">Testimonials</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#services"
+            style="padding: 1rem 2rem; background: var(--color-primary); color: var(--color-cream);">Get Started</a>
+    </div>
+
+    <main id="main-content">
+    <!-- Hero -->
+    <section class="testimonials-hero">
+        <div class="container">
+            <span class="section-label">Testimonials</span>
+            <h1>In Their <em>Own Words</em></h1>
+            <p>Real stories from venture capitalists and fund builders on what actually changed for them.</p>
+            <div class="filter-tabs" role="group" aria-label="Filter testimonials by category">
+                <button type="button" class="filter-tab active" data-filter="all" aria-pressed="true">All</button>
+                <button type="button" class="filter-tab" data-filter="1-1" aria-pressed="false">1:1 Coaching</button>
+                <button type="button" class="filter-tab" data-filter="mastermind" aria-pressed="false">Mastermind</button>
+            </div>
+            <p id="testimonials-filter-status" class="sr-only" role="status" aria-live="polite"></p>
+        </div>
+    </section>
+
+    <!-- Testimonial List -->
+    <section>
+        <div class="container">
+            <div class="testimonial-list">
+
+                <!-- Video · 1:1 · Irina -->
+                <div class="t-tile t-tile--dark fade-in" data-testimonial data-category="1-1">
+                    <span class="t-tag">1:1 Coaching</span>
+                    <figure class="t-video t-video--letterboxed" data-video data-video-label="video testimonial from Irina Poddubnaia">
+                        <video class="t-video-el"
+                               src="vid/irina-horizontal.mp4"
+                               poster="img/video/irina-poster.jpg"
+                               preload="none"
+                               playsinline
+                               controls
+                               aria-label="Video testimonial from Irina Poddubnaia, GP at Physical AI Europe Fund">
+                            <!-- Captions: drop in when a transcript exists, no player change needed:
+                                 <track kind="captions" src="vid/irina.en.vtt" srclang="en" label="English" default> -->
+                        </video>
+                        <div class="t-video-gradient"></div>
+                        <div class="t-duration t-duration--tl">4:30</div>
+                        <button type="button" class="t-play" data-video-play hidden
+                                aria-label="Play video testimonial from Irina Poddubnaia">
+                            <span class="t-play-btn">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"></path></svg>
+                            </span>
+                        </button>
+                        <figcaption class="t-video-caption">
+                            <div>
+                                <!-- TODO: add her pull quote here once chosen from the recording:
+                                     <p class="t-quote">"Her <em>words</em>."</p> -->
+                                <p class="t-name">Irina Poddubnaia</p>
+                                <p class="t-role">GP, Physical AI Europe Fund</p>
+                            </div>
+                        </figcaption>
+                        <div class="t-video-controls" data-video-controls hidden>
+                            <input type="range" class="t-scrub" data-video-scrub
+                                   min="0" max="1000" step="1" value="0" disabled
+                                   aria-label="Seek through video testimonial from Irina Poddubnaia">
+                            <div class="t-ctrl-row">
+                                <button type="button" class="t-ctrl" data-video-toggle aria-label="Play video testimonial from Irina Poddubnaia">
+                                    <svg data-icon-play width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.25 5.65c0-.86.92-1.4 1.67-.99l11.54 6.35a1.13 1.13 0 010 1.97L6.92 19.33a1.13 1.13 0 01-1.67-.99V5.65z"></path></svg>
+                                    <svg data-icon-pause width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden><path d="M15.75 5.25v13.5m-7.5-13.5v13.5"></path></svg>
+                                </button>
+                                <button type="button" class="t-ctrl" data-video-skip aria-label="Skip forward 10 seconds">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.69c0-.87.93-1.41 1.68-.98l7.11 4.06a1.13 1.13 0 010 1.96l-7.11 4.06A1.13 1.13 0 013 16.81V8.69zM12.75 8.69c0-.87.93-1.41 1.68-.98l7.11 4.06a1.13 1.13 0 010 1.96l-7.11 4.06a1.13 1.13 0 01-1.68-.98V8.69z"></path></svg>
+                                </button>
+                                <button type="button" class="t-ctrl" data-video-mute aria-pressed="false" aria-label="Mute video testimonial from Irina Poddubnaia">
+                                    <svg data-icon-sound width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.11 5.64a9 9 0 010 12.73M16.46 8.29a5.25 5.25 0 010 7.42M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.7-.51-1.94-1.35A9 9 0 012.25 12c0-.83.11-1.63.32-2.4.24-.84 1.06-1.35 1.94-1.35h2.24z"></path></svg>
+                                    <svg data-icon-muted width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden><path d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.7-.51-1.94-1.35A9 9 0 012.25 12c0-.83.11-1.63.32-2.4.24-.84 1.06-1.35 1.94-1.35h2.24z"></path></svg>
+                                </button>
+                                <span class="t-time" data-video-time aria-hidden="true">0:00 / 4:30</span>
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+
+                <!-- Written · 1:1 · Jess -->
+                <div class="t-tile t-tile--light fade-in" data-testimonial data-category="1-1">
+                    <span class="t-tag">1:1 Coaching</span>
+                    <div class="t-grid">
+                        <div class="t-photo">
+                            <img src="img/people/jess.jpg" alt="Jess Burley" loading="lazy">
+                            <div class="t-corner t-corner--tl"></div>
+                            <div class="t-corner t-corner--br"></div>
+                        </div>
+                        <div>
+                            <p class="t-quote">"With her guidance, I exceeded <em>every one</em> of my goals."</p>
+                            <p class="t-body">"Working with Anieke has been an incredible experience. She is not only an authentic and caring coach, but she consistently goes above and beyond in everything she does. Whether it's creating personalized meditations or sending thoughtful messages at exactly the right moment, her genuine care shines through in every interaction. Her support has had a lasting impact on both my personal and professional growth, and I can't recommend her highly enough."</p>
+                            <p class="t-name">Jess Burley</p>
+                            <p class="t-role">Planet A Ventures</p>
+                            <a href="https://www.linkedin.com/in/jessica-burley-721700149" class="t-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                <span class="sr-only">(opens in a new tab)</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Written · Mastermind · Atanas -->
+                <div class="t-tile t-tile--dark fade-in" data-testimonial data-category="mastermind">
+                    <span class="t-tag">Mastermind</span>
+                    <div class="t-grid t-grid--reverse">
+                        <div>
+                            <p class="t-quote">"One of the most <em>focused and valuable</em> programs I've seen."</p>
+                            <p class="t-body">"The sessions on fund narrative, positioning, and team composition were especially useful and gave me a new perspective on how to think about building and presenting a fund. The program strikes the right balance between expert input and peer discussion, and the biweekly cadence worked very well. It's a highly relevant, thoughtfully designed program that I would strongly recommend to other emerging managers."</p>
+                            <p class="t-name">Atanas Mukov</p>
+                            <p class="t-role">Partner, Walter Ventures</p>
+                            <a href="https://www.linkedin.com/in/atanasmukov" class="t-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                <span class="sr-only">(opens in a new tab)</span>
+                            </a>
+                        </div>
+                        <div class="t-photo">
+                            <img src="img/people/atanas.jpg" alt="Atanas Mukov" loading="lazy">
+                            <div class="t-corner t-corner--tl"></div>
+                            <div class="t-corner t-corner--br"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Written · 1:1 · Florentine -->
+                <div class="t-tile t-tile--light fade-in" data-testimonial data-category="1-1">
+                    <span class="t-tag">1:1 Coaching</span>
+                    <div class="t-grid">
+                        <div class="t-photo">
+                            <img src="img/people/florentine.jpg" alt="Florentine" loading="lazy">
+                            <div class="t-corner t-corner--tl"></div>
+                            <div class="t-corner t-corner--br"></div>
+                        </div>
+                        <div>
+                            <p class="t-quote">"I now approach my work with a renewed sense of <em>purpose and confidence</em>."</p>
+                            <p class="t-body">"Working with the VC Coach was a game-changer. The coaching gave me clarity on what truly matters and helped me map out the next steps I want to take. At a time when responsible and sustainable investing faces real challenges, Anieke helped me cut through the noise and reconnect with what drives me and energizes me. This ultimately helped me to push myself out of my comfort zone and encouraged me to claim space for my own ambitions and goals. The impact has been lasting: I now approach my work and my role with a renewed sense of purpose and confidence."</p>
+                            <p class="t-name">Florentine</p>
+                            <p class="t-role">Invest NL</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Written · 1:1 · Anonymous (no photo) -->
+                <div class="t-tile t-tile--dark fade-in" data-testimonial data-category="1-1">
+                    <span class="t-tag">1:1 Coaching</span>
+                    <div class="t-quote-block">
+                        <p class="t-quote">"Thanks to her coaching, I felt ready to <em>write the next chapter in my story</em>."</p>
+                        <p class="t-body">"Given the nature of the coaching topic, I prefer to stay anonymous. I went through one of the lowest points of my career while dealing with a harassment case in my workplace as a VC - a situation that left me feeling isolated, overwhelmed, second-guessing myself, and unsure how to move forward both professionally and personally. I had nobody in the industry I felt I could turn to. Anieke's coaching gave me a space to process what I was going through without judgment. Beyond the emotional support, she helped me rebuild my confidence, regain clarity on my professional path and the different options available, and think strategically about my next steps - rather than just surviving the situation. I really appreciated the unique, thought-provoking exercises we did together. I came out of it with a stronger sense of who I am as a professional and what I want from my VC career on the short and long term. This will always be a difficult chapter in my story, but thanks to her coaching, I felt ready to write the next one."</p>
+                        <p class="t-name">Anonymous</p>
+                        <p class="t-role">VC Investor</p>
+                    </div>
+                </div>
+
+                <!-- Video · Mastermind · Karen -->
+                <div class="t-tile t-tile--light fade-in" data-testimonial data-category="mastermind">
+                    <span class="t-tag">Mastermind</span>
+                    <figure class="t-video" data-video data-video-label="video testimonial from Karen">
+                        <video class="t-video-el"
+                               src="vid/karen-horizontal.mp4"
+                               poster="img/video/karen-poster.jpg"
+                               preload="none"
+                               playsinline
+                               controls
+                               aria-label="Video testimonial from Karen about the Emerging Manager Mastermind">
+                        </video>
+                        <div class="t-video-gradient"></div>
+                        <div class="t-duration t-duration--tl">1:22</div>
+                        <button type="button" class="t-play" data-video-play hidden
+                                aria-label="Play video testimonial from Karen">
+                            <span class="t-play-btn">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"></path></svg>
+                            </span>
+                        </button>
+                        <figcaption class="t-video-caption">
+                            <div>
+                                <p class="t-name">Karen</p>
+                                <p class="t-role">Emerging Manager Mastermind</p>
+                            </div>
+                        </figcaption>
+                        <div class="t-video-controls" data-video-controls hidden>
+                            <input type="range" class="t-scrub" data-video-scrub
+                                   min="0" max="1000" step="1" value="0" disabled
+                                   aria-label="Seek through video testimonial from Karen">
+                            <div class="t-ctrl-row">
+                                <button type="button" class="t-ctrl" data-video-toggle aria-label="Play video testimonial from Karen">
+                                    <svg data-icon-play width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.25 5.65c0-.86.92-1.4 1.67-.99l11.54 6.35a1.13 1.13 0 010 1.97L6.92 19.33a1.13 1.13 0 01-1.67-.99V5.65z"></path></svg>
+                                    <svg data-icon-pause width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden><path d="M15.75 5.25v13.5m-7.5-13.5v13.5"></path></svg>
+                                </button>
+                                <button type="button" class="t-ctrl" data-video-skip aria-label="Skip forward 10 seconds">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.69c0-.87.93-1.41 1.68-.98l7.11 4.06a1.13 1.13 0 010 1.96l-7.11 4.06A1.13 1.13 0 013 16.81V8.69zM12.75 8.69c0-.87.93-1.41 1.68-.98l7.11 4.06a1.13 1.13 0 010 1.96l-7.11 4.06a1.13 1.13 0 01-1.68-.98V8.69z"></path></svg>
+                                </button>
+                                <button type="button" class="t-ctrl" data-video-mute aria-pressed="false" aria-label="Mute video testimonial from Karen">
+                                    <svg data-icon-sound width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.11 5.64a9 9 0 010 12.73M16.46 8.29a5.25 5.25 0 010 7.42M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.7-.51-1.94-1.35A9 9 0 012.25 12c0-.83.11-1.63.32-2.4.24-.84 1.06-1.35 1.94-1.35h2.24z"></path></svg>
+                                    <svg data-icon-muted width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden><path d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.7-.51-1.94-1.35A9 9 0 012.25 12c0-.83.11-1.63.32-2.4.24-.84 1.06-1.35 1.94-1.35h2.24z"></path></svg>
+                                </button>
+                                <span class="t-time" data-video-time aria-hidden="true">0:00 / 1:22</span>
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+
+                <!-- Compact written testimonials · Mastermind -->
+                <div class="t-compact-grid" data-testimonial-group>
+                    <article class="t-tile t-tile--light t-tile--compact fade-in" data-testimonial data-category="mastermind">
+                        <span class="t-tag">Mastermind</span>
+                        <blockquote class="t-compact-quote">
+                            <p>“This course just came in a really, really amazing moment for us... I received human response to main questions that I really had, main fears that I faced... At the beginning of February, we had nothing but a PDF or smoke or whatever you want to call it because we were not regulated and anyone would pay us attention. And now we feel that we have strong conversations with potential LPs.”</p>
+                            <p>“It's not only the value of the group that we created or the knowledge that we learn from Anieke and Liliana — it's also the timing. For me, this was the right moment in the right place to solve for these issues.”</p>
+                        </blockquote>
+                        <p class="t-name">Karel</p>
+                    </article>
+
+                    <article class="t-tile t-tile--dark t-tile--compact fade-in" data-testimonial data-category="mastermind">
+                        <span class="t-tag">Mastermind</span>
+                        <blockquote class="t-compact-quote">
+                            <p>“I really appreciated the balance between content and talking and sharing. The 90 minutes per session — when you look at it at the beginning, you think it's long, but when it's there, it's way too short.”</p>
+                        </blockquote>
+                        <p class="t-name">Karen</p>
+                    </article>
+
+                    <article class="t-tile t-tile--dark t-tile--compact fade-in" data-testimonial data-category="mastermind">
+                        <span class="t-tag">Mastermind</span>
+                        <blockquote class="t-compact-quote">
+                            <p>“Thank you to both Anieke and Liliana for running this and bringing us together. You created a great safe space... It's definitely easier to approach anybody from this group in any context in the future.”</p>
+                        </blockquote>
+                        <p class="t-name">Ines</p>
+                    </article>
+
+                    <article class="t-tile t-tile--light t-tile--compact fade-in" data-testimonial data-category="mastermind">
+                        <span class="t-tag">Mastermind</span>
+                        <blockquote class="t-compact-quote">
+                            <p>“This Mastermind was a great reminder that you're not the only one going through highs and lows with funds and the people you work with.”</p>
+                        </blockquote>
+                        <p class="t-name">Anonymous</p>
+                    </article>
+                </div>
+
+                <!-- CTA -->
+                <div class="t-cta fade-in">
+                    <p>Every engagement starts with a conversation.</p>
+                    <a href="https://calendly.com/anieke-thevccoach/30min" class="hero-cta" target="_blank" rel="noopener noreferrer">
+                        <span>Schedule Discovery Call</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                        <span class="sr-only">(opens in a new tab)</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="logo">
+                    <img src="img/logos/logo.png" alt="The VC Coach">
+                </a>
+                <p class="footer-slogan">Make the future of venture capital <em>more human.</em></p>
+                <ul class="footer-links">
+                    <li><a href="https://www.linkedin.com/company/the-vc-coach/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
+                    <li><a href="https://calendly.com/anieke-thevccoach/30min" target="_blank" rel="noopener noreferrer">Book a Discovery Call<span class="sr-only"> (opens in a new tab)</span></a></li>
+                    <li><a href="newsletter.html">Newsletter</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <a href="privacy.html" class="footer-legal-link">Privacy</a>
+                <p class="footer-copyright">© 2026 The VC Coach. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script defer src="js/site.js"></script>
+    <script defer src="js/video.js"></script>
+    <script>
+        // Testimonial category filter
+        (function () {
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            const testimonialTiles = document.querySelectorAll('[data-testimonial]');
+            const testimonialGroups = document.querySelectorAll('[data-testimonial-group]');
+            const status = document.getElementById('testimonials-filter-status');
+            const filterLabels = { all: 'All', '1-1': '1:1 Coaching', mastermind: 'Mastermind' };
+
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    filterTabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.setAttribute('aria-pressed', 'false');
+                    });
+                    tab.classList.add('active');
+                    tab.setAttribute('aria-pressed', 'true');
+                    const filter = tab.dataset.filter;
+                    let visibleCount = 0;
+                    testimonialTiles.forEach(tile => {
+                        const match = filter === 'all' || tile.dataset.category === filter;
+                        tile.style.display = match ? '' : 'none';
+                        if (match) visibleCount++;
+                    });
+                    testimonialGroups.forEach(group => {
+                        group.hidden = !group.querySelector('[data-testimonial]:not([style*="display: none"])');
+                    });
+                    if (status) {
+                        status.textContent = filterLabels[filter] + ': ' + visibleCount + (visibleCount === 1 ? ' testimonial' : ' testimonials');
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>
