@@ -2121,12 +2121,10 @@ footer a:focus-visible {
         .testimonial-proof-grid[data-view="one-to-one"] .testimonial-cta-card { grid-column: 1 / -1; }
 
         .testimonial-proof-grid[data-view="mastermind"] #testimonial-story-3 { grid-column: span 5; }
-        .testimonial-proof-grid[data-view="mastermind"] #testimonial-story-6 { grid-column: span 7; }
-        .testimonial-proof-grid[data-view="mastermind"] #testimonial-story-7 { grid-column: span 8; }
-        .testimonial-proof-grid[data-view="mastermind"] #testimonial-story-8 { grid-column: span 4; }
-        .testimonial-proof-grid[data-view="mastermind"] #testimonial-story-9 { grid-column: span 4; }
-        .testimonial-proof-grid[data-view="mastermind"] #testimonial-story-10 { grid-column: span 4; }
-        .testimonial-proof-grid[data-view="mastermind"] #testimonial-story-11 { grid-column: span 4; }
+        .testimonial-proof-grid[data-view="mastermind"] #testimonial-story-6 { grid-column: 1 / -1; }
+        .testimonial-proof-grid[data-view="mastermind"] #testimonial-story-7 { grid-column: 1 / -1; }
+        .testimonial-proof-grid[data-view="mastermind"] #testimonial-story-8 { grid-column: 1 / -1; }
+        .testimonial-proof-grid[data-view="mastermind"] #testimonial-story-11 { grid-column: 1 / -1; }
         .testimonial-proof-grid[data-view="mastermind"] .testimonial-cta-card { grid-column: 1 / -1; }
 
         .proof-card[hidden] {
@@ -2269,6 +2267,58 @@ footer a:focus-visible {
             padding: 0;
         }
 
+        .testimonial-feature-card {
+            grid-column: 1 / -1;
+            min-height: 34rem;
+            padding: 0;
+            display: grid;
+            grid-template-columns: minmax(18rem, 5fr) minmax(0, 7fr);
+            overflow: hidden;
+        }
+
+        .testimonial-feature-media {
+            position: relative;
+            min-width: 0;
+            min-height: 34rem;
+            overflow: hidden;
+            background-image: linear-gradient(to top, rgba(12, 43, 38, 0.92), rgba(12, 43, 38, 0.08) 67%), var(--testimonial-feature-poster);
+            background-position: center, var(--testimonial-feature-position, center);
+            background-size: cover;
+            color: var(--color-cream);
+        }
+
+        #testimonial-story-6 {
+            --testimonial-feature-poster: url('img/video/karel-poster.jpg');
+            --testimonial-feature-position: 72% center;
+        }
+
+        #testimonial-story-7 {
+            --testimonial-feature-poster: url('img/video/karen-poster.jpg');
+        }
+
+        #testimonial-story-8 {
+            --testimonial-feature-poster: url('img/video/ines-poster.jpg');
+        }
+
+        .testimonial-feature-media .testimonial-video-content {
+            height: 100%;
+            min-height: 34rem;
+        }
+
+        .testimonial-feature-copy {
+            min-width: 0;
+            padding: clamp(2.25rem, 4vw, 4rem);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-feature-copy .proof-quote {
+            max-width: 42ch;
+            font-size: clamp(1.25rem, 1.7vw, 1.55rem);
+            line-height: 1.35;
+            text-wrap: pretty;
+        }
+
         .testimonial-video-card::after {
             content: "";
             position: absolute;
@@ -2283,14 +2333,6 @@ footer a:focus-visible {
 
         #testimonial-story-1::after {
             background-image: linear-gradient(to top, rgba(12, 43, 38, 0.92), rgba(12, 43, 38, 0.1) 67%), url('img/video/irina-poster.jpg');
-        }
-
-        #testimonial-story-7::after {
-            background-image: linear-gradient(to top, rgba(12, 43, 38, 0.92), rgba(12, 43, 38, 0.08) 67%), url('img/video/karen-poster.jpg');
-        }
-
-        #testimonial-story-8::after {
-            background-image: linear-gradient(to top, rgba(12, 43, 38, 0.92), rgba(12, 43, 38, 0.08) 67%), url('img/video/ines-poster.jpg');
         }
 
         .testimonial-video-visual {
@@ -2352,7 +2394,8 @@ footer a:focus-visible {
             background: var(--color-accent);
         }
 
-        .testimonial-video-card:focus-within .testimonial-play {
+        .testimonial-video-card:focus-within .testimonial-play,
+        .testimonial-feature-card:focus-within .testimonial-play {
             transform: scale(1.07);
             background: var(--color-accent);
         }
@@ -2469,7 +2512,8 @@ footer a:focus-visible {
                 transform: scale(1.065);
             }
 
-            .testimonial-video-card:hover .testimonial-play {
+            .testimonial-video-card:hover .testimonial-play,
+            .testimonial-feature-card:hover .testimonial-play {
                 transform: scale(1.07);
                 background: var(--color-accent);
             }
@@ -2705,6 +2749,7 @@ footer a:focus-visible {
             }
 
             .testimonial-video-card,
+            .testimonial-feature-card,
             .proof-card--long,
             .testimonial-cta-card {
                 grid-column: 1 / -1;
@@ -2778,6 +2823,20 @@ footer a:focus-visible {
                 min-height: 26rem;
             }
 
+            .testimonial-feature-card {
+                min-height: 0;
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-feature-media,
+            .testimonial-feature-media .testimonial-video-content {
+                min-height: 26rem;
+            }
+
+            #testimonial-story-6 {
+                --testimonial-feature-position: 82% center;
+            }
+
             .testimonial-dialog {
                 width: 100%;
                 max-width: none;
@@ -2838,6 +2897,8 @@ footer a:focus-visible {
             .testimonial-video-card:hover::after,
             .testimonial-video-card:hover .testimonial-play,
             .testimonial-video-card:focus-within .testimonial-play,
+            .testimonial-feature-card:hover .testimonial-play,
+            .testimonial-feature-card:focus-within .testimonial-play,
             .proof-card:hover .testimonial-action::after,
             .proof-card:focus-within .testimonial-action::after,
             .testimonial-cta-button:hover {
@@ -2948,6 +3009,12 @@ footer a:focus-visible {
 .program-badge--open {
     color: var(--color-accent);
     border-color: var(--color-accent);
+}
+
+.program-badge--closed {
+    color: var(--color-taupe);
+    border-color: rgba(26, 26, 26, 0.25);
+    background: rgba(26, 26, 26, 0.04);
 }
 
 .program-card h2 {

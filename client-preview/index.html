@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Mastermind Concepts | Private Preview</title>
+    <link rel="icon" type="image/png" href="img/logos/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .preview-page { min-height: 100vh; background: var(--color-cream); color: var(--color-charcoal); }
+        .preview-header { padding: 2rem 0; border-bottom: 1px solid rgba(26, 26, 26, 0.12); }
+        .preview-header .container { display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+        .preview-logo img { width: 130px; height: auto; display: block; }
+        .preview-label { margin: 0; color: var(--color-taupe); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+        .preview-main { padding: clamp(5rem, 12vw, 9rem) 0; }
+        .preview-intro { max-width: 740px; margin-bottom: 4rem; }
+        .preview-eyebrow { color: var(--color-accent); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+        .preview-intro h1 { margin: 1rem 0 1.5rem; font-family: var(--font-display); font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400; line-height: 0.98; }
+        .preview-intro p { max-width: 620px; color: var(--color-taupe); font-size: 1.15rem; line-height: 1.7; }
+        .preview-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+        .preview-card { display: flex; min-height: 330px; flex-direction: column; justify-content: flex-end; padding: 2rem; color: var(--color-cream); text-decoration: none; background: var(--color-primary); transition: transform 180ms ease, box-shadow 180ms ease; }
+        .preview-card:hover, .preview-card:focus-visible { color: var(--color-cream); transform: translateY(-5px); box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18); }
+        .preview-card--ir { background: linear-gradient(rgba(12,43,38,.2), rgba(12,43,38,.88)), url('img/backgrounds/hero-investor-relations.jpg') center/cover; }
+        .preview-card--mothers { background: linear-gradient(rgba(12,43,38,.2), rgba(12,43,38,.88)), url('img/backgrounds/hero-mothers-in-capital.jpg') center/cover; }
+        .preview-card--pe { background: linear-gradient(rgba(12,43,38,.2), rgba(12,43,38,.88)), url('img/backgrounds/hero-private-equity-partner-track.jpg') center/cover; }
+        .preview-card span { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+        .preview-card h2 { margin: .7rem 0 0; font-family: var(--font-display); font-size: 2.25rem; font-weight: 400; line-height: 1.08; }
+        @media (max-width: 800px) { .preview-grid { grid-template-columns: 1fr; } .preview-card { min-height: 260px; } .preview-header .container { align-items: flex-start; flex-direction: column; gap: .75rem; } }
+    </style>
+</head>
+<body class="preview-page">
+    <header class="preview-header">
+        <div class="container">
+            <a class="preview-logo" href="index.html"><img src="img/logos/logo-black.png" alt="The VC Coach"></a>
+            <p class="preview-label">Private client preview &middot; not live</p>
+        </div>
+    </header>
+    <main class="preview-main">
+        <div class="container">
+            <section class="preview-intro">
+                <span class="preview-eyebrow">New mastermind concepts</span>
+                <h1>Three rooms for the work that matters.</h1>
+                <p>Select a concept to view its full landing page. These pages are for review only and are not part of the live website.</p>
+            </section>
+            <nav class="preview-grid" aria-label="Mastermind concept pages">
+                <a class="preview-card preview-card--ir" href="masterminds/investor-relations.html"><span>Investor Relations</span><h2>Investor Relations Mastermind</h2></a>
+                <a class="preview-card preview-card--mothers" href="masterminds/mothers-in-capital.html"><span>Peer circle</span><h2>Mothers in Capital</h2></a>
+                <a class="preview-card preview-card--pe" href="masterminds/private-equity-partner-track.html"><span>Private Equity</span><h2>The Partner Track</h2></a>
+            </nav>
+        </div>
+    </main>
+</body>
+</html>
