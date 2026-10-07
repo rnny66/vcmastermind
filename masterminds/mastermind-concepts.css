@@ -143,7 +143,7 @@
 }
 
 .program-page--mothers .program-hero-image img {
-    object-position: 72% center;
+    object-position: 60% center;
 }
 
 .program-page--pe .program-hero-image img {
@@ -1589,5 +1589,70 @@
         width: 2.3rem;
         height: 2.3rem;
         font-size: 1.05rem;
+    }
+}
+
+/* Mothers in Capital: facilitator links, quotes, access-card CTA */
+.program-facilitator .program-facilitator-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.75rem;
+    margin-top: 1.25rem;
+}
+
+.program-quotes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.program-quote {
+    padding: 2.25rem 2rem;
+    border: 1px solid rgba(26, 26, 26, 0.08);
+    border-left: 2px solid var(--color-accent);
+    background: var(--color-cream);
+}
+
+.program-quote blockquote {
+    margin: 0;
+}
+
+.program-quote p {
+    margin: 0;
+    color: var(--color-primary);
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.45;
+}
+
+.program-access-card-cta {
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--color-cream);
+    background: var(--color-cream);
+    color: var(--color-primary);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.program-access-card-cta:hover,
+.program-access-card-cta:focus-visible {
+    background: transparent;
+    color: var(--color-cream);
+}
+
+@media (max-width: 1024px) {
+    .program-quotes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .program-quotes-grid {
+        grid-template-columns: 1fr;
     }
 }
